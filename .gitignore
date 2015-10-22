@@ -1,2 +1,3 @@
 *.py[code]
+media
 db.sqlite3
