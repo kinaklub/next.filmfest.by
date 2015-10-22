@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags  wagtailimages_tags %}
+
+{% block body_class %}template-jurymemberpage{% endblock %}
+
+{% block content %}
+    <h1>{{ self.name }}</h1>
+    <div class="info">{{ self.info }}</div>
+
+    {% if self.photo %}
+      {% image self.photo width-300 %}
+    {% endif %}
+{% endblock %}

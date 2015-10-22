@@ -1,3 +1,4 @@
+# coding: utf-8
 """
 Django settings for wagtrail project.
 
@@ -49,6 +50,8 @@ INSTALLED_APPS = (
 
     'search',
     'home',
+
+    'results',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -60,6 +63,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
@@ -102,7 +106,12 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
+LANGUAGES = (
+    ('en', u'English'),
+    ('be', u'Беларуская'),
+    ('ru', u'Русский'),
+)
 
 TIME_ZONE = 'UTC'
 
