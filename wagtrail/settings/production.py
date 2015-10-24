@@ -1,4 +1,4 @@
-from .base import *
+from .base import *  # noqa
 
 
 DEBUG = False
@@ -6,6 +6,6 @@ TEMPLATE_DEBUG = False
 
 
 try:
-    from .local import *
+    from .local import *  # noqa
 except ImportError:
     pass

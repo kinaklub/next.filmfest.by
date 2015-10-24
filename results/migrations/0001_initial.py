@@ -16,14 +16,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='JuryMemberPage',
             fields=[
-                ('page_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='wagtailcore.Page')),
+                ('page_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='wagtailcore.Page')),  # noqa
                 ('name_en', models.CharField(max_length=250)),
                 ('name_be', models.CharField(max_length=250)),
                 ('name_ru', models.CharField(max_length=250)),
                 ('info_en', models.CharField(max_length=1000)),
                 ('info_be', models.CharField(max_length=1000)),
                 ('info_ru', models.CharField(max_length=1000)),
-                ('photo', models.ForeignKey(related_name='+', on_delete=django.db.models.deletion.SET_NULL, blank=True, to='wagtailimages.Image', null=True)),
+                ('photo', models.ForeignKey(related_name='+', on_delete=django.db.models.deletion.SET_NULL, blank=True, to='wagtailimages.Image', null=True)),  # noqa
             ],
             options={
                 'abstract': False,
