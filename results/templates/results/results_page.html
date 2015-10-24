@@ -8,7 +8,6 @@
     <h1>{{ self.caption }}</h1>
 
     {% if self.related_jury_members.all %}
-    <hr />
         <ul>
             {% for jury_member in self.related_jury_members.all %}
                 <li>{{ jury_member.name }}</li>

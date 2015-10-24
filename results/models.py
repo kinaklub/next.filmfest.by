@@ -10,6 +10,8 @@ from wagtail.wagtailadmin.edit_handlers import (FieldPanel,
                                                 PageChooserPanel)
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
+from results.constants import COUNTRIES
+
 from model_translation import TranslatedField
 
 
@@ -31,12 +33,15 @@ class JuryMemberPage(Page):
         on_delete=models.SET_NULL,
         related_name='+'
     )
+    country = models.CharField(max_length=2, choices=COUNTRIES)
+
 
     content_panels = Page.content_panels + [
         FieldPanel('name_en'),
         FieldPanel('name_be'),
         FieldPanel('name_ru'),
         ImageChooserPanel('photo'),
+        FieldPanel('country'),
         FieldPanel('info_en'),
         FieldPanel('info_be'),
         FieldPanel('info_ru'),
@@ -57,7 +62,7 @@ class ResultsRelatedJuryMember(Orderable):
     photo = property(lambda self: self.jury_member.photo)
 
     panels = [
-        PageChooserPanel('link_page'),
+        PageChooserPanel('jury_member'),
     ]
 
 
