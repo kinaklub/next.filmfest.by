@@ -10,9 +10,9 @@ from wagtail.wagtailadmin.edit_handlers import (FieldPanel,
                                                 PageChooserPanel)
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
-from results.constants import COUNTRIES
+from cpm_generic.constants import COUNTRIES
 
-from model_translation import TranslatedField
+from cpm_generic.models import TranslatedField
 
 
 class JuryMemberPage(Page):
@@ -34,7 +34,6 @@ class JuryMemberPage(Page):
         related_name='+'
     )
     country = models.CharField(max_length=2, choices=COUNTRIES)
-
 
     content_panels = Page.content_panels + [
         FieldPanel('name_en'),

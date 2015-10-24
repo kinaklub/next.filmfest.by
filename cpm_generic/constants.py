@@ -242,4 +242,3 @@ COUNTRIES = (
     ('ZW', _('Zimbabwe')),
     ('ZZ', _('Other')),
 )
-get_countries = lambda: sorted(COUNTRIES, key=lambda x: x[1])
