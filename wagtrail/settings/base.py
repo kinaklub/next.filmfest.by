@@ -86,7 +86,7 @@ DJANGO_TEMPLATES = {
         ],
     },
 }
-TEMPLATES = [DJANGO_TEMPLATES,]
+TEMPLATES = [DJANGO_TEMPLATES]
 
 WSGI_APPLICATION = 'wagtrail.wsgi.application'
 
