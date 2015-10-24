@@ -71,23 +71,22 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'wagtrail.urls'
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(PROJECT_DIR, 'templates'),
+DJANGO_TEMPLATES = {
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'DIRS': [
+        os.path.join(PROJECT_DIR, 'templates'),
+    ],
+    'APP_DIRS': True,
+    'OPTIONS': {
+        'context_processors': [
+            'django.template.context_processors.debug',
+            'django.template.context_processors.request',
+            'django.contrib.auth.context_processors.auth',
+            'django.contrib.messages.context_processors.messages',
         ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
     },
-]
+}
+TEMPLATES = [DJANGO_TEMPLATES,]
 
 WSGI_APPLICATION = 'wagtrail.wsgi.application'
 
