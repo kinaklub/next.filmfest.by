@@ -1,0 +1,18 @@
+db:
+  image: postgres:latest
+  volumes_from:
+    - data
+data:
+  image: postgres:latest
+  volumes:
+    - /var/lib/postgresql
+  command: "true"
+web:
+  build: .
+  command: runserver 0.0.0.0:8000
+  volumes:
+    - .:/app/src
+  links:
+    - db:db
+  ports:
+    - "8000:8000"
