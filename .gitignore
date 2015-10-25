@@ -2,6 +2,7 @@
 
 media
 db.sqlite3
+test_db.sqlite3
 
 .tox
 .cache
