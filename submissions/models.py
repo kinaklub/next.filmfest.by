@@ -2,8 +2,10 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
-from submissions.constants import (YESNO, YESNOMAYBE, COUNTRIES, LANGUAGES,
-                                   SECTIONS, BACKLINKS)
+from cpm_generic.constants import COUNTRIES
+
+from submissions.constants import (YESNO, YESNOMAYBE, LANGUAGES, SECTIONS,
+                                   BACKLINKS)
 
 
 class Submission(models.Model):
@@ -147,7 +149,7 @@ class Submission(models.Model):
         null=True, blank=True, verbose_name=_('Previewers count'))
 
     def __unicode__(self):
-        return 'Film %s' % (self.id)
+        return '%s | %s | %s' % (self.id, self.title, self.director)
 
     def __repr__(self):
         return '<Film %s>' % (self.id)

@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     'home',
 
     'results',
+    'submissions',
 )
 
 MIDDLEWARE_CLASSES = (

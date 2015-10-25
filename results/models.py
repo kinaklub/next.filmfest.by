@@ -4,6 +4,7 @@ from django.db import models
 
 from modelcluster.fields import ParentalKey
 
+from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Orderable, Page
 from wagtail.wagtailadmin.edit_handlers import (FieldPanel,
                                                 InlinePanel,
@@ -13,6 +14,73 @@ from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from cpm_generic.constants import COUNTRIES
 
 from cpm_generic.models import TranslatedField
+
+
+class FilmPage(Page):
+    submission = models.ForeignKey(
+        'submissions.Submission',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    film_title_en = models.CharField(max_length=1000, default='')
+    film_title_be = models.CharField(max_length=1000, default='')
+    film_title_ru = models.CharField(max_length=1000, default='')
+    film_title = TranslatedField('film_title_en',
+                                 'film_title_be',
+                                 'film_title_ru')
+
+    director_en = models.CharField(max_length=1000, default='')
+    director_be = models.CharField(max_length=1000, default='')
+    director_ru = models.CharField(max_length=1000, default='')
+    director = TranslatedField('director_en', 'director_be', 'director_ru')
+
+    genre_en = models.CharField(max_length=1000, default='')
+    genre_be = models.CharField(max_length=1000, default='')
+    genre_ru = models.CharField(max_length=1000, default='')
+    genre = TranslatedField('genre_en', 'genre_be', 'genre_ru')
+
+    synopsis_short_en = RichTextField(default='')
+    synopsis_short_be = RichTextField(default='')
+    synopsis_short_ru = RichTextField(default='')
+    synopsis_short = TranslatedField('synopsis_short_en',
+                                     'synopsis_short_be',
+                                     'synopsis_short_ru')
+
+    synopsis_en = RichTextField(default='')
+    synopsis_be = RichTextField(default='')
+    synopsis_ru = RichTextField(default='')
+    synopsis = TranslatedField('synopsis_en', 'synopsis_be', 'synopsis_ru')
+
+    frame = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel('submission'),
+        FieldPanel('film_title_en'),
+        FieldPanel('film_title_be'),
+        FieldPanel('film_title_ru'),
+        FieldPanel('director_en'),
+        FieldPanel('director_be'),
+        FieldPanel('director_ru'),
+        FieldPanel('genre_en'),
+        FieldPanel('genre_be'),
+        FieldPanel('genre_ru'),
+        FieldPanel('synopsis_short_en'),
+        FieldPanel('synopsis_short_be'),
+        FieldPanel('synopsis_short_ru'),
+        FieldPanel('synopsis_en'),
+        FieldPanel('synopsis_be'),
+        FieldPanel('synopsis_ru'),
+        ImageChooserPanel('frame'),
+    ]
 
 
 class JuryMemberPage(Page):
