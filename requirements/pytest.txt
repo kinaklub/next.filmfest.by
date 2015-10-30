@@ -1,0 +1,6 @@
+-r base.txt
+pytest
+pytest-django
+pytest-flake8
+flake8-debugger
+flake8-print

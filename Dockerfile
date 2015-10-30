@@ -13,7 +13,7 @@ RUN mkdir /app/src
 WORKDIR /app/src
 
 ADD . /app/src/
-RUN /app/bin/pip install -r requirements.txt
+RUN /app/bin/pip install -r requirements/dex.txt
 
 ENV DJANGO_SETTINGS_MODULE wagtrail.settings.docker
 ENTRYPOINT ["/app/bin/python", "manage.py"]
