@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'search',
     'home',
 
+    'cpm_generic',
     'results',
     'submissions',
 ]

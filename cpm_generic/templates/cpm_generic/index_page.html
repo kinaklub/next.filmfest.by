@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-blogindexpage{% endblock %}
+
+{% block content %}
+    <h1>{{ self.caption }}</h1>
+
+    <div>{{ self.description|richtext }}</div>
+
+    {% if self.get_children_count %}
+        <ul>
+            {% for page in self.get_children.all %}
+                <li>{{ page.title }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
