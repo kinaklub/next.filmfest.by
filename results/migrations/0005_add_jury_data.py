@@ -7,6 +7,8 @@ from django.core.files import File
 from django.db import migrations
 from django.utils.text import slugify
 
+from cpm_generic.migration_utils import add_subpage, get_content_type
+
 
 def get_data():
     yield {
@@ -203,40 +205,17 @@ def get_data():
     }
 
 
-def _add_subpage(parent, model, *args, **kwargs):
-    parent.numchild += 1
-    kwargs.setdefault('depth', parent.depth + 1)
-    kwargs.setdefault('path', '%s%04d' % (parent.path, parent.numchild))
-    kwargs.setdefault('numchild', 0)
-    kwargs.setdefault('url_path', '%s%s/' % (parent.url_path, kwargs['slug']))
-
-    child = model(*args, **kwargs)
-
-    child.save()
-    parent.save()
-
-    return child
-
-
 def add_jury_member_pages(apps, schema_editor):
-    def _get_content_type(app_label, model):
-        ContentType = apps.get_model('contenttypes.ContentType')
-        content_type, _ = ContentType.objects.get_or_create(
-            model=model,
-            app_label=app_label
-        )
-        return content_type
-
     HomePage = apps.get_model('home.HomePage')
     Image = apps.get_model('wagtailimages.Image')
     IndexPage = apps.get_model('cpm_generic.IndexPage')
     JuryMemberPage = apps.get_model("results.JuryMemberPage")
 
-    index_page_ct = _get_content_type('cpm_generic', 'indexpage')
-    jury_member_page_ct = _get_content_type('results', 'jurymemberpage')
+    index_page_ct = get_content_type(apps, 'cpm_generic', 'indexpage')
+    jury_member_page_ct = get_content_type(apps, 'results', 'jurymemberpage')
 
     homepage = HomePage.objects.get(slug='home')
-    juryindex_page = _add_subpage(
+    juryindex_page = add_subpage(
         parent=homepage,
         model=IndexPage,
         title=u'Jury',
@@ -261,7 +240,7 @@ def add_jury_member_pages(apps, schema_editor):
         photo.save()
 
         slug = slugify(item['title'])
-        _add_subpage(
+        add_subpage(
             parent=juryindex_page,
             model=JuryMemberPage,
             title=item['title'],
