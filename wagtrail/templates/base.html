@@ -12,8 +12,38 @@
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+        <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+        <!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+        <!-- favicon -->
+        <link rel="icon" type="image/ico" href="{{ STATIC_URL }}favicon.ico"/>
+
+
+
+
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/wagtrail.css' %}">
+        {% static '' %}
+
+        {# theme stylesheets #}
+        <!-- Custom font loading from google -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+
+
+        <link href="{% static 'frontrow/css/bootstrap.min.css?v=1' %}" rel="stylesheet">
+        <link href="{{ STATIC_URL }}frontrow/css/bootstrap-responsive.min.css?v=1" rel="stylesheet">
+        <link href="{% static 'frontrow/css/main.css?v=1' %}" rel="stylesheet">
+
+        {# theme javascript #}
+        <script src="{% static 'frontrow/js/jquery-1.7.2.min.js' %}"></script>
+        <script src="{% static 'frontrow/js/jquery-ui-1.8.22.custom.min.js' %}"></script>
+        <script src="{% static 'frontrow/js/jquery.imagesloaded.min.js' %}"></script>
+        <script src="{% static 'frontrow/js/video.js' %}"></script>
+        <script src="{% static 'frontrow/js/modernizr-2.5.3.min.js' %}"></script>
+
+        <script src="{% static 'frontrow/js/bootstrap.min.js' %}"></script>
 
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
@@ -22,8 +52,45 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand scroller cpm-brand" data-section="html" href="/">
+                        <div class="logo-wrapper"><img class="cpm-logo" src="{{ STATIC_URL }}cpm2014/cpm+logo.svg" /></div>
+                        <div class="fest-text">
+                            <div class="fest-title"><h2>CPM</h2></div>
+                            <div class="fest-type"><h3>filmfest</h3></div>
+                        </div>
 
-        {% block content %}{% endblock %}
+                    </a>
+                    <div class="nav-collapse">
+                        <ul class="nav pull-right lang-list">
+                                    <li><strong id="current-lang" class="lang-item lang-item__current navbar-text">[en]</strong></li>
+                                    <li><a href="/" class="lang-item ">[by]</a></li>
+                                    <li><a href="/" class="lang-item ">[ru]</a></li>
+
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li class="active">
+                                <a
+                                        href="/">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="divider-vertical"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- /navbar-inner -->
+        </div>
+
+        <div class="container-fluid" id="about">
+            <div class="container light" style="margin-top: 90px">
+                {% block content %}{% endblock %}
+                {# render_block "js" #}
+            </div>
+        </div>
+
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/wagtrail.js' %}"></script>
