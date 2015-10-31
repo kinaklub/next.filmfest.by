@@ -15,13 +15,13 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='IndexPage',
             fields=[
-                ('page_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='wagtailcore.Page')),
+                ('page_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='wagtailcore.Page')),  # noqa
                 ('caption_en', models.CharField(max_length=250)),
                 ('caption_be', models.CharField(max_length=250)),
                 ('caption_ru', models.CharField(max_length=250)),
-                ('description_en', wagtail.wagtailcore.fields.RichTextField(default=b'')),
-                ('description_be', wagtail.wagtailcore.fields.RichTextField(default=b'')),
-                ('description_ru', wagtail.wagtailcore.fields.RichTextField(default=b'')),
+                ('description_en', wagtail.wagtailcore.fields.RichTextField(default=b'')),  # noqa
+                ('description_be', wagtail.wagtailcore.fields.RichTextField(default=b'')),  # noqa
+                ('description_ru', wagtail.wagtailcore.fields.RichTextField(default=b'')),  # noqa
             ],
             options={
                 'abstract': False,
