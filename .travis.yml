@@ -1,5 +1,11 @@
 language: python
 python:
   - "2.7"
+addons:
+  postgresql: "9.4"
+services:
+  - postgresql
 install: "pip install tox"
-script: tox
+before_script:
+  - psql -c 'create database filmfest;' -U postgres
+script: tox -e "py27-{sqlite,pg}"
