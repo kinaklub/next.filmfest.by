@@ -125,10 +125,10 @@ class ResultsRelatedJuryMember(Orderable):
     )
 
     name = property(lambda self: self.jury_member.name)
-    modal_id = property(lambda self: self.jury_member.name.replace(' ', '_'))
     info = property(lambda self: self.jury_member.info)
     photo = property(lambda self: self.jury_member.photo)
     country = property(lambda self: self.jury_member.country)
+    slug = property(lambda self: self.jury_member.slug)
 
     panels = [
         PageChooserPanel('jury_member'),

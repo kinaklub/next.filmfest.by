@@ -20,14 +20,14 @@
                 <li class="jury_member span4">
                     {% image jury_member.photo max-300x300 as tmp_photo %}
 {#                    {% image jury_member.photo width-300 %}#}
-                    <a style="background-image:url({{ tmp_photo.url }});" href="#{{ jury_member.modal_id }}" data-toggle="modal" class="jury_photo">
+                    <a style="background-image:url({{ tmp_photo.url }});" href="#{{ jury_member.slug }}" data-toggle="modal" class="jury_photo">
 {#                        {% image jury_member.photo width-400 %}#}
 {#                        {% image jury_member.photo width-300 %}#}
                     </a>
                     <div class="name_wrp">
                         <h4 class="jury_name"> {{ jury_member.name }} ({{ jury_member.country }}) </h4> {{ jury_member.info }}
                     </div>
-                    <div tabindex="-1" id="{{ jury_member.modal_id }}" class="jury_details hide fade modal">
+                    <div tabindex="-1" id="{{ jury_member.slug }}" class="jury_details hide fade modal">
                         <div class="modal-header">
                             <button type="button" data-dismiss="modal" area-hidden="true" class="close">×</button>
                             <h3> {{ jury_member.name }} </h3>
