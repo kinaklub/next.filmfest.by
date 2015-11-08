@@ -1,17 +1,57 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags static wagtailimages_tags %}
+
+{% block extra_css %}
+    {# Override this in templates to add extra stylesheets #}
+    <link href="/static/css/results.css" rel="stylesheet">
+{% endblock %}
 
 {% block body_class %}template-blogindexpage{% endblock %}
 
 {% block content %}
     <h1>{{ self.caption }}</h1>
 
+
+
     {% if self.related_jury_members.all %}
-        <ul>
+        <ul class="jury">
             {% for jury_member in self.related_jury_members.all %}
-                <li>{{ jury_member.name }}</li>
+                <li class="jury_member span4">
+                    {% image jury_member.photo max-300x300 as tmp_photo %}
+{#                    {% image jury_member.photo width-300 %}#}
+                    <a style="background-image:url({{ tmp_photo.url }});" href="#{{ jury_member.slug }}" data-toggle="modal" class="jury_photo">
+{#                        {% image jury_member.photo width-400 %}#}
+{#                        {% image jury_member.photo width-300 %}#}
+                    </a>
+                    <div class="name_wrp">
+                        <h4 class="jury_name"> {{ jury_member.name }} ({{ jury_member.country }}) </h4> {{ jury_member.info }}
+                    </div>
+                    <div tabindex="-1" id="{{ jury_member.slug }}" class="jury_details hide fade modal">
+                        <div class="modal-header">
+                            <button type="button" data-dismiss="modal" area-hidden="true" class="close">×</button>
+                            <h3> {{ jury_member.name }} </h3>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row-fluid">
+                                {% image jury_member.photo max-300x300 as jury_member_photo %}
+                                <div class="span4"><img alt="{{ jury_member.name }}'s photo" src="{{ jury_member_photo.url }}" class="jury-details-photo"></div>
+                                <div class="span6">
+                                    <h4 class="jury_name-details"> {{ jury_member.name }} </h4>
+                                    <article class="jury_details-text">{{ jury_member.info }}</article>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button data-dismiss="modal" area-hidden="true" class="btn"> Close </button>
+                        </div>
+                    </div>
+                </li>
+
             {% endfor %}
         </ul>
     {% endif %}
+
+
 {% endblock %}
+

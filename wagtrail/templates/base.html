@@ -18,14 +18,10 @@
 <![endif]-->
 
         <!-- favicon -->
-        <link rel="icon" type="image/ico" href="{{ STATIC_URL }}favicon.ico"/>
-
-
-
+        <link rel="icon" type="image/ico" href="{% static 'favicon.ico' %}"/>
 
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/wagtrail.css' %}">
-        {% static '' %}
 
         {# theme stylesheets #}
         <!-- Custom font loading from google -->
@@ -33,7 +29,7 @@
 
 
         <link href="{% static 'frontrow/css/bootstrap.min.css?v=1' %}" rel="stylesheet">
-        <link href="{{ STATIC_URL }}frontrow/css/bootstrap-responsive.min.css?v=1" rel="stylesheet">
+        <link href="{% static 'frontrow/css/bootstrap-responsive.min.css?v=1' %}" rel="stylesheet">
         <link href="{% static 'frontrow/css/main.css?v=1' %}" rel="stylesheet">
 
         {# theme javascript #}
@@ -56,7 +52,7 @@
             <div class="navbar-inner">
                 <div class="container">
                     <a class="brand scroller cpm-brand" data-section="html" href="/">
-                        <div class="logo-wrapper"><img class="cpm-logo" src="{{ STATIC_URL }}cpm2014/cpm+logo.svg" /></div>
+                        <div class="logo-wrapper"><img class="cpm-logo" src="{% static 'logo.svg' %}" /></div>
                         <div class="fest-text">
                             <div class="fest-title"><h2>CPM</h2></div>
                             <div class="fest-type"><h3>filmfest</h3></div>
