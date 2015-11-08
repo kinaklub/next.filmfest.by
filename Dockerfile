@@ -2,7 +2,7 @@ FROM fedora:22
 MAINTAINER Stas Rudakou "stas@garage22.net"
 
 RUN dnf -y update; dnf clean all;
-RUN dnf -y install python python-virtualenv gcc postgresql-devel libjpeg-devel zlib-devel
+RUN dnf -y install python python-virtualenv gcc postgresql-devel libjpeg-devel zlib-devel mailcap
 
 ENV PYTHONUNBUFFERED 1
 
