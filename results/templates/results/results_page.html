@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags static wagtailimages_tags %}
+{% load wagtailcore_tags static wagtailimages_tags i18n %}
 
 {% block extra_css %}
     {# Override this in templates to add extra stylesheets #}
@@ -12,7 +12,39 @@
 {% block content %}
     <h1>{{ self.caption }}</h1>
 
+    {{ self.description }}
+    <div>
 
+        <p>Короткое описание что и как было на фесте, пару предложений.</p>
+
+        <p>И абзацев.</p>
+    </div>
+
+    <h2 id="winners">{% trans 'Победители' %} </h2>
+
+    {% if self.related_films.all %}
+        <table class="results table table-bordered table-condensed table-hover table-striped">
+            <thead>
+            <tr>
+                <td> {% trans 'Номинация' %} </td>
+                <td> {% trans 'Кадр' %} </td>
+                <td> {% trans 'Фильм' %} </td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for film in self.nomination_films.all %}
+            <tr>
+                <td><span class="film_prize">{{ film.nomination }} {% trans 'Гран-при' %} </span></td>
+                {% image film.frame max-300x300 as film_frame %}
+                <td><img src="{{ film_frame.url }}" class="film_still"></td>
+                <td><span class="film_title"> {{ film.title }} </span><br><span class="film_director"> {{ film.director }} ( {{ film.country }}, {{ film.year }} </span><br><span class="film_duration"> {{ film.genre }} / {{ film.duration }} {% trans 'минут' %} </span><br><br>
+                    <p class="film_description"> {{ film.synopsis_short }}
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
 
     {% if self.related_jury_members.all %}
         <ul class="jury">
