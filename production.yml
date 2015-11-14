@@ -1,0 +1,40 @@
+db:
+  image: postgres:latest
+  volumes_from:
+    - data
+data:
+  image: postgres:latest
+  volumes:
+    - /var/lib/postgresql
+  command: "true"
+static:
+  build: .
+  dockerfile: Dockerfile-filmfest
+  entrypoint: "true"
+  volumes:
+    - /app/media
+    - /app/static
+web:
+  build: .
+  dockerfile: Dockerfile-filmfest
+  command: runserver 0.0.0.0:8000
+  volumes:
+    - .:/app/src
+  volumes_from:
+    - static
+  links:
+    - db:db
+  expose:
+    - "8000"
+  environment:
+    - DJANGO_SETTINGS_MODULE=filmfest.settings.prod
+    - DJANGO_SECRET_KEY=111111
+nginx:
+  build: .
+  dockerfile: Dockerfile-nginx
+  links:
+    - web:web
+  volumes_from:
+    - static
+  ports:
+    - "80:80"

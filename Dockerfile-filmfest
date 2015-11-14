@@ -9,7 +9,7 @@ ENV PYTHONUNBUFFERED 1
 RUN useradd -d /app -m filmfest
 USER filmfest
 RUN virtualenv /app
-RUN mkdir /app/src
+RUN mkdir /app/src /app/media /app/static
 WORKDIR /app/src
 
 ADD . /app/src/
