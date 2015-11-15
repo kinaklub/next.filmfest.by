@@ -9,14 +9,12 @@ data:
   command: "true"
 static:
   build: .
-  dockerfile: Dockerfile-filmfest
   entrypoint: "true"
   volumes:
     - /app/media
     - /app/static
 web:
   build: .
-  dockerfile: Dockerfile-filmfest
   command: runserver 0.0.0.0:8000
   volumes:
     - .:/app/src
@@ -30,8 +28,7 @@ web:
     - DJANGO_SETTINGS_MODULE=filmfest.settings.prod
     - DJANGO_SECRET_KEY=111111
 nginx:
-  build: .
-  dockerfile: Dockerfile-nginx
+  image: kinaklub/filmfest-nginx:0.1
   links:
     - web:web
   volumes_from:
