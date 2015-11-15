@@ -8,16 +8,14 @@ data:
     - /var/lib/postgresql
   command: "true"
 static:
-  build: .
+  image: kinaklub/next.filmfest.by:0.2
   entrypoint: "true"
   volumes:
     - /app/media
     - /app/static
 web:
-  build: .
+  image: kinaklub/next.filmfest.by:0.2
   command: runserver 0.0.0.0:8000
-  volumes:
-    - .:/app/src
   volumes_from:
     - static
   links:
