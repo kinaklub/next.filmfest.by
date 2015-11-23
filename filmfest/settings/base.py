@@ -146,3 +146,12 @@ MEDIA_URL = '/media/'
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "filmfest.by"
+
+WAGTAILSEARCH_BACKENDS = {
+    'default': {
+        'BACKEND': 'wagtail.wagtailsearch.backends.elasticsearch',
+        'URLS': ['http://elasticsearch:9200'],
+        'INDEX': 'filmfest',
+        'TIMEOUT': 5,
+    }
+}

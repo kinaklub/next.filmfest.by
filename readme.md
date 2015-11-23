@@ -13,6 +13,8 @@ Development environment
 
     docker-compose run web migrate
 
+    docker-compose run web update_index
+
     docker-compose run web createsuperuser
 
 5. Visit http://127.0.0.1:8000/ in your web browser

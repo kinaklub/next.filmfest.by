@@ -2,3 +2,4 @@ Django>=1.8,<1.9
 wagtail==1.1
 psycopg2>=2,<3
 pycountry==0.14.2
+elasticsearch==2.1.0
