@@ -1,0 +1,24 @@
+{% extends "wagtailadmin/base.html" %}
+{% load i18n %}
+{% block titletag %}Submissions{% endblock %}
+{% block extra_js %}
+    {{ block.super }}
+    <script>
+        window.headerSearch = {
+            url: "{% url 'submissions:index' %}",
+            termInput: "#id_q",
+            targetOutput: "#submission-results"
+        }
+    </script>
+{% endblock %}
+
+{% block content %}
+    {% trans "Submissions" as submissions_str %}
+    {% include "wagtailadmin/shared/header.html" with title=submissions_str icon="doc-full-inverse" search_url="submissions:index" %}
+
+    <div class="nice-padding">
+        <div id="submission-results" class="submissions">
+            {% include "submissions/admin/results.html" %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% load i18n %}
+<table class="listing">
+    <col />
+    <col />
+    <col />
+    <col />
+    <col width="16%" />
+    <thead>
+        <tr class="table-headers">
+            <th>{% trans "ID" %}</th>
+            <th>
+                {% if not is_searching %}
+                    <a href="{% url 'submissions:index' %}{% if not ordering == "title" %}?ordering=title{% endif %}" class="icon icon-arrow-down-after {% if  ordering == "title" %}teal{% endif %}">
+                        {% trans "Title" %}
+                    </a>
+                {% else %}
+                    {% trans "Title" %}
+                {% endif %}
+            </th>
+            <th>{% trans "Director" %}</th>
+            <th>{% trans "Country" %}</th>
+            <th>
+                {% if not is_searching %}
+                    <a href="{% url 'submissions:index' %}{% if not ordering == "-submitted_at" %}?ordering=-submitted_at{% endif %}" class="icon icon-arrow-down-after {% if  ordering == "-submitted_at" %}teal{% endif %}">
+                        {% trans "Submitted" %}
+                    </a>
+                {% else %}
+                    {% trans "Submitted" %}
+                {% endif %}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for submission in submissions %}
+            <tr>
+              <td class="title">
+		<h2><a href="{% url 'submissions:details' submission.id %}">
+		    {{ submission.id }}
+	        </a></h2>
+	      </td>
+              <td>{{ submission.title }}</td>
+              <td>{{ submission.director }}</td>
+              <td>{{ submission.get_country_display }}</td>
+              <td><div class="human-readable-date" title="{{ submission.submitted_at|date:"d M Y H:i" }}">{{ submission.submitted_at|timesince }} ago</div></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
