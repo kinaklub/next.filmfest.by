@@ -1,0 +1,15 @@
+<ul class="nav pull-right lang-list">
+  {% for lang_code, lang, url, is_active in languages %}
+  {% if is_active %}
+  <li><strong id="current-lang" class="lang-item lang-item__current navbar-text">[{{ lang_code }}]</strong></li>
+  {% else %}
+  <li><a href="{{ url }}" class="lang-item ">[{{ lang_code }}]</a></li>
+  {% endif %}
+  {% endfor %}
+</ul>
+<ul class="nav pull-right">
+  <li class="active">
+    <a href="/">Home</a>
+  </li>
+  <li class="divider-vertical"></li>
+</ul>
