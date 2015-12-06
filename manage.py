@@ -4,10 +4,10 @@ import sys
 
 
 def main():
-    if sys.argv[1] == 'test':
+    if sys.argv[1:2] == ['test']:
         import tox
         sys.exit(tox.cmdline(sys.argv[2:]))
-    elif sys.argv[1] == 'bash':
+    elif sys.argv[1:2] == ['bash']:
         from subprocess import call
         sys.exit(call('/usr/bin/bash', *sys.argv[2:]))
     else:
