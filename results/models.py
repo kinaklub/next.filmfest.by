@@ -44,16 +44,11 @@ class FilmPage(Page):
     city_ru = models.CharField(max_length=100, default='')
     city = TranslatedField('city_en', 'city_be', 'city_ru')
 
-    genre_en = models.CharField(max_length=1000, default='')
-    genre_be = models.CharField(max_length=1000, default='')
-    genre_ru = models.CharField(max_length=1000, default='')
-    genre = TranslatedField('genre_en', 'genre_be', 'genre_ru')
-
     year = models.IntegerField()
 
-    duration_en = models.IntegerField()
-    duration_be = models.IntegerField()
-    duration_ru = models.IntegerField()
+    duration_en = models.CharField(max_length=100, default='')
+    duration_be = models.CharField(max_length=100, default='')
+    duration_ru = models.CharField(max_length=100, default='')
     duration = TranslatedField('duration_en', 'duration_be', 'duration_ru')
 
     genre_en = models.CharField(max_length=1000, default='')
