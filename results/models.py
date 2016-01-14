@@ -22,8 +22,6 @@ from cpm_generic.models import TranslatedField
 # places - link, addr, name, photo, coord ([lng, lat])
 
 
-
-
 class FilmPage(Page):
     submission = models.ForeignKey(
         'submissions.Submission',
@@ -73,7 +71,8 @@ class FilmPage(Page):
     # film.nomination
     # year
     # country
-    # duration if possible to automate generate 12 min to edit inline? is it good idea?
+    # duration if possible to automate generate 12 min to edit inline?
+    # is it good idea?
 
     content_panels = Page.content_panels + [
         FieldPanel('submission'),
@@ -158,6 +157,8 @@ class ResultsPage(Page):
         FieldPanel('caption_en'),
         FieldPanel('caption_be'),
         FieldPanel('caption_ru'),
-        # InlinePanel('nomination_films', label="Nominations"), seems that we can have two or more different nomination for the same film
+        # InlinePanel('nomination_films', label="Nominations"),
+        # seems that we can have two or more different nomination
+        # for the same film
         InlinePanel('related_jury_members', label="Jury members"),
     ]
