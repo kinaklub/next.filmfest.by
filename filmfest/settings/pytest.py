@@ -10,3 +10,10 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'test_db.sqlite3'),
     }
 }
+
+
+WAGTAILSEARCH_BACKENDS = {
+    'default': {
+        'BACKEND': 'wagtail.wagtailsearch.backends.db',
+    }
+}

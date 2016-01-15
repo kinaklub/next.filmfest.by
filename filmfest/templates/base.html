@@ -1,4 +1,5 @@
 {% load static wagtailuserbar %}
+{% load cpm_generic_tags %}
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -21,7 +22,7 @@
         <link rel="icon" type="image/ico" href="{% static 'favicon.ico' %}"/>
 
         {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/wagtrail.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/filmfest.css' %}">
 
         {# theme stylesheets #}
         <!-- Custom font loading from google -->
@@ -59,23 +60,7 @@
                         </div>
 
                     </a>
-                    <div class="nav-collapse">
-                        <ul class="nav pull-right lang-list">
-                                    <li><strong id="current-lang" class="lang-item lang-item__current navbar-text">[en]</strong></li>
-                                    <li><a href="/" class="lang-item ">[by]</a></li>
-                                    <li><a href="/" class="lang-item ">[ru]</a></li>
-
-                        </ul>
-                        <ul class="nav pull-right">
-                            <li class="active">
-                                <a
-                                        href="/">
-                                    Home
-                                </a>
-                            </li>
-                            <li class="divider-vertical"></li>
-                        </ul>
-                    </div>
+                    <div class="nav-collapse">{% mainmenu request %}</div>
                 </div>
             </div><!-- /navbar-inner -->
         </div>
@@ -89,7 +74,7 @@
 
 
         {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/wagtrail.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/filmfest.js' %}"></script>
 
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}

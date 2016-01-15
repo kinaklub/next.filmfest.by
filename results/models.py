@@ -43,6 +43,20 @@ class FilmPage(Page):
     director_ru = models.CharField(max_length=1000, default='')
     director = TranslatedField('director_en', 'director_be', 'director_ru')
 
+    country = models.CharField(max_length=2, choices=COUNTRIES)
+
+    city_en = models.CharField(max_length=100, default='')
+    city_be = models.CharField(max_length=100, default='')
+    city_ru = models.CharField(max_length=100, default='')
+    city = TranslatedField('city_en', 'city_be', 'city_ru')
+
+    year = models.IntegerField()
+
+    duration_en = models.CharField(max_length=100, default='')
+    duration_be = models.CharField(max_length=100, default='')
+    duration_ru = models.CharField(max_length=100, default='')
+    duration = TranslatedField('duration_en', 'duration_be', 'duration_ru')
+
     genre_en = models.CharField(max_length=1000, default='')
     genre_be = models.CharField(max_length=1000, default='')
     genre_ru = models.CharField(max_length=1000, default='')
@@ -82,9 +96,17 @@ class FilmPage(Page):
         FieldPanel('director_en'),
         FieldPanel('director_be'),
         FieldPanel('director_ru'),
+        FieldPanel('country'),
+        FieldPanel('city_en'),
+        FieldPanel('city_be'),
+        FieldPanel('city_ru'),
         FieldPanel('genre_en'),
         FieldPanel('genre_be'),
         FieldPanel('genre_ru'),
+        FieldPanel('year'),
+        FieldPanel('duration_en'),
+        FieldPanel('duration_be'),
+        FieldPanel('duration_ru'),
         FieldPanel('synopsis_short_en'),
         FieldPanel('synopsis_short_be'),
         FieldPanel('synopsis_short_ru'),

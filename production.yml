@@ -1,0 +1,35 @@
+db:
+  image: postgres:latest
+  volumes_from:
+    - data
+data:
+  image: postgres:latest
+  volumes:
+    - /var/lib/postgresql
+  command: "true"
+static:
+  image: kinaklub/next.filmfest.by:0.2
+  entrypoint: "true"
+  volumes:
+    - /app/media
+    - /app/static
+web:
+  image: kinaklub/next.filmfest.by:0.2
+  command: runserver 0.0.0.0:8000
+  volumes_from:
+    - static
+  links:
+    - db:db
+  expose:
+    - "8000"
+  environment:
+    - DJANGO_SETTINGS_MODULE=filmfest.settings.prod
+    - DJANGO_SECRET_KEY=111111
+nginx:
+  image: kinaklub/filmfest-nginx:0.1
+  links:
+    - web:web
+  volumes_from:
+    - static
+  ports:
+    - "80:80"
