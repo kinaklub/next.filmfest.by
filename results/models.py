@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 from modelcluster.fields import ParentalKey
 
@@ -14,9 +15,6 @@ from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from cpm_generic.constants import COUNTRIES
 
 from cpm_generic.models import TranslatedField
-
-# facts
-# fact - number, text, isUnderlined
 
 # partners - links, banner, name
 # places - link, addr, name, photo, coord ([lng, lat])
@@ -169,6 +167,38 @@ class ResultsRelatedJuryMember(Orderable):
     ]
 
 
+class ResultsFact(Orderable):
+
+    class Position(object):
+        TOP = 't'
+        BOTTOM = 'b'
+
+        DEFAULT = BOTTOM
+        CHOICES = [
+            (TOP, _(u'Top')),
+            (BOTTOM, _(u'Bottom')),
+        ]
+
+    page = ParentalKey('ResultsPage', related_name='related_facts')
+
+    number = models.CharField(max_length=10, default='')
+
+    caption_en = models.CharField(max_length=100, default='')
+    position_en = models.CharField(max_length=1, choices=Position.CHOICES,
+                                   default=Position.DEFAULT)
+
+    caption_be = models.CharField(max_length=100, default='')
+    position_be = models.CharField(max_length=1, choices=Position.CHOICES,
+                                   default=Position.DEFAULT)
+
+    caption_ru = models.CharField(max_length=100, default='')
+    position_ru = models.CharField(max_length=1, choices=Position.CHOICES,
+                                   default=Position.DEFAULT)
+
+    caption = TranslatedField('caption_en', 'caption_be', 'caption_ru')
+    position = TranslatedField('position_en', 'position_be', 'position_ru')
+
+
 class ResultsPage(Page):
     caption_en = models.CharField(max_length=250)
     caption_be = models.CharField(max_length=250)
@@ -182,5 +212,6 @@ class ResultsPage(Page):
         # InlinePanel('nomination_films', label="Nominations"),
         # seems that we can have two or more different nomination
         # for the same film
+        InlinePanel('related_facts', label="Facts"),
         InlinePanel('related_jury_members', label="Jury members"),
     ]

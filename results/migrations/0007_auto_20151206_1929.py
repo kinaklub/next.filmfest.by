@@ -36,19 +36,16 @@ class Migration(migrations.Migration):
             model_name='filmpage',
             name='duration_be',
             field=models.CharField(default='', max_length=100),
-            preserve_default=False,
         ),
         migrations.AddField(
             model_name='filmpage',
             name='duration_en',
             field=models.CharField(default='', max_length=100),
-            preserve_default=False,
         ),
         migrations.AddField(
             model_name='filmpage',
             name='duration_ru',
             field=models.CharField(default='', max_length=100),
-            preserve_default=False,
         ),
         migrations.AddField(
             model_name='filmpage',

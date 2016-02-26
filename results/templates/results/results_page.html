@@ -10,6 +10,9 @@
 {% block body_class %}template-blogindexpage{% endblock %}
 
 {% block content %}
+
+  <div class="span9">
+
     <h1>{{ self.caption }}</h1>
 
     {{ self.description }}
@@ -84,6 +87,23 @@
         </ul>
     {% endif %}
 
+  </div>
+
+  <div class="span3">
+
+    {% for fact in self.related_facts.all %}
+      <div class="fact">
+        {% if fact.position == 't' %}
+          {{ fact.caption }}
+          <strong>{{ fact.number }}</strong>
+        {% else %}
+          <strong>{{ fact.number }}</strong>
+          {{ fact.caption }}
+        {% endif %}
+      </div>
+    {% endfor %}
+
+  </div>
 
 {% endblock %}
 
