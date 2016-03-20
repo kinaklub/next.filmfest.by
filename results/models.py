@@ -80,12 +80,6 @@ class FilmPage(Page):
         related_name='+'
     )
 
-    # film.nomination
-    # year
-    # country
-    # duration if possible to automate generate 12 min to edit inline?
-    # is it good idea?
-
     content_panels = Page.content_panels + [
         FieldPanel('submission'),
         FieldPanel('film_title_en'),
@@ -112,6 +106,41 @@ class FilmPage(Page):
         FieldPanel('synopsis_be'),
         FieldPanel('synopsis_ru'),
         ImageChooserPanel('frame'),
+    ]
+
+
+class ResultsRelatedWinner(Orderable):
+    page = ParentalKey('ResultsPage', related_name='related_winners')
+    film = models.ForeignKey(
+        'results.FilmPage',
+        null=True,
+        blank=True,
+        related_name='+'
+    )
+
+    nomination_en = models.CharField(max_length=250, blank=True, default='')
+    nomination_be = models.CharField(max_length=250, blank=True, default='')
+    nomination_ru = models.CharField(max_length=250, blank=True, default='')
+    nomination = TranslatedField('nomination_en',
+                                 'nomination_be',
+                                 'nomination_ru')
+
+    film_title = property(lambda self: self.film.film_title)
+    director = property(lambda self: self.film.director)
+    country = property(lambda self: self.film.country)
+    city = property(lambda self: self.film.city)
+    year = property(lambda self: self.film.year)
+    duration = property(lambda self: self.film.duration)
+    genre = property(lambda self: self.film.genre)
+    synopsis_short = property(lambda self: self.film.synopsis_short)
+    synopsis = property(lambda self: self.film.synopsis)
+    frame = property(lambda self: self.film.frame)
+
+    panels = [
+        PageChooserPanel('film'),
+        FieldPanel('nomination_en'),
+        FieldPanel('nomination_be'),
+        FieldPanel('nomination_ru'),
     ]
 
 
@@ -220,6 +249,7 @@ class ResultsPage(Page):
         # InlinePanel('nomination_films', label="Nominations"),
         # seems that we can have two or more different nomination
         # for the same film
+        InlinePanel('related_winners', label="Winners"),
         InlinePanel('related_facts', label="Facts"),
         InlinePanel('related_jury_members', label="Jury members"),
     ]
