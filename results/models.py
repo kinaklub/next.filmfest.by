@@ -156,6 +156,11 @@ class ResultsRelatedJuryMember(Orderable):
         related_name='+'
     )
 
+    category_en = models.CharField(max_length=250, blank=True, default='')
+    category_be = models.CharField(max_length=250, blank=True, default='')
+    category_ru = models.CharField(max_length=250, blank=True, default='')
+    category = TranslatedField('category_en', 'category_be', 'category_ru')
+
     name = property(lambda self: self.jury_member.name)
     info = property(lambda self: self.jury_member.info)
     photo = property(lambda self: self.jury_member.photo)
@@ -164,6 +169,9 @@ class ResultsRelatedJuryMember(Orderable):
 
     panels = [
         PageChooserPanel('jury_member'),
+        FieldPanel('category_en'),
+        FieldPanel('category_be'),
+        FieldPanel('category_ru'),
     ]
 
 
