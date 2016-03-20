@@ -215,3 +215,25 @@ class ResultsPage(Page):
         InlinePanel('related_facts', label="Facts"),
         InlinePanel('related_jury_members', label="Jury members"),
     ]
+
+
+class PartnerPage(Page):
+    name_en = models.CharField(max_length=250)
+    name_be = models.CharField(max_length=250)
+    name_ru = models.CharField(max_length=250)
+    name = TranslatedField('name_en', 'name_be', 'name_ru')
+
+    image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel('name_en'),
+        FieldPanel('name_be'),
+        FieldPanel('name_ru'),
+        ImageChooserPanel('image'),
+    ]
