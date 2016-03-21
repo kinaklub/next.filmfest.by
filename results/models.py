@@ -16,7 +16,6 @@ from cpm_generic.constants import COUNTRIES
 
 from cpm_generic.models import TranslatedField
 
-# partners - links, banner, name
 # places - link, addr, name, photo, coord ([lng, lat])
 
 
@@ -261,6 +260,8 @@ class PartnerPage(Page):
     name_ru = models.CharField(max_length=250)
     name = TranslatedField('name_en', 'name_be', 'name_ru')
 
+    link = models.CharField(max_length=250, blank=True, default='')
+
     image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -273,5 +274,6 @@ class PartnerPage(Page):
         FieldPanel('name_en'),
         FieldPanel('name_be'),
         FieldPanel('name_ru'),
+        FieldPanel('link'),
         ImageChooserPanel('image'),
     ]
