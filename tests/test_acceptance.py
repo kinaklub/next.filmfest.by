@@ -5,7 +5,7 @@ import pytest
 def test_locale_redirect(client):
     response = client.get('/')
     assert response.status_code == 302
-    assert response['Location'] == 'http://testserver/en/'
+    assert response['Location'] == '/en/'
 
 
 @pytest.mark.django_db
