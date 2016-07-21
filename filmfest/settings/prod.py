@@ -13,7 +13,7 @@ DATABASES = {
 
 DEBUG = False
 TEMPLATE_DEBUG = False
-SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']  # noqa: F405
 ALLOWED_HOSTS = ['next.filmfest.by']
 
 LOGGING = {
@@ -27,7 +27,7 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['console'],
-            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),  # noqa: F405
         },
     },
 }
