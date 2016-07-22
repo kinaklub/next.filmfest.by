@@ -7,7 +7,8 @@ from django.core.files import File
 from django.db import migrations
 from django.utils.text import slugify
 
-from cpm_generic.migration_utils import add_subpage, get_content_type
+from cpm_generic.migration_utils import (add_subpage, get_content_type,
+                                         get_image_model)
 
 
 def get_data():
@@ -207,7 +208,7 @@ def get_data():
 
 def add_jury_member_pages(apps, schema_editor):
     HomePage = apps.get_model('home.HomePage')
-    Image = apps.get_model('wagtailimages.Image')
+    Image = get_image_model(apps)
     IndexPage = apps.get_model('cpm_generic.IndexPage')
     JuryMemberPage = apps.get_model("results.JuryMemberPage")
 

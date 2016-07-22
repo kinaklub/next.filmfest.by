@@ -8,7 +8,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wagtailimages', '0008_image_created_at_index'),
+        ('wagtailimages', '0010_change_on_delete_behaviour'),
         ('wagtailcore', '0019_verbose_names_cleanup'),
     ]
 
