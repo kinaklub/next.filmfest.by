@@ -11,10 +11,15 @@ from django.utils.text import slugify
 from cpm_generic.migration_utils import (add_subpage, get_content_type,
                                          get_image_model)
 
+MIGRATION_DIR = os.path.dirname(__file__)
+
 
 def get_jury_data():
-    json_path = os.path.join(os.path.dirname(__file__), '2014/jury.json')
-    return json.load(open(json_path, 'rb'), 'utf8')
+    jury_json = os.path.join(
+        MIGRATION_DIR,
+        '0015_add_results_14_data/jury.json'
+    )
+    return json.load(open(jury_json, 'rb'), 'utf8')
 
 
 def add_jury_member_pages(apps, schema_editor):
@@ -31,7 +36,7 @@ def add_jury_member_pages(apps, schema_editor):
     for item in get_jury_data():
         photo = Image(title=item['title'], collection=collection_id)
 
-        photo_file = os.path.join(os.path.dirname(__file__), item['photo'])
+        photo_file = os.path.join(MIGRATION_DIR, item['photo'])
         photo.file.save(
             name=item['title'] + os.extsep + item['photo_ext'],
             content=File(open(photo_file, 'r'))
@@ -65,7 +70,7 @@ def _add_year_results(apps, page_kwargs, jury_members):
     results_page_ct = get_content_type(apps, 'results', 'resultspage')
 
     homepage = HomePage.objects.get(slug='home')
-    results12_page = add_subpage(
+    year_results_page = add_subpage(
         homepage,
         ResultsPage,
         content_type=results_page_ct,
@@ -77,7 +82,7 @@ def _add_year_results(apps, page_kwargs, jury_members):
             RelatedJuryMember(
                 sort_order=index,
                 jury_member=JuryMemberPage.objects.get(title=title),
-                page=results12_page,
+                page=year_results_page,
             ) for index, title in enumerate(jury_members)
         ]
     )
