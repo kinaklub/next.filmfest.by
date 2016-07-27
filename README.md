@@ -11,6 +11,7 @@ things to your liking.
   - https://github.com/kinaklub/docs/blob/master/MFU_2016_07_19_filmfest.by.md
   - https://github.com/kinaklub/docs/blob/master/MFU_2016_07_21_filmfest.by.md
 
+[![Travis](https://img.shields.io/travis/kinaklub/next.filmfest.by.svg?maxAge=2592000)](https://travis-ci.org/kinaklub/next.filmfest.by)
 
 Development environment
 -----------------------
