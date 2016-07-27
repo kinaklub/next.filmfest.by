@@ -1,5 +1,5 @@
-Django==1.9.8
-wagtail==1.5.2
-psycopg2>=2,<3
-pycountry==0.14.2
 elasticsearch==2.1.0
+Django==1.9.8
+psycopg2==2.6.2
+pycountry==0.14.2
+wagtail==1.5.2
