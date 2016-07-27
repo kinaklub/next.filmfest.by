@@ -158,13 +158,13 @@ and one doesn't care about the existing data in database, one needs to:
 
 The command below is usually enough for local testing:
 
-    ```
-    docker-compose run web test
-    ```
+ ```
+ docker-compose run web test
+ ```
 
 If Python dependencies have changed recently, one might need to add
 paramter `-r` once:
 
-    ```
-    docker-compose run web test -r
-    ```
+ ```
+ docker-compose run web test -r
+ ```
