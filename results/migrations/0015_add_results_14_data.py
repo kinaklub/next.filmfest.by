@@ -16,27 +16,22 @@ def get_jury_data():
     json_path = os.path.join(os.path.dirname(__file__), '2014/jury.json')
     return json.load(open(json_path, 'rb'), 'utf8')
 
+
 def add_jury_member_pages(apps, schema_editor):
-    HomePage = apps.get_model('home.HomePage')
     Image = get_image_model(apps)
     IndexPage = apps.get_model('cpm_generic.IndexPage')
     JuryMemberPage = apps.get_model("results.JuryMemberPage")
     Collection = apps.get_model('wagtailcore.Collection')
 
-    index_page_ct = get_content_type(apps, 'cpm_generic', 'indexpage')
     jury_member_page_ct = get_content_type(apps, 'results', 'jurymemberpage')
 
-    homepage = HomePage.objects.get(slug='home')
     collection_id = Collection.objects.filter(depth=1)[0]
-    # import pdb; pdb.set_trace()
     juryindex_page = IndexPage.objects.get(slug='jury')
 
     for item in get_jury_data():
         photo = Image(title=item['title'], collection=collection_id)
 
-        print os.path.abspath(item['photo'])
         photo_file = os.path.join(os.path.dirname(__file__), item['photo'])
-        print photo_file
         photo.file.save(
             name=item['title'] + os.extsep + item['photo_ext'],
             content=File(open(photo_file, 'r'))
@@ -59,8 +54,6 @@ def add_jury_member_pages(apps, schema_editor):
             photo=photo,
             content_type=jury_member_page_ct,
         )
-
-
 
 
 def _add_year_results(apps, page_kwargs, jury_members):
