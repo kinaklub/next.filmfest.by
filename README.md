@@ -11,7 +11,7 @@ The new version should have a good-enough admin panel that can be used
 by film festival volunteers. The featureset is taken from the
 experience we've gathered during previous festivals.
 
-## How can one contribute
+## How to contribute
 
 We welcome all contributors and enhancements that help to make
 an awesome tool for festival. Feel free to jump in and help with
