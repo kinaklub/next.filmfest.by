@@ -1,5 +1,7 @@
 # next.filmfest.by
 
+[![Travis](https://img.shields.io/travis/kinaklub/next.filmfest.by.svg?maxAge=2592000)](https://travis-ci.org/kinaklub/next.filmfest.by)
+
 This is a WIP website for Cinema Perpetuum Mobile short film
 festival. Our goal is to gracefully replace
 [the existing version](http://filmfest.by) of the website feature by
