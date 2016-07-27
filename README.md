@@ -1,3 +1,17 @@
+Our process
+-----------
+
+We welcome all contributors and enhancements that help to make
+an awesome tool for festival. Feel free to jump in and help with
+things to your liking.
+
+* Chat - https://vector.im/beta/#/room/#cpm-dev:matrix.org
+* Board of Chaos- https://trello.com/b/6S00yyl1/next-filmfest-by-public
+* Meeting Follow Ups (notes, sources for Trello)
+  - https://github.com/kinaklub/docs/blob/master/MFU_2016_07_19_filmfest.by.md
+  - https://github.com/kinaklub/docs/blob/master/MFU_2016_07_21_filmfest.by.md
+
+
 Development environment
 -----------------------
 
