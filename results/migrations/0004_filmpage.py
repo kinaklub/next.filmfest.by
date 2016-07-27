@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('wagtailimages', '0008_image_created_at_index'),
-        ('submissions', '__first__'),
+        ('submissions', '0001_initial'),
         ('wagtailcore', '0019_verbose_names_cleanup'),
         ('results', '0003_jurymemberpage_country'),
     ]

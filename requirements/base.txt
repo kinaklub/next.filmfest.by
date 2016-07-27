@@ -1,5 +1,21 @@
-Django==1.9.8
-wagtail==1.5.2
-psycopg2>=2,<3
-pycountry==0.14.2
+# consciously added packages
 elasticsearch==2.1.0
+Django==1.9.8
+psycopg2==2.6.2
+pycountry==0.14.2
+wagtail==1.5.2
+
+# dependencies
+beautifulsoup4==4.5.0
+django-modelcluster==2.0
+django-taggit==0.18.3
+django-treebeard==4.0.1
+djangorestframework==3.4.0
+html5lib==0.999999999
+Pillow==3.3.0
+pytz==2016.6.1
+six==1.10.0
+Unidecode==0.4.19
+urllib3==1.16
+webencodings==0.5
+Willow==0.3.1

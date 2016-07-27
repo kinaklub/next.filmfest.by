@@ -13,7 +13,7 @@ from cpm_generic.migration_utils import (add_subpage, get_content_type,
 
 def get_data():
     yield {
-        'title':  u'Cory McAbee',
+        'title': u'Cory McAbee',
         'name_en': u'Cory McAbee',
         'name_be': u'Коры Макэбі',
         'name_ru': u'Кори Макеби',
