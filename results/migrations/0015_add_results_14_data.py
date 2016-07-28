@@ -99,7 +99,17 @@ def add_results_2014(apps, schema_editor):
             caption_ru='2014: хорошие воспоминания',
         ),
         [
+            'Yuri Igrusha',
             'Valentyna Zalevska',
+            'Goh Choon Ean',
+            'Alexei Tutkin',
+            'Carin Bräck',
+            'Lidia Mikheeva',
+            'Youlian Tabakov',
+            'David Roberts',
+            'Filmgruppe Chaos',
+            'Pierre-Luc Vaillancourt - 2',
+            'Christophe Beaucourt',
         ]
     )
 
