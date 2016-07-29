@@ -6,12 +6,14 @@ from django.contrib import admin
 from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 
+import search.views
 
 urlpatterns = [
     url(r'^django-admin/', include(admin.site.urls)),
     url(r'^admin/', include(wagtailadmin_urls)),
-] + i18n_patterns('',
-    url(r'^search/$', 'search.views.search', name='search'),  # noqa
+] + i18n_patterns(
+    '',
+    url(r'^search/$', search.views.search, name='search'),
     url(r'', include(wagtail_urls)),
 )
 
