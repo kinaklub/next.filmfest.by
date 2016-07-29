@@ -11,7 +11,8 @@ import search.views
 urlpatterns = [
     url(r'^django-admin/', include(admin.site.urls)),
     url(r'^admin/', include(wagtailadmin_urls)),
-] + i18n_patterns('',
+] + i18n_patterns(
+    '',
     url(r'^search/$', search.views.search, name='search'),
     url(r'', include(wagtail_urls)),
 )
