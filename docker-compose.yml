@@ -1,23 +1,23 @@
-db:
-  image: postgres:latest
-  volumes_from:
-    - data
-  ports:
-    - "5433:5432"
-data:
-  image: postgres:latest
-  volumes:
-    - /var/lib/postgresql
-  command: "true"
-elasticsearch:
-  image: elasticsearch:1.7.3
-web:
-  build: .
-  command: runserver 0.0.0.0:8000
-  volumes:
-    - .:/app/src
-  links:
-    - db:db
-    - elasticsearch:elasticsearch
-  ports:
-    - "8000:8000"
+version: "2"
+services:
+  db:
+    image: postgres:latest
+    ports:
+      - "5433:5432"
+    volumes:
+      - db:/var/lib/postgresql
+  elasticsearch:
+    image: elasticsearch:1.7.3
+  web:
+    build: .
+    command: runserver 0.0.0.0:8000
+    volumes:
+      - .:/app/src
+    links:
+      - db:db
+      - elasticsearch:elasticsearch
+    ports:
+      - "8000:8000"
+volumes:
+  db:
+    driver: local
