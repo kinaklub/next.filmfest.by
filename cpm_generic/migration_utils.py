@@ -13,6 +13,13 @@ def add_subpage(parent, model, *args, **kwargs):
     return child
 
 
+def remove_subpage(parent, model, **kwargs):
+    parent.numchild -= 1
+
+    model.objects.filter(**kwargs).delete()
+    parent.save()
+
+
 def get_content_type(apps, app_label, model):
     ContentType = apps.get_model('contenttypes.ContentType')
     content_type, _ = ContentType.objects.get_or_create(
