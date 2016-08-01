@@ -13,7 +13,9 @@ RUN mkdir /app/src /app/media /app/static
 WORKDIR /app/src
 
 ADD . /app/src/
+ADD IMAGE_VERSION /app/IMAGE_VERSION
 RUN /app/bin/pip install -r requirements/dev.txt
 
 ENV DJANGO_SETTINGS_MODULE filmfest.settings.docker
-ENTRYPOINT ["/app/bin/python", "manage.py"]
+
+ENTRYPOINT ["/app/src/docker-entrypoint.py"]
