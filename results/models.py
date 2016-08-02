@@ -235,25 +235,6 @@ class ResultsFact(Orderable):
     position = TranslatedField('position_en', 'position_be', 'position_ru')
 
 
-class ResultsPage(Page):
-    caption_en = models.CharField(max_length=250)
-    caption_be = models.CharField(max_length=250)
-    caption_ru = models.CharField(max_length=250)
-    caption = TranslatedField('caption_en', 'caption_be', 'caption_ru')
-
-    content_panels = Page.content_panels + [
-        FieldPanel('caption_en'),
-        FieldPanel('caption_be'),
-        FieldPanel('caption_ru'),
-        # InlinePanel('nomination_films', label="Nominations"),
-        # seems that we can have two or more different nomination
-        # for the same film
-        InlinePanel('related_winners', label="Winners"),
-        InlinePanel('related_facts', label="Facts"),
-        InlinePanel('related_jury_members', label="Jury members"),
-    ]
-
-
 class PartnerPage(Page):
     name_en = models.CharField(max_length=250)
     name_be = models.CharField(max_length=250)
@@ -276,4 +257,42 @@ class PartnerPage(Page):
         FieldPanel('name_ru'),
         FieldPanel('link'),
         ImageChooserPanel('image'),
+    ]
+
+
+class ResultsRelatedPartner(Orderable):
+    page = ParentalKey('ResultsPage', related_name='related_partners')
+    partner = models.ForeignKey(
+        'results.PartnerPage',
+        null=True,
+        blank=True,
+        related_name='+'
+    )
+
+    name = property(lambda self: self.partner.name)
+    link = property(lambda self: self.partner.link)
+    image = property(lambda self: self.partner.image)
+
+    panels = [
+        PageChooserPanel('partner'),
+    ]
+
+
+class ResultsPage(Page):
+    caption_en = models.CharField(max_length=250)
+    caption_be = models.CharField(max_length=250)
+    caption_ru = models.CharField(max_length=250)
+    caption = TranslatedField('caption_en', 'caption_be', 'caption_ru')
+
+    content_panels = Page.content_panels + [
+        FieldPanel('caption_en'),
+        FieldPanel('caption_be'),
+        FieldPanel('caption_ru'),
+        # InlinePanel('nomination_films', label="Nominations"),
+        # seems that we can have two or more different nomination
+        # for the same film
+        InlinePanel('related_winners', label="Winners"),
+        InlinePanel('related_facts', label="Facts"),
+        InlinePanel('related_jury_members', label="Jury members"),
+        InlinePanel('related_partners', label="Partners"),
     ]
