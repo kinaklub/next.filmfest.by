@@ -16,7 +16,6 @@ urlpatterns = [
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^api/v2/', api.v2.urls),
 ] + i18n_patterns(
-    '',
     url(r'^search/$', search.views.search, name='search'),
     url(r'', include(wagtail_urls)),
 )
