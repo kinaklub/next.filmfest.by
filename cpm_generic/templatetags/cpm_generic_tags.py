@@ -13,15 +13,14 @@ def get_root_page():
     return HomePage.objects.get(slug='home')
 
 
-@register.inclusion_tag('cpm_generic/tags/mainmenu.html')
-def mainmenu(request):
+def get_language_paths(full_path):
     curr_lang = translation.get_language().split('-')[0]
     urlang = '/%s/' % curr_lang
-    path = request.get_full_path()
+    path = full_path
     if path.startswith(urlang):
         path = path[len(urlang):]
 
-    languages = [
+    return [
         (
             code,
             name,
@@ -30,5 +29,9 @@ def mainmenu(request):
         ) for code, name in settings.LANGUAGES
     ]
 
-    return {'languages': languages,
+
+@register.inclusion_tag('cpm_generic/tags/mainmenu.html')
+def mainmenu(request):
+    full_path = request.get_full_path()
+    return {'languages': get_language_paths(full_path),
             'rootpage': get_root_page()}
