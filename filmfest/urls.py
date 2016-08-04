@@ -6,15 +6,19 @@ from django.contrib import admin
 from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 
+import search.views
+
+from filmfest import api
+
 
 urlpatterns = [
     url(r'^django-admin/', include(admin.site.urls)),
     url(r'^admin/', include(wagtailadmin_urls)),
-] + i18n_patterns('',
-    url(r'^search/$', 'search.views.search', name='search'),  # noqa
+    url(r'^api/v2/', api.v2.urls),
+] + i18n_patterns(
+    url(r'^search/$', search.views.search, name='search'),
     url(r'', include(wagtail_urls)),
 )
-
 
 if settings.DEBUG:
     from django.conf.urls.static import static

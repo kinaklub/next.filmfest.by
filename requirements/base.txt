@@ -1,16 +1,16 @@
 # consciously added packages
 elasticsearch==2.1.0
 Django==1.9.8
+djangorestframework==3.4.0
 psycopg2==2.6.2
 pycountry==0.14.2
-wagtail==1.5.2
+wagtail==1.6rc1
 
 # dependencies
 beautifulsoup4==4.5.0
 django-modelcluster==2.0
 django-taggit==0.18.3
 django-treebeard==4.0.1
-djangorestframework==3.4.0
 html5lib==0.999999999
 Pillow==3.3.0
 pytz==2016.6.1
