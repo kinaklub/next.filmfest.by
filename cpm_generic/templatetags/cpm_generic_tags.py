@@ -12,7 +12,8 @@ register = template.Library()
 
 @register.simple_tag
 def rootpage():
-    return HomePage.objects.get(slug='home')
+    page = HomePage.objects.get(slug='home')
+    return page
 
 
 @register.inclusion_tag('cpm_generic/tags/mainmenu.html')
