@@ -8,11 +8,7 @@
   {% endfor %}
 </ul>
 <ul class="nav pull-right">
-  <!-- li class="active" -->
-  <li>
-    <a href="{{ rootpage.url }}">{{ rootpage.title }}</a>
-  </li>
-  {% for page in rootpage.get_children.live.in_menu.specific %}
+  {% for page in menupages %}
   <li>
     {% if page.caption %}
       <a href="{{ page.url }}">{{ page.caption }}</a>

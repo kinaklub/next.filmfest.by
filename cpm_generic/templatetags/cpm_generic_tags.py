@@ -9,8 +9,10 @@ from home.models import HomePage
 register = template.Library()
 
 
-def get_root_page():
-    return HomePage.objects.get(slug='home')
+def get_menu_pages():
+    homepage = HomePage.objects.get(slug='home')
+    children = list(homepage.get_children().live().in_menu().specific())
+    return [homepage] + children
 
 
 def get_language_paths(full_path):
@@ -34,4 +36,4 @@ def get_language_paths(full_path):
 def mainmenu(request):
     full_path = request.get_full_path()
     return {'languages': get_language_paths(full_path),
-            'rootpage': get_root_page()}
+            'menupages': get_menu_pages()}
