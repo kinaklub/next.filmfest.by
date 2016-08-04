@@ -1,4 +1,3 @@
-import re
 
 from django import template
 from django.utils import translation
@@ -19,15 +18,16 @@ def rootpage():
 @register.inclusion_tag('cpm_generic/tags/mainmenu.html')
 def mainmenu(request):
     curr_lang = translation.get_language().split('-')[0]
-    full_path = request.get_full_path()
-    match = re.match(r'^/%s(?P<path>/.*)$' % curr_lang, full_path)
-    path = match.group('path') if match else full_path
+    urlang = '/%s/' % curr_lang
+    path = request.get_full_path()
+    if path.startswith(urlang):
+        path = path[len(urlang):]
 
     languages = [
         (
             code,
             name,
-            '/%s%s' % (code, path),
+            '/%s/%s' % (code, path),
             code == curr_lang
         ) for code, name in settings.LANGUAGES
     ]
