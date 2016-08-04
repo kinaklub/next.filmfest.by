@@ -8,6 +8,11 @@ from django.conf import settings
 register = template.Library()
 
 
+@register.simple_tag
+def rootpage():
+    return 'Home'
+
+
 @register.inclusion_tag('cpm_generic/tags/mainmenu.html')
 def mainmenu(request):
     curr_lang = translation.get_language().split('-')[0]

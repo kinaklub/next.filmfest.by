@@ -1,3 +1,5 @@
+{% load cpm_generic_tags %}
+
 <ul class="nav pull-right lang-list">
   {% for lang_code, lang, url, is_active in languages %}
   {% if is_active %}
@@ -9,7 +11,7 @@
 </ul>
 <ul class="nav pull-right">
   <li class="active">
-    <a href="/">Home</a>
+    <a href="/">{% rootpage %}</a>
   </li>
   <li class="divider-vertical"></li>
 </ul>
