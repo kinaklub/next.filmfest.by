@@ -4,13 +4,15 @@ from django import template
 from django.utils import translation
 from django.conf import settings
 
+from home.models import HomePage
+
 
 register = template.Library()
 
 
 @register.simple_tag
 def rootpage():
-    return 'Home'
+    return HomePage.objects.get(slug='home')
 
 
 @register.inclusion_tag('cpm_generic/tags/mainmenu.html')
