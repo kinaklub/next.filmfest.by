@@ -1,5 +1,3 @@
-{% load cpm_generic_tags %}
-
 <ul class="nav pull-right lang-list">
   {% for lang_code, lang, url, is_active in languages %}
   {% if is_active %}
@@ -10,12 +8,11 @@
   {% endfor %}
 </ul>
 <ul class="nav pull-right">
-  {% rootpage as rp %}
   <!-- li class="active" -->
   <li>
-    <a href="{{ rp.url }}">{{ rp.title }}</a>
+    <a href="{{ rootpage.url }}">{{ rootpage.title }}</a>
   </li>
-  {% for page in rp.get_children.live.in_menu.specific %}
+  {% for page in rootpage.get_children.live.in_menu.specific %}
   <li>
     {% if page.caption %}
       <a href="{{ page.url }}">{{ page.caption }}</a>

@@ -9,10 +9,8 @@ from home.models import HomePage
 register = template.Library()
 
 
-@register.simple_tag
-def rootpage():
-    page = HomePage.objects.get(slug='home')
-    return page
+def get_root_page():
+    return HomePage.objects.get(slug='home')
 
 
 @register.inclusion_tag('cpm_generic/tags/mainmenu.html')
@@ -32,4 +30,5 @@ def mainmenu(request):
         ) for code, name in settings.LANGUAGES
     ]
 
-    return {'languages': languages}
+    return {'languages': languages,
+            'rootpage': get_root_page()}
