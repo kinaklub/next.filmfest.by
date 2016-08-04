@@ -117,7 +117,7 @@ def add_results_2014(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('results', '0014_partnerpage_link'),
+        ('results', '0015_resultsrelatedpartner'),
         ('wagtailimages', '0011_image_collection'),
     ]
 
