@@ -10,8 +10,16 @@
   {% endfor %}
 </ul>
 <ul class="nav pull-right">
-  <li class="active">
-    {% rootpage as rp %}<a href="{{ rp.url }}">{{ rp.title }}</a>
+  {% rootpage as rp %}
+  <!-- li class="active" -->
+  <li>
+    <a href="{{ rp.url }}">{{ rp.title }}</a>
   </li>
+  {% for page in rp.get_children.live.in_menu %}
+  <li>
+    <a href="{{ page.url }}">{{ page.title }}</a>
+  </li>
+  {% endfor %}
+
   <li class="divider-vertical"></li>
 </ul>
