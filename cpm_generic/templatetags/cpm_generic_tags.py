@@ -17,10 +17,10 @@ def get_menu_pages(full_path):
 
 def get_language_paths(full_path):
     curr_lang = translation.get_language().split('-')[0]
-    urlang = '/%s/' % curr_lang
+    prefix = '/%s/' % curr_lang
     path = full_path
-    if path.startswith(urlang):
-        path = path[len(urlang):]
+    if path.startswith(prefix):
+        path = path[len(prefix):]
 
     return [
         (
