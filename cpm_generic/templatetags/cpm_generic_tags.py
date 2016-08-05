@@ -12,7 +12,7 @@ register = template.Library()
 def get_menu_pages(full_path):
     homepage = HomePage.objects.get(slug='home')
     children = list(homepage.get_children().live().in_menu().specific())
-    return [ (page, page.url == full_path) for page in [homepage] + children ]
+    return [(page, page.url == full_path) for page in [homepage] + children]
 
 
 def get_language_paths(full_path):
