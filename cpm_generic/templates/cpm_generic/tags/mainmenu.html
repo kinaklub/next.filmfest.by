@@ -9,13 +9,13 @@
 </ul>
 <ul class="nav pull-right">
   {% for page, is_active in menupages %}
-  <li>{% if is_active %}<strong>{% endif %}
+  <li{% if is_active %} class="active"{% endif %}>
     {% if page.caption %}
       <a href="{{ page.url }}">{{ page.caption }}</a>
     {% else %}
       <a href="{{ page.url }}">{{ page.title }}</a>
     {% endif %}
-  {% if is_active %}</strong>{% endif %}</li>
+  </li>
   {% endfor %}
 
   <li class="divider-vertical"></li>
