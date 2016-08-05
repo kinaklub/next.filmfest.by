@@ -8,14 +8,14 @@
   {% endfor %}
 </ul>
 <ul class="nav pull-right">
-  {% for page in menupages %}
-  <li>
+  {% for page, is_active in menupages %}
+  <li>{% if is_active %}<strong>{% endif %}
     {% if page.caption %}
       <a href="{{ page.url }}">{{ page.caption }}</a>
     {% else %}
       <a href="{{ page.url }}">{{ page.title }}</a>
     {% endif %}
-  </li>
+  {% if is_active %}</strong>{% endif %}</li>
   {% endfor %}
 
   <li class="divider-vertical"></li>
