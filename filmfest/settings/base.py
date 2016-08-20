@@ -47,10 +47,13 @@ INSTALLED_APPS = [
     'wagtail.wagtailembeds',
     'wagtail.wagtailredirects',
     'wagtail.wagtailforms',
+    'wagtail.contrib.modeladmin',
 
     'search',
     'home',
 
+    'cpm_data',
+    'wagtail.wagtaildocs',  # TODO: this shouldn't be merged to master
     'cpm_generic',
     'results',
     'submissions',
