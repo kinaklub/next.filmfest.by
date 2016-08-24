@@ -12,5 +12,4 @@ before_script:
   - psql -c 'create database filmfest;' -U postgres
 script:
   - scripts/jsoncheck.py
-  - echo --- Run tests --- > /dev/null
   - tox -e "py27-{sqlite,pg}"
