@@ -12,7 +12,7 @@ install:
 before_script:
   - psql -c 'create database filmfest;' -U postgres
 script:
-  - echo --- Run JSON linter ---
+  - # --- Run JSON linter ---
   - find . -name "*.json" -type f -exec jsonlint -q "{}" \; -exec /bin/echo "{}" \;
-  - echo --- Run tests ---
+  - # --- Run tests ---
   - tox -e "py27-{sqlite,pg}"
