@@ -12,8 +12,8 @@ import demjson
 linter = demjson.jsonlint()
 
 for root, dirs, files in os.walk('.'):
-  for name in files:
-    filename = os.path.join(root, name)
-    if filename.endswith('.json'):
-      #print(filename)
-      linter.main([filename])
+    for name in files:
+        filename = os.path.join(root, name)
+        if filename.endswith('.json'):
+            # print(filename)
+            linter.main([filename])
