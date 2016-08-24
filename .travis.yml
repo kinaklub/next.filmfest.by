@@ -7,12 +7,10 @@ addons:
 services:
   - postgresql
 install:
-  - pip install tox
-  - npm install jsonlint -g
+  - pip install tox demjson
 before_script:
   - psql -c 'create database filmfest;' -U postgres
 script:
-  - echo --- Run JSON linter --- > /dev/null
-  - find . -name "*.json" -type f -exec jsonlint -q "{}" \; -exec /bin/echo "{}" \;
+  - scripts/jsoncheck.py
   - echo --- Run tests --- > /dev/null
   - tox -e "py27-{sqlite,pg}"
