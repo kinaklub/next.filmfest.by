@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 Checks JSON files for errors. Recursively scans current dir.
 
