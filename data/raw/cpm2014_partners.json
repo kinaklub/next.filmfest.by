@@ -1,0 +1,128 @@
+[
+  {
+    "name_be": "Where Minsk",
+    "name_ru": "Where Minsk",
+    "name_en": "Where Minsk",
+    "link": "http://www.spn.ru/publishing/whereminsk/",
+    "image": "images/where.png"
+  },
+  {
+    "name_be": "relax.by - развлечения в Минске, развлекательные центры столицы",
+    "name_ru": "relax.by - развлечения в Минске, развлекательные центры столицы",
+    "name_en": "relax.by - развлечения в Минске, развлекательные центры столицы",
+    "link": "http://relax.by/",
+    "image": "images/relax.png"
+  },
+  {
+    "name_be": "Минск 24 ДОК",
+    "name_ru": "Минск 24 ДОК",
+    "name_en": "Минск 24 ДОК",
+    "link": "http://mtis.tv/",
+    "image": "images/minsk24dok.png"
+  },
+  {
+    "name_be": "Nomadic Film Club",
+    "name_ru": "Nomadic Film Club",
+    "name_en": "Nomadic Film Club",
+    "link": "http://vagrant.kinaklub.org/",
+    "image": "images/nomadic.png"
+  },
+  {
+    "name_be": "Минская Киношкола-студия",
+    "name_ru": "Минская Киношкола-студия",
+    "name_en": "Минская Киношкола-студия",
+    "link": "http://filmschool.by/",
+    "image": "images/filmschool.png"
+  },
+  {
+    "name_be": "citydog.by - журнал о Минске",
+    "name_ru": "citydog.by - журнал о Минске",
+    "name_en": "citydog.by - журнал о Минске",
+    "link": "http://citydog.by/",
+    "image": "images/citydog.png"
+  },
+  {
+    "name_be": "Культпросвет – интернет-журнал о театрах и синтетических видах искусства",
+    "name_ru": "Культпросвет – интернет-журнал о театрах и синтетических видах искусства",
+    "name_en": "Культпросвет – интернет-журнал о театрах и синтетических видах искусства",
+    "link": "http://kultprosvet.by/",
+    "image": "images/kultprosvet.png"
+  },
+  {
+    "name_be": "Журнал для тех, кто думает по-европейски",
+    "name_ru": "Журнал для тех, кто думает по-европейски",
+    "name_en": "Журнал для тех, кто думает по-европейски",
+    "link": "http://n-europe.eu/",
+    "image": "images/n_europe.png"
+  },
+  {
+    "name_be": "cinemahall.org",
+    "name_ru": "cinemahall.org",
+    "name_en": "cinemahall.org",
+    "link": "http://cinemahall.org/",
+    "image": "images/cinemahall.png"
+  },
+  {
+    "name_be": "Беларуско-литовский фестиваль небюджетного кино и видео «toKino»",
+    "name_ru": "Беларуско-литовский фестиваль небюджетного кино и видео «toKino»",
+    "name_en": "Беларуско-литовский фестиваль небюджетного кино и видео «toKino»",
+    "link": "http://tokino.lt/",
+    "image": "images/tokino.png"
+  },
+  {
+    "name_be": "MAKEOUT — часопіс пра гендар, сэксуальнасць і асаблівасці іх праяваў у Беларусі",
+    "name_ru": "MAKEOUT — часопіс пра гендар, сэксуальнасць і асаблівасці іх праяваў у Беларусі",
+    "name_en": "MAKEOUT — часопіс пра гендар, сэксуальнасць і асаблівасці іх праяваў у Беларусі",
+    "link": "http://makeout.by/",
+    "image": "images/makeout.png"
+  },
+  {
+    "name_be": "Talaka.by – некоммерческая платформа, которая помогает активным людям в Беларуси реализовывать значимые для общества проекты",
+    "name_ru": "Talaka.by – некоммерческая платформа, которая помогает активным людям в Беларуси реализовывать значимые для общества проекты",
+    "name_en": "Talaka.by – некоммерческая платформа, которая помогает активным людям в Беларуси реализовывать значимые для общества проекты",
+    "link": "http://talaka.by/",
+    "image": "images/talaka.png"
+  },
+  {
+    "name_be": "Минчане",
+    "name_ru": "Минчане",
+    "name_en": "Минчане",
+    "link": "http://minchane.by/",
+    "image": "images/minchane.png"
+  },
+  {
+    "name_be": "Generation.by — інфармацыйны рэсурс пра жыццё і прыгоды беларускага пакалення Y, маладых людзей, якія нарадзіліся ў 80-90 г.г. XX стагоддзя",
+    "name_ru": "Generation.by — інфармацыйны рэсурс пра жыццё і прыгоды беларускага пакалення Y, маладых людзей, якія нарадзіліся ў 80-90 г.г. XX стагоддзя",
+    "name_en": "Generation.by — інфармацыйны рэсурс пра жыццё і прыгоды беларускага пакалення Y, маладых людзей, якія нарадзіліся ў 80-90 г.г. XX стагоддзя",
+    "link": "http://generation.by/",
+    "image": "images/generationby.png"
+  },
+  {
+    "name_be": "34mag.net – моладзевы часопіс пра актуальнае і цікавае ў Беларусі і свеце",
+    "name_ru": "34mag.net – моладзевы часопіс пра актуальнае і цікавае ў Беларусі і свеце",
+    "name_en": "34mag.net – моладзевы часопіс пра актуальнае і цікавае ў Беларусі і свеце",
+    "link": "http://34mag.net/",
+    "image": "images/34.png"
+  },
+  {
+    "name_be": "Творческий центр \"Майстэрня\"",
+    "name_ru": "Творческий центр \"Майстэрня\"",
+    "name_en": "Творческий центр \"Майстэрня\"",
+    "link": null,
+    "image": "images/maysternia.png"
+  },
+  {
+    "name_be": "Movies That Matter",
+    "name_ru": "Movies That Matter",
+    "name_en": "Movies That Matter",
+    "link": "http://www.moviesthatmatter.nl/",
+    "image": "images/moviesthatmatter.png"
+  },
+  {
+    "name_be": "OPEN.BY",
+    "name_ru": "OPEN.BY",
+    "name_en": "OPEN.BY",
+    "link": "http://open.by/",
+    "image": "images/openby.png"
+  }
+]
