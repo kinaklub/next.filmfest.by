@@ -50,7 +50,7 @@ def datacheck(filename):
 
 def extraimages():
     """Find images not referenced through any checks"""
-    global imageindex    
+    global imageindex
 
     imagedirs = set()
     for fullpath in imageindex:
@@ -69,11 +69,10 @@ for root, dirs, files in os.walk('.'):
     for name in files:
         filename = os.path.join(root, name)
         if filename.endswith('.json'):
-	    datacheck(filename)
+            datacheck(filename)
 
 
 extraimages()
-
 
 
 sys.exit(errors)
