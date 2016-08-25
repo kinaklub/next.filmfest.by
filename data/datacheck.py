@@ -74,5 +74,7 @@ for root, dirs, files in os.walk('.'):
 
 extraimages()
 
-
-sys.exit(errors)
+if not errors:
+    print('all ok')
+else:
+    sys.exit(errors)
