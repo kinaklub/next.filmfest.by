@@ -6,7 +6,10 @@ addons:
   postgresql: "9.4"
 services:
   - postgresql
-install: "pip install tox"
+install:
+  - pip install tox demjson
 before_script:
   - psql -c 'create database filmfest;' -U postgres
-script: tox -e "py27-{sqlite,pg}"
+script:
+  - scripts/jsoncheck.py
+  - tox -e "py27-{sqlite,pg}"
