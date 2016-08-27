@@ -1,0 +1,274 @@
+[
+    {
+        "name_be": "34mag.net – інтэрнэт-часопіс з Беларусі", 
+        "name_ru": "34mag.net – інтэрнэт-часопіс з Беларусі", 
+        "image": "images/info/34.jpg", 
+        "link": "http://34mag.net/", 
+        "name_en": "34mag.net – інтэрнэт-часопіс з Беларусі", 
+        "id": "34"
+    }, 
+    {
+        "name_be": "Афиша Минска и Беларуси", 
+        "name_ru": "Афиша Минска и Беларуси", 
+        "image": "images/info/afishatut.jpg", 
+        "link": "http://afisha.tut.by", 
+        "name_en": "Афиша Минска и Беларуси", 
+        "id": "afishatut"
+    }, 
+    {
+        "name_be": "Телеканал Беларусь 2", 
+        "name_ru": "Телеканал Беларусь 2", 
+        "image": "images/info/belarus2.jpg", 
+        "link": "http://www.belarus2.by/", 
+        "name_en": "Телеканал Беларусь 2", 
+        "id": "belarus2"
+    }, 
+    {
+        "name_be": "citydog.by - журнал о Минске", 
+        "name_ru": "citydog.by - журнал о Минске", 
+        "image": "images/info/citydog.jpg", 
+        "link": "http://citydog.by/", 
+        "name_en": "citydog.by - журнал о Минске", 
+        "id": "citydog"
+    }, 
+    {
+        "name_be": "Канал \"Культура\" Белорусского радио", 
+        "name_ru": "Канал \"Культура\" Белорусского радио", 
+        "image": "images/info/cultura.jpg", 
+        "link": "http://www.tvr.by/radio/kanal-kultura/", 
+        "name_en": "Канал \"Культура\" Белорусского радио", 
+        "id": "cultura"
+    }, 
+    {
+        "name_be": "Фестивали Беларуси", 
+        "name_ru": "Фестивали Беларуси", 
+        "image": "images/info/festevalibelarusi.jpg", 
+        "link": "http://vk.com/fest_by", 
+        "name_en": "Фестивали Беларуси", 
+        "id": "festevalibelarusi"
+    }, 
+    {
+        "name_be": "Generation.by", 
+        "name_ru": "Generation.by", 
+        "image": "images/info/generationby.jpg", 
+        "link": "http://generation.by/", 
+        "name_en": "Generation.by", 
+        "id": "generationby"
+    }, 
+    {
+        "name_be": "Как тут жить.", 
+        "name_ru": "Как тут жить.", 
+        "image": "images/info/kaktutjit.jpg", 
+        "link": "http://kaktutzhit.by/", 
+        "name_en": "Как тут жить.", 
+        "id": "kaktutjit"
+    }, 
+    {
+        "name_be": "Культпросвет - интернет-журнал о театре и взаимодействии искусств", 
+        "name_ru": "Культпросвет - интернет-журнал о театре и взаимодействии искусств", 
+        "image": "images/info/kultprosvet.jpg", 
+        "link": "http://kultprosvet.by/", 
+        "name_en": "Культпросвет - интернет-журнал о театре и взаимодействии искусств", 
+        "id": "kultprosvet"
+    }, 
+    {
+        "name_be": "Польскі Інстытут", 
+        "name_ru": "Польскі Інстытут", 
+        "image": "images/info/logoIP.jpg", 
+        "link": "http://www.instpol.by/", 
+        "name_en": "Польскі Інстытут", 
+        "id": "logoIP"
+    }, 
+    {
+        "name_be": "Metalscript.Net", 
+        "name_ru": "Metalscript.Net", 
+        "image": "images/info/metalscript.jpg", 
+        "link": "http://metalscript.net/", 
+        "name_en": "Metalscript.Net", 
+        "id": "metalscript"
+    }, 
+    {
+        "name_be": "Минчане", 
+        "name_ru": "Минчане", 
+        "image": "images/info/minchane.jpg", 
+        "link": "http://minchane.by/", 
+        "name_en": "Минчане", 
+        "id": "minchane"
+    }, 
+    {
+        "name_be": "Минск 24 ДОК", 
+        "name_ru": "Минск 24 ДОК", 
+        "image": "images/info/minsk24dok.jpg", 
+        "link": "http://mtis.tv/", 
+        "name_en": "Минск 24 ДОК", 
+        "id": "minsk24dok"
+    }, 
+    {
+        "name_be": "Where Minsk", 
+        "name_ru": "Where Minsk", 
+        "image": "images/info/minskwhere.jpg", 
+        "link": "http://www.spn.ru/publishing/whereminsk/", 
+        "name_en": "Where Minsk", 
+        "id": "minskwhere"
+    }, 
+    {
+        "name_be": "Радиус-FM", 
+        "name_ru": "Радиус-FM", 
+        "image": "images/info/radiusfm.jpg", 
+        "link": "http://www.radiusfm.by/", 
+        "name_en": "Радиус-FM", 
+        "id": "radiusfm"
+    }, 
+    {
+        "name_be": "relax.by - развлечения в Минске, развлекательные центры столицы", 
+        "name_ru": "relax.by - развлечения в Минске, развлекательные центры столицы", 
+        "image": "images/info/relax.jpg", 
+        "link": "http://relax.by/", 
+        "name_en": "relax.by - развлечения в Минске, развлекательные центры столицы", 
+        "id": "relax"
+    }, 
+    {
+        "name_be": "Радыё \"Сталiца\"", 
+        "name_ru": "Радыё \"Сталiца\"", 
+        "image": "images/info/stolica.jpg", 
+        "link": "http://radiostalica.by/", 
+        "name_en": "Радыё \"Сталiца\"", 
+        "id": "stolica"
+    }, 
+    {
+        "name_be": "Talaka.by – некоммерческая платформа, которая помогает активным людям в Беларуси реализовывать значимые для общества проекты", 
+        "name_ru": "Talaka.by – некоммерческая платформа, которая помогает активным людям в Беларуси реализовывать значимые для общества проекты", 
+        "image": "images/info/talaka.jpg", 
+        "link": "http://talaka.by/", 
+        "name_en": "Talaka.by – некоммерческая платформа, которая помогает активным людям в Беларуси реализовывать значимые для общества проекты", 
+        "id": "talaka"
+    }, 
+    {
+        "name_be": "Вестник Центрального", 
+        "name_ru": "Вестник Центрального", 
+        "image": "images/info/vestnikcentralnogo.jpg", 
+        "link": "http://vk.com/vestnik_centralnogo", 
+        "name_en": "Вестник Центрального", 
+        "id": "vestnikcentralnogo"
+    }, 
+    {
+        "name_be": "Лофт Проект БАЛКИ", 
+        "name_ru": "Лофт Проект БАЛКИ", 
+        "image": "images/placesinfo/balki.jpg", 
+        "link": "http://loftbalki.by/", 
+        "name_en": "Лофт Проект БАЛКИ", 
+        "id": "balki"
+    }, 
+    {
+        "name_be": "Кафе Битлджус", 
+        "name_ru": "Кафе Битлджус", 
+        "image": "images/placesinfo/beetlejuice.jpg", 
+        "link": "", 
+        "name_en": "Кафе Битлджус", 
+        "id": "beetlejuice"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/placesinfo/buffet.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "buffet"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/placesinfo/graffiti.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "graffiti"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/placesinfo/graffiti.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "graffiti"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/placesinfo/guru.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "guru"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/placesinfo/hosteltrinity.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "hosteltrinity"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/placesinfo/imaguru.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "imaguru"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/placesinfo/ktotakoyjongolt.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "ktotakoyjongolt"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/placesinfo/logvinay.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "logvinay"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/placesinfo/pen.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "pen"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/placesinfo/polygon.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "polygon"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/placesinfo/tnt.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "tnt"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/placesinfo/ybar.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "ybar"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/placesinfo/zerno.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "zerno"
+    }
+]
