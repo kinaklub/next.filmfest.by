@@ -1,92 +1,74 @@
-{
-  "description": "data set for cpm2012 partners",
-  "data": {
-    "partners": [
-      {
-        "name_be": "http://www.quest-europe.eu/",
-        "name_ru": "http://www.quest-europe.eu/",
-        "name_en": "http://www.quest-europe.eu/",
-        "link": "http://www.quest-europe.eu/",
-        "image": "images/qe.png",
-        "id": "qe"
-      },
-      {
-        "name_be": "http://video.mediaartcologne.org/",
-        "name_ru": "http://video.mediaartcologne.org/",
-        "name_en": "http://video.mediaartcologne.org/",
-        "link": "http://video.mediaartcologne.org/",
-        "image": "images/artvideokoeln.png",
-        "id": "artvideokoeln"
-      },
-      {
-        "name_be": "http://filmschool.by/",
-        "name_ru": "http://filmschool.by/",
-        "name_en": "http://filmschool.by/",
-        "link": "http://filmschool.by/",
-        "image": "images/filmschoolby.png",
-        "id": "filmschoolby"
-      },
-      {
-        "name_be": "http://kinoamatorskie.pl/",
-        "name_ru": "http://kinoamatorskie.pl/",
-        "name_en": "http://kinoamatorskie.pl/",
-        "link": "http://kinoamatorskie.pl/",
-        "image": "images/banner_ka_pl.png",
-        "id": "banner_ka_pl"
-      },
-      {
-        "name_be": "http://vimeo.com/byzondpictures",
-        "name_ru": "http://vimeo.com/byzondpictures",
-        "name_en": "http://vimeo.com/byzondpictures",
-        "link": "http://vimeo.com/byzondpictures",
-        "image": "images/byzond.png",
-        "id": "byzond"
-      },
-      {
-        "name_be": "http://afisha.tut.by/",
-        "name_ru": "http://afisha.tut.by/",
-        "name_en": "http://afisha.tut.by/",
-        "link": "http://afisha.tut.by/",
-        "image": "images/atutby.png",
-        "id": "atutby"
-      },
-      {
-        "name_be": "http://radio.aplus.by/",
-        "name_ru": "http://radio.aplus.by/",
-        "name_en": "http://radio.aplus.by/",
-        "link": "http://radio.aplus.by/",
-        "image": "images/aplus.png",
-        "id": "aplus"
-      },
-      {
-        "name_be": "http://urban.by/",
-        "name_ru": "http://urban.by/",
-        "name_en": "http://urban.by/",
-        "link": "http://urban.by/",
-        "image": "images/urbanby.png",
-        "id": "urbanby"
-      },
-      {
-        "name_be": "http://menscity.by/",
-        "name_ru": "http://menscity.by/",
-        "name_en": "http://menscity.by/",
-        "link": "http://menscity.by/",
-        "image": "images/menscity.png",
-        "id": "menscity"
-      }
-    ],
-    "partners_list": [
-      "qe",
-      "artvideokoeln",
-      "filmschoolby",
-      "banner_ka_pl",
-      "byzond",
-      "atutby",
-      "openby",
-      "relaxby",
-      "aplus",
-      "urbanby",
-      "menscity"
-    ]
+[
+  {
+    "name_be": "http://www.quest-europe.eu/",
+    "name_ru": "http://www.quest-europe.eu/",
+    "name_en": "http://www.quest-europe.eu/",
+    "link": "http://www.quest-europe.eu/",
+    "image": "images/qe.png",
+    "id": "qe"
+  },
+  {
+    "name_be": "http://video.mediaartcologne.org/",
+    "name_ru": "http://video.mediaartcologne.org/",
+    "name_en": "http://video.mediaartcologne.org/",
+    "link": "http://video.mediaartcologne.org/",
+    "image": "images/artvideokoeln.png",
+    "id": "artvideokoeln"
+  },
+  {
+    "name_be": "http://filmschool.by/",
+    "name_ru": "http://filmschool.by/",
+    "name_en": "http://filmschool.by/",
+    "link": "http://filmschool.by/",
+    "image": "images/filmschoolby.png",
+    "id": "filmschoolby"
+  },
+  {
+    "name_be": "http://kinoamatorskie.pl/",
+    "name_ru": "http://kinoamatorskie.pl/",
+    "name_en": "http://kinoamatorskie.pl/",
+    "link": "http://kinoamatorskie.pl/",
+    "image": "images/banner_ka_pl.png",
+    "id": "banner_ka_pl"
+  },
+  {
+    "name_be": "http://vimeo.com/byzondpictures",
+    "name_ru": "http://vimeo.com/byzondpictures",
+    "name_en": "http://vimeo.com/byzondpictures",
+    "link": "http://vimeo.com/byzondpictures",
+    "image": "images/byzond.png",
+    "id": "byzond"
+  },
+  {
+    "name_be": "http://afisha.tut.by/",
+    "name_ru": "http://afisha.tut.by/",
+    "name_en": "http://afisha.tut.by/",
+    "link": "http://afisha.tut.by/",
+    "image": "images/atutby.png",
+    "id": "atutby"
+  },
+  {
+    "name_be": "http://radio.aplus.by/",
+    "name_ru": "http://radio.aplus.by/",
+    "name_en": "http://radio.aplus.by/",
+    "link": "http://radio.aplus.by/",
+    "image": "images/aplus.png",
+    "id": "aplus"
+  },
+  {
+    "name_be": "http://urban.by/",
+    "name_ru": "http://urban.by/",
+    "name_en": "http://urban.by/",
+    "link": "http://urban.by/",
+    "image": "images/urbanby.png",
+    "id": "urbanby"
+  },
+  {
+    "name_be": "http://menscity.by/",
+    "name_ru": "http://menscity.by/",
+    "name_en": "http://menscity.by/",
+    "link": "http://menscity.by/",
+    "image": "images/menscity.png",
+    "id": "menscity"
   }
-}
+]
