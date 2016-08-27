@@ -1,0 +1,42 @@
+[
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/places/artcorporation.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "artcorporation"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/places/fialta.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "fialta"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/places/kinovideoprokat.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "kinovideoprokat"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/places/korpus8.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "korpus8"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/places/museibelkino.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "museibelkino"
+    }
+]

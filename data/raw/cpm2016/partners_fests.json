@@ -1,0 +1,66 @@
+[
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/fests/docufest.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "docufest"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/fests/dotyk.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "dotyk"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/fests/nomadic.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "nomadic"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/fests/opla.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "opla"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/fests/selb.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "selb"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/fests/shortmovieclub.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "shortmovieclub"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/fests/stoptrik.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "stoptrik"
+    }, 
+    {
+        "name_be": "", 
+        "name_ru": "", 
+        "image": "images/fests/zubroffka.jpg", 
+        "link": "", 
+        "name_en": "", 
+        "id": "zubroffka"
+    }
+]
