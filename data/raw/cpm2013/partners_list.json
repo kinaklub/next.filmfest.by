@@ -1,20 +1,22 @@
-[
-    "where450",
-    "relax450",
-    "lamora",
-    "bvc",
-    "minsk24dok",
-    "paramonak",
-    "kinolife",
-    "iysff",
-    "luma",
-    "euroradio",
-    "bolshoi",
-    "minchanka",
-    "open",
-    "mart",
-    "vgomele",
-    "belarusdigest",
-    "ky",
-    "nomadic"
-]
+[{
+    "ids": [
+        "where450",
+        "relax450",
+        "lamora",
+        "bvc",
+        "minsk24dok",
+        "paramonak",
+        "kinolife",
+        "iysff",
+        "luma",
+        "euroradio",
+        "bolshoi",
+        "minchanka",
+        "open",
+        "mart",
+        "vgomele",
+        "belarusdigest",
+        "ky",
+        "nomadic"
+    ]
+}]
