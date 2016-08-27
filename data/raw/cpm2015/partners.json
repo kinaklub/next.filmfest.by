@@ -1,0 +1,162 @@
+[
+  {
+    "name_be": "Where Minsk",
+    "name_ru": "Where Minsk",
+    "image": "images/where.png",
+    "link": "http://www.spn.ru/publishing/whereminsk/",
+    "name_en": "Where Minsk",
+    "id": "where"
+  },
+  {
+    "name_be": "relax.by - развлечения в Минске, развлекательные центры столицы",
+    "name_ru": "relax.by - развлечения в Минске, развлекательные центры столицы",
+    "image": "images/relax.png",
+    "link": "http://relax.by/",
+    "name_en": "relax.by - развлечения в Минске, развлекательные центры столицы",
+    "id": "relax"
+  },
+  {
+    "name_be": "Минск 24 ДОК",
+    "name_ru": "Минск 24 ДОК",
+    "image": "images/minsk24dok.png",
+    "link": "http://mtis.tv/",
+    "name_en": "Минск 24 ДОК",
+    "id": "minsk24dok"
+  },
+  {
+    "name_be": "Nomadic Film Club",
+    "name_ru": "Nomadic Film Club",
+    "image": "images/nomadic.png",
+    "link": "http://vagrant.kinaklub.org/",
+    "name_en": "Nomadic Film Club",
+    "id": "nomadic"
+  },
+  {
+    "name_be": "Минская Киношкола-студия",
+    "name_ru": "Минская Киношкола-студия",
+    "image": "images/filmschool.png",
+    "link": "http://filmschool.by/",
+    "name_en": "Минская Киношкола-студия",
+    "id": "filmschool"
+  },
+  {
+    "name_be": "citydog.by - журнал о Минске",
+    "name_ru": "citydog.by - журнал о Минске",
+    "image": "images/citydog.png",
+    "link": "http://citydog.by/",
+    "name_en": "citydog.by - журнал о Минске",
+    "id": "citydog"
+  },
+  {
+    "name_be": "Культпросвет – интернет-журнал о театрах и синтетических видах искусства",
+    "name_ru": "Культпросвет – интернет-журнал о театрах и синтетических видах искусства",
+    "image": "images/kultprosvet.png",
+    "link": "http://kultprosvet.by/",
+    "name_en": "Культпросвет – интернет-журнал о театрах и синтетических видах искусства",
+    "id": "kultprosvet"
+  },
+  {
+    "name_be": "Журнал для тех, кто думает по-европейски",
+    "name_ru": "Журнал для тех, кто думает по-европейски",
+    "image": "images/n_europe.png",
+    "link": "http://n-europe.eu/",
+    "name_en": "Журнал для тех, кто думает по-европейски",
+    "id": "n_europe"
+  },
+  {
+    "name_be": "cinemahall.org",
+    "name_ru": "cinemahall.org",
+    "image": "images/cinemahall.png",
+    "link": "http://cinemahall.org/",
+    "name_en": "cinemahall.org",
+    "id": "cinemahall"
+  },
+  {
+    "name_be": "Беларуско-литовский фестиваль небюджетного кино и видео «toKino»",
+    "name_ru": "Беларуско-литовский фестиваль небюджетного кино и видео «toKino»",
+    "image": "images/tokino.png",
+    "link": "http://tokino.lt/",
+    "name_en": "Беларуско-литовский фестиваль небюджетного кино и видео «toKino»",
+    "id": "tokino"
+  },
+  {
+    "name_be": "MAKEOUT — часопіс пра гендар, сэксуальнасць і асаблівасці іх праяваў у Беларусі",
+    "name_ru": "MAKEOUT — часопіс пра гендар, сэксуальнасць і асаблівасці іх праяваў у Беларусі",
+    "image": "images/makeout.png",
+    "link": "http://makeout.by/",
+    "name_en": "MAKEOUT — часопіс пра гендар, сэксуальнасць і асаблівасці іх праяваў у Беларусі",
+    "id": "makeout"
+  },
+  {
+    "name_be": "Talaka.by – некоммерческая платформа, которая помогает активным людям в Беларуси реализовывать значимые для общества проекты",
+    "name_ru": "Talaka.by – некоммерческая платформа, которая помогает активным людям в Беларуси реализовывать значимые для общества проекты",
+    "image": "images/talaka.png",
+    "link": "http://talaka.by/",
+    "name_en": "Talaka.by – некоммерческая платформа, которая помогает активным людям в Беларуси реализовывать значимые для общества проекты",
+    "id": "talaka"
+  },
+  {
+    "name_be": "Минчане",
+    "name_ru": "Минчане",
+    "image": "images/minchane.png",
+    "link": "http://minchane.by/",
+    "name_en": "Минчане",
+    "id": "minchane"
+  },
+  {
+    "name_be": "Generation.by — інфармацыйны рэсурс пра жыццё і прыгоды беларускага пакалення Y, маладых людзей, якія нарадзіліся ў 80-90 г.г. XX стагоддзя",
+    "name_ru": "Generation.by — інфармацыйны рэсурс пра жыццё і прыгоды беларускага пакалення Y, маладых людзей, якія нарадзіліся ў 80-90 г.г. XX стагоддзя",
+    "image": "images/generationby.png",
+    "link": "http://generation.by/",
+    "name_en": "Generation.by — інфармацыйны рэсурс пра жыццё і прыгоды беларускага пакалення Y, маладых людзей, якія нарадзіліся ў 80-90 г.г. XX стагоддзя",
+    "id": "generationby"
+  },
+  {
+    "name_be": "34mag.net – моладзевы часопіс пра актуальнае і цікавае ў Беларусі і свеце",
+    "name_ru": "34mag.net – моладзевы часопіс пра актуальнае і цікавае ў Беларусі і свеце",
+    "image": "images/34.png",
+    "link": "http://34mag.net/",
+    "name_en": "34mag.net – моладзевы часопіс пра актуальнае і цікавае ў Беларусі і свеце",
+    "id": "34"
+  },
+  {
+    "name_be": "Movies That Matter",
+    "name_ru": "Movies That Matter",
+    "image": "images/moviesthatmatter.png",
+    "link": "http://www.moviesthatmatter.nl/",
+    "name_en": "Movies That Matter",
+    "id": "moviesthatmatter"
+  },
+  {
+    "name_be": "md-eksperiment.org",
+    "name_ru": "md-eksperiment.org",
+    "image": "images/eksperiment.png",
+    "link": "http://md-eksperiment.org/",
+    "name_en": "md-eksperiment.org",
+    "id": "eksperiment"
+  },
+  {
+    "name_be": "Cinewest",
+    "name_ru": "Cinewest",
+    "image": "images/cinewest.png",
+    "link": "http://www.cinewest.org/",
+    "name_en": "Cinewest",
+    "id": "cinewest"
+  },
+  {
+    "name_be": "International 100 Seconds Film Festival",
+    "name_ru": "International 100 Seconds Film Festival",
+    "image": "images/100second.png",
+    "link": "http://100fest.com/pages/en/",
+    "name_en": "International 100 Seconds Film Festival",
+    "id": "100second"
+  },
+  {
+    "name_be": "VideoMaker Film Festival",
+    "name_ru": "VideoMaker Film Festival",
+    "image": "images/videomaker.png",
+    "link": "http://www.videomakerfilmfestival.com/",
+    "name_en": "VideoMaker Film Festival",
+    "id": "videomaker"
+  }
+]
