@@ -19,7 +19,6 @@
 .b-newsblock_news {
     color: white;
     font-size: 22px;
-    font-family: "Calisto MT";
     text-align: left;
     padding: 10px 10px;
     background-color: greenyellow;
@@ -55,7 +54,7 @@
 
 .b-newsblock_headerlink {
     font-size: 21px;
-    font-family: "WarHeliosCondCBold", "Arial Narrow", arial, sans-serif;
+    font-family: "Arial Narrow", arial, sans-serif;
     font-stretch: condensed;
     font-weight: normal;
     line-height: 27px;
