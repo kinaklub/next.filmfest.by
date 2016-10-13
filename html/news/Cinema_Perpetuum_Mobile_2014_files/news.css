@@ -1,22 +1,26 @@
 .container-fluid {
+
+}
+
+.container-news{
     margin: -8px;
     padding: 0px;
 }
 
-.b-newsblock {
+.newsblock {
     background: cornflowerblue;
     margin: 0px auto;
     padding: 0px;
     width: 800px;
 }
 
-.clearfix::after {
+/*.clearfix::after {
     content: "";
     display: table;
     clear: both;
-}
+}*/
 
-.b-newsblock_news {
+.newsblock_news {
     color: white;
     font-size: 22px;
     text-align: left;
@@ -24,35 +28,28 @@
     background-color: greenyellow;
 }
 
-.b-newsblock_ico {
+.newsblock_ico {
     display: block;
     float: left;
-    position: relative;
-    zoom: 1;
+    position: relative;;
 }
 
-.b-newsblock_ico:hover {
-    zoom: 3 !important;
-}
 
-.b-newsblock_img {
+.newsblock_img {
     float: left;
     max-height: 135px;
     width: 150px;
     zoom: normal;
 }
 
-.b-newsblock_img:hover {
-    zoom: 3 !important;
-}
 
-.b-newsblock_content {
+.newsblock_content {
     padding: 0px;
     margin-left: 161px;
     margin-right: 5px;
 }
 
-.b-newsblock_headerlink {
+.newsblock_headerlink {
     font-size: 21px;
     font-family: "Arial Narrow", arial, sans-serif;
     font-stretch: condensed;
@@ -62,7 +59,7 @@
     padding: 0;
 }
 
-.b-newsblock_link {
+.newsblock_link {
     color: #f9d088 !important;
     margin: 0;
     padding: 0;
@@ -73,43 +70,43 @@
     background: 0 0;
 }
 
-.b-newsblock_link:hover {
+.newsblock_link:hover {
     color: orange !important;
 }
 
-.b-newsblock_text {
+.newsblock_text {
     font-size: 12px;
     margin: 0px 0px 10px;
     line-height: 1.4;
     color: gainsboro;
 }
 
-.b-newsblock_statistics {
+.newsblock_statistics {
     padding: 0px;
     margin-left: 161px;
     margin-right: 5px;
 
 }
 
-.b-newsblock_date {
+.newsblock_date {
     color: #606061;
     display: inline-block;
     margin: 0 12px 0 0;
     font-size: 12px;
 }
 
-.b-newsblock_category {
+.newsblock_category {
     color: #606061 !important;
     display: inline-block;
     margin: 0 12px 0 0;
     font-size: 12px;
 }
 
-.b-newsblock_category:hover {
+.newsblock_category:hover {
     color: whitesmoke !important;
 }
 
-.b-newsblock_social {
+.newsblock_social {
     float: right;
     display: inline-block;
     width: 30px;
@@ -120,15 +117,15 @@
     margin-top: -10px;
 }
 
-.b-newsblock_social-img {
+.newsblock_social-img {
     border-radius: 50%;
 }
 
-.b-newsblock_social-img:hover {
+.newsblock_social-img:hover {
     background: lightcyan;
 }
 
-.b-hr {
+.news-hr {
     background: white;
     border: none;
     height: 2px;
