@@ -16,7 +16,7 @@
     "number": "??",
     "position_be": "b",
     "position_ru": "b"
-  }
+  },
   {
     "position_en": "b",
     "caption_be": "краін",
@@ -25,6 +25,7 @@
     "number": "??",
     "position_be": "b",
     "position_ru": "b"
+  },
   {
     "position_en": "b",
     "caption_be": "чальцоў журы",
@@ -33,7 +34,7 @@
     "number": "??",
     "position_be": "b",
     "position_ru": "b"
-  }
+  },
   {
     "position_en": "b",
     "caption_be": "рэгіёнах Беларусі",
@@ -42,4 +43,15 @@
     "number": "??",
     "position_be": "b",
     "position_ru": "b"
+   }, 
+    {
+    "position_en": "b",
+    "caption_be": "валантораў"
+    "caption_ru": "волонтерам",
+    "caption_en": "volunteers",
+    "number": "??",
+    "position_be": "b",
+    "position_ru": "b"
+  }
+    
 ]
