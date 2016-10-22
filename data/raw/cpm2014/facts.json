@@ -26,15 +26,15 @@
     "position_be": "b",
     "position_ru": "b"
 },
-  {
+ {
     "position_en": "b",
-    "caption_be": "валантораў"
-    "caption_ru": "волонтерам",
-    "caption_en": "volunteers",
+    "caption_be": "чальцоў журы",
+    "caption_ru": "членов жюри",
+    "caption_en": "jury members",
     "number": "??",
     "position_be": "b",
     "position_ru": "b"
-  },
+},
   {
     "position_en": "b",
     "caption_be": "паказаў у гарадах Беларусі",
@@ -43,5 +43,14 @@
     "number": "??",
     "position_be": "b",
     "position_ru": "b"
-}
+},
+ {
+    "position_en": "b",
+    "caption_be": "валантораў"
+    "caption_ru": "волонтерам",
+    "caption_en": "volunteers",
+    "number": "??",
+    "position_be": "b",
+    "position_ru": "b"
+  },
 ]
