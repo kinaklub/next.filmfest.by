@@ -10,19 +10,36 @@
   },
   {
     "position_en": "b",
-    "caption_be": "",
-    "caption_ru": "апреля",
-    "caption_en": "April",
-    "number": "10-19",
+    "caption_be": "заявак",
+    "caption_ru": "заявок",
+    "caption_en": "submissions",
+    "number": "??",
     "position_be": "b",
     "position_ru": "b"
   }
   {
     "position_en": "b",
-    "caption_be": "красавіка",
-    "caption_ru": "апреля",
-    "caption_en": "April",
-    "number": "10-19",
+    "caption_be": "краін",
+    "caption_ru": "стран",
+    "caption_en": "countries",
+    "number": "??",
+    "position_be": "b",
+    "position_ru": "b"
+  {
+    "position_en": "b",
+    "caption_be": "чальцоў журы",
+    "caption_ru": "членов жюри",
+    "caption_en": "jury members",
+    "number": "??",
+    "position_be": "b",
+    "position_ru": "b"
+  }
+  {
+    "position_en": "b",
+    "caption_be": "рэгіёнах Беларусі",
+    "caption_ru": "показов в регионах Беларуси",
+    "caption_en": "screenings in Belarusian cities",
+    "number": "??",
     "position_be": "b",
     "position_ru": "b"
 ]
