@@ -17,4 +17,40 @@
     "position_be": "b",
     "position_ru": "b"
   }
+  {
+    "position_en": "b",
+    "caption_be": "заявак",
+    "caption_ru": "заявок",
+    "caption_en": "submissions",
+    "number": "197",
+    "position_be": "b",
+    "position_ru": "b"
+}
+  {
+    "position_en": "b",
+    "caption_be": "краін",
+    "caption_ru": "стран",
+    "caption_en": "countries",
+    "number": "35",
+    "position_be": "b",
+    "position_ru": "b"
+  }
+ {
+    "position_en": "b",
+    "caption_be": "чальцоў журы",
+    "caption_ru": "членов жюри",
+    "caption_en": "jury members",
+    "number": "9",
+    "position_be": "b",
+    "position_ru": "b"
+}
+  {
+    "position_en": "b",
+    "caption_be": "валантора",
+    "caption_ru": "волонтера",
+    "caption_en": "volunteers",
+    "number": "42",
+    "position_be": "b",
+    "position_ru": "b"
+  }
 ]
