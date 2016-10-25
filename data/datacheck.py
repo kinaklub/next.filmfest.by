@@ -46,6 +46,20 @@ def datacheck(filename):
                 else:
                     # store full path
                     imageindex.append(fullpath)
+    if filename.endswith('jury.json'):
+        for image in data['photo']:
+            # check that image does not exist
+            imagepath = os.path.join(os.path.dirname(filename), image)
+            if not os.path.exists(imagepath):
+                error("missing '%s'" % os.path.normpath(imagepath))
+            else:
+                # check that image reused
+                fullpath = os.path.normpath(imagepath)
+                if fullpath in imageindex:
+                    print("    hmm - image reused '%s'" % imagepath)
+                else:
+                    # store full path
+                    imageindex.append(fullpath)
 
 
 def extraimages():
