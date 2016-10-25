@@ -70,5 +70,13 @@
     "link": "http://menscity.by/",
     "image": "images/menscity.png",
     "id": "menscity"
+  },
+  {
+    "name_be": "Белорусский видеоцентр",
+    "name_ru": "Белорусский видеоцентр",
+    "name_en": "Белорусский видеоцентр",
+    "id": "bvc",
+    "link": "http://www.belvc.by/",
+    "image": "images/bvc.jpg"
   }
 ]
