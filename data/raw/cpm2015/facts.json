@@ -43,7 +43,7 @@
     "number": "16",
     "position_be": "b",
     "position_ru": "b"
-},
+  },
   {
     "position_en": "b",
     "caption_be": "рэгіёнах Беларусі",
@@ -52,15 +52,14 @@
     "number": "??",
     "position_be": "b",
     "position_ru": "b"
-   }, 
-    {
+  },
+  {
     "position_en": "b",
-    "caption_be": "валантораў"
+    "caption_be": "валантораў",
     "caption_ru": "волонтеров",
     "caption_en": "volunteers",
     "number": "??",
     "position_be": "b",
     "position_ru": "b"
   }
-    
 ]

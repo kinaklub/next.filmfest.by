@@ -25,7 +25,7 @@
     "number": "79",
     "position_be": "b",
     "position_ru": "b"
-},
+  },
   {
     "position_en": "b",
     "caption_be": "праграм",
@@ -35,7 +35,7 @@
     "position_be": "b",
     "position_ru": "b"
   },
- {
+  {
     "position_en": "b",
     "caption_be": "чальцоў журы",
     "caption_ru": "членов жюри",
@@ -43,7 +43,7 @@
     "number": "14",
     "position_be": "b",
     "position_ru": "b"
-},
+  },
   {
     "position_en": "b",
     "caption_be": "паказаў у гарадах Беларусі",
@@ -52,10 +52,10 @@
     "number": "??",
     "position_be": "b",
     "position_ru": "b"
-},
- {
+  },
+  {
     "position_en": "b",
-    "caption_be": "валантораў"
+    "caption_be": "валантораў",
     "caption_ru": "волонтерам",
     "caption_en": "volunteers",
     "number": "??",
@@ -70,5 +70,5 @@
     "number": "2100",
     "position_be": "b",
     "position_ru": "b"
-},
+  }
 ]
