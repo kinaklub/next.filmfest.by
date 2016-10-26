@@ -1,31 +1,28 @@
-.container-fluid {
 
-}
-
-.container-news{
+.container-news {
     margin: -8px;
     padding: 0px;
 }
 
 .newsblock {
-    background: cornflowerblue;
+    /*background: cornflowerblue;*/
     margin: 0px auto;
     padding: 0px;
-    width: 800px;
+    width: 58%;
 }
 
-/*.clearfix::after {
+.clearfix::after {
     content: "";
     display: table;
     clear: both;
-}*/
+}
 
 .newsblock_news {
-    color: white;
+    color: darkgrey;
     font-size: 22px;
     text-align: left;
     padding: 10px 10px;
-    background-color: greenyellow;
+    /*background-color: greenyellow;*/
 }
 
 .newsblock_ico {
@@ -34,33 +31,34 @@
     position: relative;;
 }
 
-
 .newsblock_img {
     float: left;
-    max-height: 135px;
-    width: 150px;
+    max-height: 150px;
+    width: 175px;
     zoom: normal;
 }
 
-
 .newsblock_content {
     padding: 0px;
-    margin-left: 161px;
+    margin-left: 195px;
     margin-right: 5px;
 }
 
 .newsblock_headerlink {
     font-size: 21px;
-    font-family: "Arial Narrow", arial, sans-serif;
+    /*font-family: "Arial Narrow", arial, sans-serif;*/
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
     font-stretch: condensed;
-    font-weight: normal;
+    /*font-weight: normal;*/
     line-height: 27px;
     margin: 6px 0px 9px;
     padding: 0;
 }
 
 .newsblock_link {
-    color: #f9d088 !important;
+    color: #d54872 !important;
     margin: 0;
     padding: 0;
     border: 0;
@@ -71,19 +69,19 @@
 }
 
 .newsblock_link:hover {
-    color: orange !important;
+    color: #8d2040 !important;
 }
 
 .newsblock_text {
-    font-size: 12px;
+    font-size: 14px;
     margin: 0px 0px 10px;
     line-height: 1.4;
-    color: gainsboro;
+    color: darkgrey;
 }
 
 .newsblock_statistics {
     padding: 0px;
-    margin-left: 161px;
+    margin-left: 195px;
     margin-right: 5px;
 
 }
@@ -103,7 +101,8 @@
 }
 
 .newsblock_category:hover {
-    color: whitesmoke !important;
+   /* color: whitesmoke !important;*/
+    text-decoration: underline;
 }
 
 .newsblock_social {
@@ -132,4 +131,37 @@
     margin: 18px 0px;
     display: block;
     overflow: hidden;
+}
+/*for desktops*/
+@media only screen and ( max-width: 1200px) {
+    .newsblock {
+        width: 70%;
+    }
+}
+/*for tablets*/
+@media only screen and ( max-width: 979px) {
+    .newsblock {
+        width: 80%;
+    }
+}
+/*for mobiles*/
+@media only screen and ( max-width: 767px) {
+    .newsblock {
+        width: 90%;
+    }
+
+    .newsblock_ico {
+        display: none;
+    }
+
+    .newsblock_content {
+        padding: 0px;
+        margin-left: 35px;
+        margin-right: 5px;
+    }
+
+    .newsblock_statistics {
+        margin-left: 35px;
+    }
+
 }
