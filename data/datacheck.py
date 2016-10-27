@@ -36,6 +36,7 @@ file_checks = [
     },
 ]
 
+
 def checkimage(images):
     for image in images:
         # check that image does not exist
