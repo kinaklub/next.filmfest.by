@@ -25,6 +25,32 @@ def error(msg):
     errors += 1
 
 
+file_checks = [
+    {
+        'file': 'partners.json',
+        'image_field': 'image',
+    },
+    {
+        'file': 'films.json',
+        'image_field': 'frame',
+    },
+]
+
+def checkimage(images):
+    for image in images:
+        # check that image does not exist
+        imagepath = os.path.join(os.path.dirname(filename), image)
+        if not os.path.exists(imagepath):
+            error("missing '%s'" % os.path.normpath(imagepath))
+        else:
+            # check that image reused
+            fullpath = os.path.normpath(imagepath)
+            if fullpath in imageindex:
+                print("    hmm - image reused '%s'" % imagepath)
+            else:
+                # store full path
+                imageindex.append(fullpath)
+
 def datacheck(filename):
     global imageindex
     global imagedirs
@@ -32,34 +58,9 @@ def datacheck(filename):
     print(filename)
     data = tablib.Dataset().load(open(filename).read())
     print("  entries: %s" % len(data))
-    if filename.endswith('partners.json'):
-        for image in data['image']:
-            # check that image does not exist
-            imagepath = os.path.join(os.path.dirname(filename), image)
-            if not os.path.exists(imagepath):
-                error("missing '%s'" % os.path.normpath(imagepath))
-            else:
-                # check that image reused
-                fullpath = os.path.normpath(imagepath)
-                if fullpath in imageindex:
-                    print("    hmm - image reused '%s'" % imagepath)
-                else:
-                    # store full path
-                    imageindex.append(fullpath)
-    if filename.endswith('films.json'):
-        for image in data['frame']:
-            # check that image does not exist
-            imagepath = os.path.join(os.path.dirname(filename), image)
-            if not os.path.exists(imagepath):
-                error("missing '%s'" % os.path.normpath(imagepath))
-            else:
-                # check that image reused
-                fullpath = os.path.normpath(imagepath)
-                if fullpath in imageindex:
-                    print("    hmm - image reused '%s'" % imagepath)
-                else:
-                    # store full path
-                    imageindex.append(fullpath)
+    for file_check in file_checks:
+        if filename.endswith(file_check['file']):
+            checkimage(data[file_check['image_field']])
 
 
 def extraimages():
