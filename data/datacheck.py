@@ -52,6 +52,7 @@ def checkimage(images):
                 # store full path
                 imageindex.append(fullpath)
 
+
 def datacheck(filename):
     global imageindex
     global imagedirs
