@@ -34,6 +34,10 @@ file_checks = [
         'file': 'films.json',
         'image_field': 'frame',
     },
+    {
+        'file': 'jury.json',
+        'image_field': 'photo',
+    }
 ]
 
 
