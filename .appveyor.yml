@@ -1,7 +1,7 @@
 version: "{build}"
 
+install:
+- cmd: python -m pip install tox
+
 build_script:
-- cmd: |-
-    python -m virtualenv .v
-    .v\Scripts\pip.exe install -r requirements/dev.txt
-    .v\Scripts\python.exe manage.py migrate
+- cmd: python -m tox
