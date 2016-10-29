@@ -5,7 +5,6 @@
 }
 
 .newsblock {
-    /*background: cornflowerblue;*/
     margin: 0px auto;
     padding: 0px;
     width: 58%;
@@ -22,7 +21,6 @@
     font-size: 22px;
     text-align: left;
     padding: 10px 10px;
-    /*background-color: greenyellow;*/
 }
 
 .newsblock_ico {
@@ -46,12 +44,10 @@
 
 .newsblock_headerlink {
     font-size: 21px;
-    /*font-family: "Arial Narrow", arial, sans-serif;*/
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
     font-stretch: condensed;
-    /*font-weight: normal;*/
     line-height: 27px;
     margin: 6px 0px 9px;
     padding: 0;
@@ -101,7 +97,6 @@
 }
 
 .newsblock_category:hover {
-   /* color: whitesmoke !important;*/
     text-decoration: underline;
 }
 
@@ -132,19 +127,19 @@
     display: block;
     overflow: hidden;
 }
-/*for desktops*/
+
 @media only screen and ( max-width: 1200px) {
     .newsblock {
         width: 70%;
     }
 }
-/*for tablets*/
+
 @media only screen and ( max-width: 979px) {
     .newsblock {
         width: 80%;
     }
 }
-/*for mobiles*/
+
 @media only screen and ( max-width: 767px) {
     .newsblock {
         width: 90%;
