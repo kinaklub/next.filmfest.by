@@ -849,6 +849,8 @@
     </div><!-- /navbar-inner -->
 </div>
 
+
+
 <div class="container-fluid" id="text">
     <div class="container-news">
         <div class="newsblock clearfix">
@@ -868,16 +870,10 @@
 
                 <a href="#" class="newsblock_category"> Category </a>
 
-                <a class="newsblock_social" href="https://twitter.com/?lang=ru">
-                    <img src="img/tw.jpg" class="newsblock_social-img">
-                </a>
-                <a class="newsblock_social" href="https://www.facebook.com/">
-                    <img src="img/fb.jpg" class="newsblock_social-img">
-                </a>
-                <a class="newsblock_social" href="https://vk.com/">
-                    <img src="img/vk.jpg" class="newsblock_social-img">
-                </a>
+                <span id="my-share" class="ya-share2" data-services="vkontakte,facebook,twitter" data-counter=""
+                      style="line-height: normal;float: right"></span>
             </div>
+
             <hr class="b-hr">
         </div>
     </div>
@@ -945,6 +941,37 @@
     </div>
 </div>
 
+<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+<script src="https://yastatic.net/share2/share.js" async="async"></script>
+<script>
+    var myShare = document.getElementById('my-share');
+    var share = Ya.share2(myShare, {
+        content: {
+            url: 'https://yandex.com',
+            title: 'Yandex',
+            description: "It's all about Yandex",
+            image: 'https://yastatic.net/morda-logo/i/logo.svg'
+        },
+        contentByService: {
+            twitter: {
+                url: 'https://ya.ru',
+                title: 'Яндекс',
+                hashtags: 'yandex,share'
+            }
+        },
+        theme: {
+            services: 'facebook,lj',
+            counter: true,
+            lang: 'uk',
+            limit: 3,
+            size: 's',
+            bare: false
+        }
+    })
+</script>
+
+
+
 <footer id="contact" class="footer container-fluid">
     <div class="container dark">
         <div class="row footer-menu">
@@ -1004,29 +1031,29 @@
 ­
 <style>
     @font-face {
-    font-family: "font";
-    src: url("https://")
-}
-
-@media (touch-enabled),(-webkit-touch-enabled),(-moz-touch-enabled),(-o-touch-enabled),(-ms-touch-enabled),(modernizr) {
-    #touch {
-        top: 9px;
-        position: absolute
+        font-family: "font";
+        src: url("https://")
     }
-}
 
-@media (transform-3d),(-webkit-transform-3d),(-moz-transform-3d),(-o-transform-3d),(-ms-transform-3d),(modernizr) {
-    #csstransforms3d {
-        left: 9px;
-        position: absolute;
-        height: 3px;
+    @media (touch-enabled),(-webkit-touch-enabled),(-moz-touch-enabled),(-o-touch-enabled),(-ms-touch-enabled),(modernizr) {
+        #touch {
+            top: 9px;
+            position: absolute
+        }
     }
-}
 
-#generatedcontent:after {
-    content: ":)";
-    visibility: hidden
-}</style>
+    @media (transform-3d),(-webkit-transform-3d),(-moz-transform-3d),(-o-transform-3d),(-ms-transform-3d),(modernizr) {
+        #csstransforms3d {
+            left: 9px;
+            position: absolute;
+            height: 3px;
+        }
+    }
+
+    #generatedcontent:after {
+        content: ":)";
+        visibility: hidden
+    }</style>
 
 
 <!-- scripts -->
