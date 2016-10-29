@@ -70,7 +70,7 @@ def add_jury_member_pages(apps, schema_editor):
 
     for item in _get_data():
         photo = Image(title=item['title'], collection=collection_id)
-        with open(_get_photo_path(item['photo'])) as photo_file:
+        with open(_get_photo_path(item['photo']), 'rb') as photo_file:
             photo.file.save(name=item['photo'], content=File(photo_file))
             photo.save()
 

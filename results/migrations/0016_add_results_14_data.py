@@ -41,7 +41,7 @@ def add_jury_member_pages(apps, schema_editor):
         photo_file = os.path.join(MIGRATION_DIR, item['photo'])
         photo.file.save(
             name=item['title'] + os.extsep + item['photo_ext'],
-            content=File(open(photo_file, 'r'))
+            content=File(open(photo_file, 'rb'))
         )
         photo.save()
 
