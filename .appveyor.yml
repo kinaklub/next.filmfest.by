@@ -1,0 +1,7 @@
+version: "{build}"
+
+build_script:
+- cmd: |-
+    python -m virtualenv .v
+    .v\Scripts\pip.exe install -r requirements/dev.txt
+    .v\Scripts\python.exe manage.py migrate
