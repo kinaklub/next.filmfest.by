@@ -54,7 +54,7 @@
 }
 
 .newsblock_link {
-    color: #d54872 !important;
+    color: #d54872;
     margin: 0;
     padding: 0;
     border: 0;
@@ -65,7 +65,7 @@
 }
 
 .newsblock_link:hover {
-    color: #8d2040 !important;
+    color: #8d2040 ;
 }
 
 .newsblock_text {
@@ -90,7 +90,7 @@
 }
 
 .newsblock_category {
-    color: #606061 !important;
+    color: #606061;
     display: inline-block;
     margin: 0 12px 0 0;
     font-size: 12px;
