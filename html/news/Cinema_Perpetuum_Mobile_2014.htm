@@ -870,7 +870,7 @@
 
                 <a href="#" class="newsblock_category"> Category </a>
 
-                <span id="my-share" class="ya-share2" data-services="vkontakte,facebook,twitter" data-counter=""
+                <span id="my-share" class="ya-share2"  data-counter=""
                       style="line-height: normal;float: right"></span>
             </div>
 
@@ -941,10 +941,10 @@
     </div>
 </div>
 
-<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
-<script src="https://yastatic.net/share2/share.js" async="async"></script>
+<script src="https://yastatic.net/share2/share.js" ></script>
 <script>
     var myShare = document.getElementById('my-share');
+    // we can use different versions of api for be,en,ru locales
     var share = Ya.share2(myShare, {
         content: {
             url: 'https://yandex.com',
@@ -960,9 +960,9 @@
             }
         },
         theme: {
-            services: 'facebook,lj',
+            services: 'vkontakte,facebook',
             counter: true,
-            lang: 'uk',
+            lang: 'be',
             limit: 3,
             size: 's',
             bare: false
