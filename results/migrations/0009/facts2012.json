@@ -1,65 +1,65 @@
 [
     {
+        "caption_ru": "январь",
         "position_en": "b",
-        "caption_be": "\u0441\u0442\u0443\u0434\u0437\u0435\u043d\u044c",
-        "caption_ru": "\u044f\u043d\u0432\u0430\u0440\u044c",
-        "caption_en": "january",
+        "position_ru": "b",
         "number": "2012",
-        "position_be": "b",
-        "position_ru": "b"
+        "caption_be": "студзень",
+        "caption_en": "january",
+        "position_be": "b"
     },
     {
+        "caption_ru": "дней",
         "position_en": "b",
-        "caption_be": "\u0434\u0437\u0451\u043d",
-        "caption_ru": "\u0434\u043d\u0435\u0439",
-        "caption_en": "days",
+        "position_ru": "b",
         "number": "7",
-        "position_be": "b",
-        "position_ru": "b"
+        "caption_be": "дзён",
+        "caption_en": "days",
+        "position_be": "b"
     },
     {
+        "caption_ru": "стран",
         "position_en": "b",
-        "caption_be": "\u043a\u0440\u0430\u0456\u043d\u044b",
-        "caption_ru": "\u0441\u0442\u0440\u0430\u043d",
-        "caption_en": "countries",
+        "position_ru": "b",
         "number": "35",
-        "position_be": "b",
-        "position_ru": "b"
+        "caption_be": "краіны",
+        "caption_en": "countries",
+        "position_be": "b"
     },
     {
+        "caption_ru": "участников",
         "position_en": "b",
-        "caption_be": "\u0443\u0434\u0437\u0435\u043b\u044c\u043d\u0456\u043a\u0430\u045e",
-        "caption_ru": "\u0443\u0447\u0430\u0441\u0442\u043d\u0438\u043a\u043e\u0432",
-        "caption_en": "participants",
+        "position_ru": "b",
         "number": "197",
-        "position_be": "b",
-        "position_ru": "b"
+        "caption_be": "удзельнікаў",
+        "caption_en": "participants",
+        "position_be": "b"
     },
     {
+        "caption_ru": "бюджет",
         "position_en": "t",
-        "caption_be": "\u0431\u044e\u0434\u0436\u044d\u0442",
-        "caption_ru": "\u0431\u044e\u0434\u0436\u0435\u0442",
-        "caption_en": "budget",
+        "position_ru": "t",
         "number": "$0",
-        "position_be": "t",
-        "position_ru": "t"
+        "caption_be": "бюджэт",
+        "caption_en": "budget",
+        "position_be": "t"
     },
     {
+        "caption_ru": "членов жюри",
         "position_en": "b",
-        "caption_be": "\u0447\u043b\u0435\u043d\u0430\u045e \u0436\u0443\u0440\u044b",
-        "caption_ru": "\u0447\u043b\u0435\u043d\u043e\u0432 \u0436\u044e\u0440\u0438",
-        "caption_en": "jury members",
+        "position_ru": "b",
         "number": "9",
-        "position_be": "b",
-        "position_ru": "b"
+        "caption_be": "членаў журы",
+        "caption_en": "jury members",
+        "position_be": "b"
     },
     {
+        "caption_ru": "волонтера",
         "position_en": "b",
-        "caption_be": "\u0432\u0430\u043b\u0430\u043d\u0446\u0451\u0440\u0430",
-        "caption_ru": "\u0432\u043e\u043b\u043e\u043d\u0442\u0435\u0440\u0430",
-        "caption_en": "volunteers",
+        "position_ru": "b",
         "number": "42",
-        "position_be": "b",
-        "position_ru": "b"
+        "caption_be": "валанцёра",
+        "caption_en": "volunteers",
+        "position_be": "b"
     }
 ]

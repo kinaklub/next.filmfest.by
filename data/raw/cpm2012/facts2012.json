@@ -1,0 +1,65 @@
+[
+    {
+        "caption_ru": "январь",
+        "position_en": "b",
+        "position_ru": "b",
+        "number": "2012",
+        "caption_be": "студзень",
+        "caption_en": "january",
+        "position_be": "b"
+    },
+    {
+        "caption_ru": "дней",
+        "position_en": "b",
+        "position_ru": "b",
+        "number": "7",
+        "caption_be": "дзён",
+        "caption_en": "days",
+        "position_be": "b"
+    },
+    {
+        "caption_ru": "стран",
+        "position_en": "b",
+        "position_ru": "b",
+        "number": "35",
+        "caption_be": "краіны",
+        "caption_en": "countries",
+        "position_be": "b"
+    },
+    {
+        "caption_ru": "участников",
+        "position_en": "b",
+        "position_ru": "b",
+        "number": "197",
+        "caption_be": "удзельнікаў",
+        "caption_en": "participants",
+        "position_be": "b"
+    },
+    {
+        "caption_ru": "бюджет",
+        "position_en": "t",
+        "position_ru": "t",
+        "number": "$0",
+        "caption_be": "бюджэт",
+        "caption_en": "budget",
+        "position_be": "t"
+    },
+    {
+        "caption_ru": "членов жюри",
+        "position_en": "b",
+        "position_ru": "b",
+        "number": "9",
+        "caption_be": "членаў журы",
+        "caption_en": "jury members",
+        "position_be": "b"
+    },
+    {
+        "caption_ru": "волонтера",
+        "position_en": "b",
+        "position_ru": "b",
+        "number": "42",
+        "caption_be": "валанцёра",
+        "caption_en": "volunteers",
+        "position_be": "b"
+    }
+]
