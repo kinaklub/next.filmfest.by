@@ -8,10 +8,38 @@ const image_downloader = require('image-downloader')
 const config = require('./config')
 
 // data
-const translations = require('./public/translations.json')
-const submissions = require('./public/submissions.json')
+let allTranslations = require(`${config.public_dir}translations.json`)
+let allSubmissions = require(`${config.public_dir}submissions.json`)
+
+const films2015 = [
+    835,
+    1875,
+    1178,
+    1248,
+    1248,
+    1131,
+    1228,
+    1585,
+    1850,
+    1165,
+    1407,
+    1405,
+    1179,
+    1159,
+    2066
+]
 
 const noTranslationsId = new Set()
+
+const year = '2015'
+const ids = films2015
+const submissions = allSubmissions.filter((s) => ids.findIndex(tId => tId === s.id) > -1)
+
+const translations = {}
+ids.forEach(function (id) {
+    translations[id] = allTranslations[id]
+})
+
 
 // fix for incomplete translations
 // filter to avoid
@@ -23,7 +51,6 @@ Object.keys(translations).forEach(function (id) {
     const langs = _.difference(ALL_LANGS, Object.keys(t))
 
     if (langs.length > 0) {
-        console.log(id, langs)
         noTranslationsId.add({
             id,
             langs
@@ -63,30 +90,6 @@ const translate = (id, lang, key) => {
 
     return res[key]
 }
-
-
-let films = require(`${config.public_dir}submissions.json`)
-const films2015 = [
-    835,
-    1875,
-    1178,
-    1248,
-    1248,
-    1131,
-    1228,
-    1585,
-    1850,
-    1165,
-    1407,
-    1405,
-    1179,
-    1159,
-    2066
-]
-const year = '2015'
-const ids = films2015
-films = films.filter((s) => ids.findIndex(tId => tId === s.id) > -1)
-
 
 const templateNextFilm = {
     film_title_ru: '',
@@ -171,19 +174,23 @@ const transform = (lang, film) => {
 
 _(['ru', 'en', 'be'])
     .each((lang) => {
-              _(films).each(transform.bind(null, lang))
+              _(submissions).each(transform.bind(null, lang))
           })
 
-const nFilms = _.map(films, (film) => {
+const nFilms = _.map(submissions, (film) => {
     return  _.pick(film, _.keys(templateNextFilm))
 })
 
 //var rawDataDir = `./../../data/raw/cpm${year}/`
-
-
-
 fse.ensureDir(`${config.public_dir}`, function (err) {
     if (err !== null) console.log(err) // => null
     // dir has now been created, including the directory it is to be placed in
-
+    fs.writeFile(`${config.public_dir}films_${year}.json`, JSON.stringify(nFilms, 0, 4), (err) => {
+        if (err) throw err
+        const noLangIds = Array.from(noTranslationsId).filter(e => {
+            return ids.includes(parseInt(e.id))
+        })
+        console.log('no translations: \n', noLangIds)
+        console.log('It\'s saved!')
+    })
 })
