@@ -6,3 +6,16 @@ test_db.sqlite3
 
 .tox
 .cache
+
+.idea/
+.ipynb_checkpoints/
+next.filmfest.by.iml
+*.ipynb
+./*.json
+
+scripts/films.json_to_next_raw_data/node_modules/*
+scripts/films.json_to_next_raw_data/private/*
+
+tests/__pycache__/*
+tests/test_cpm_generic/__pycache__/*
+
