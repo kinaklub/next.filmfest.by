@@ -1,56 +1,45 @@
 const fs = require('fs')
-const fse = require('fs-extra');
-const http = require('http');
-const path = require('path');
+const path = require('path')
+
+var Curl = require('node-libcurl').Curl
+
+const curl = new Curl()
 
 const downloadJson = (config) => {
-    const promise = new Promise(function (resolve, reject) {
-        http.get({
+  const promise = new Promise(function (resolve, reject) {
+    const file = path.join(config.submission_dir, 'submissions.json')
+    const stream = fs.createWriteStream(file)
 
-            host: config.domain,
-            path: config.submissions_api_path,
-            auth: `${config.user}:${config.pass}`
-        }, (res) => {
-            const statusCode = res.statusCode;
-            const contentType = res.headers['content-type'];
+    stream.cork()
 
-            let error;
-            if (statusCode !== 200) {
-                error = new Error(`Request Failed.\n` +
-                    `Status Code: ${statusCode}`);
-            } else if (!/^application\/json/.test(contentType)) {
-                error = new Error(`Invalid content-type.\n` +
-                    `Expected application/json but received ${contentType}`);
-            }
-            if (error) {
-                console.log(error);
-                // consume response data to free up memory
-                res.resume();
-                return;
-            }
+    curl.setOpt(Curl.option.URL, `${config.domain}/${config.submissions_api_path}`)
+    curl.setOpt(Curl.option.USERNAME, `${config.user}`)
+    curl.setOpt(Curl.option.PASSWORD, `${config.pass}`)
 
-            const file = path.join(config.submission_dir, 'submissions.json');
-            const stream = fs.createWriteStream(file);
-            stream.cork();
+    curl.on('data', function (chunk) {
+      stream.write(chunk)
+    })
 
-            res.on('data', function (chunk) {
-                stream.write(chunk)
-            });
-            res.on('end', function () {
-                stream.uncork();
-                stream.end();
 
-                resolve(fs.readdirSync(SUBMISSIONS_DIR))
-            });
-        }).on('error', (e) => {
-            console.log(`Got error: ${e.message}`, e);
-            throw e
-        })
-    });
+    curl.on('end', function () {
+      stream.uncork()
+      stream.end()
+      curl.close()
 
-    return promise;
-};
+      resolve(fs.readFileSync(`${config.submission_dir}submissions.json`))
+    })
+    curl.on('error', function (err) {
+      curl.close()
+      stream.uncork()
+      stream.end()
+      console.log('error on curl', err)
+    })
+    curl.perform()
+  })
+
+  return promise
+}
 
 module.exports = {
-    downloadJson
+  downloadJson,
 }
