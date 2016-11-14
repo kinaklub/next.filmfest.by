@@ -28,10 +28,26 @@ const films2015 = [
   2066,
 ]
 
+const films2016 = [
+  2263,
+  2336,
+  2663,
+  2417,
+  2587,
+  2408,
+  3144,
+  2383,
+  3152,
+  2120,
+  2404,
+  3173,
+  2626,
+]
+
 const noTranslationsId = new Set()
 
-const year = '2015'
-const ids = films2015
+const year = '2016'
+const ids = films2016
 const submissions = allSubmissions.filter((s) => ids.findIndex(tId => tId === s.id) > -1)
 
 const translations = {}
@@ -88,7 +104,13 @@ const translate = (id, lang, key) => {
   }
   const res = translations[id][lang]
 
-  if (!res) throw new Error(`no films in translations ${key}, ${id}, ${lang}`)
+  if (!res) {
+    if (lang === 'be') {
+      return translations[id]['ru']
+    } else {
+      throw new Error(`no films in translations ${key}, ${id}, ${lang}`)
+    }
+  }
 
   return res[key]
 }
@@ -128,7 +150,7 @@ const saveImage = (id) => {
     const options = {
       url: `http://filmfest.by/media/screenshots/${id}.jpg`,
       dest: `${IMAGE_DIR}/${year}/`,
-      done: function (err, /* filename, image */) {
+      done: function (err, filename, image) {
         if (err) {
           throw err
         }
