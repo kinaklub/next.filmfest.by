@@ -7,8 +7,51 @@ const imageDownloader = require('image-downloader')
 const config = require('./config')
 
 // data
+let translations2014 = require(`${config.public_dir}trans_2014.json`)
 let allTranslations = require(`${config.public_dir}translations.json`)
 let allSubmissions = require(`${config.public_dir}submissions.json`)
+console.log('submissions: ', allSubmissions.length)
+
+function adapterToTranslations (id) {
+  const trans = translations2014.filter(t2014 => t2014.submission_id === id)
+
+  const translation = trans.reduce(function (tr, langT) {
+    tr[langT.language] = {
+      language: langT.language,
+      director: langT.director,
+      title: langT.title,
+      synopsis: langT.synopsis,
+      synopsis_short: langT.synopsis_short,
+      genre: langT.genre,
+    }
+    return tr
+  }, {})
+
+  return translation
+}
+
+const films2014 = [
+  585,
+  759,
+  815,
+  231,
+  996,
+  815,
+  400,
+  987,
+  614,
+  812,
+  759,
+  247,
+  1037,
+  841,
+  538,
+]
+
+films2014.forEach(function (id) {
+  const transformedTranslation = adapterToTranslations(id)
+  allTranslations[id] = transformedTranslation
+})
 
 const films2015 = [
   835,
@@ -46,9 +89,10 @@ const films2016 = [
 
 const noTranslationsId = new Set()
 
-const year = '2016'
-const ids = films2016
+const year = '2014'
+const ids = films2014
 const submissions = allSubmissions.filter((s) => ids.findIndex(tId => tId === s.id) > -1)
+console.log(`found ${submissions.length} for ${year}`)
 
 const translations = {}
 ids.forEach(function (id) {
@@ -63,8 +107,27 @@ const ALL_LANGS = [
   'be',
 ]
 Object.keys(translations).forEach(function (id) {
-  const t = translations[id]
+  let t = translations[id]
   const s = submissions.find(s => (s.id === parseInt(id)))
+
+  if (!t) {
+    t = {}
+    noTranslationsId.add({
+      id,
+      langs: ALL_LANGS,
+    })
+    t['en'] = t['ru'] = t['be'] = {
+      language: s.language,
+      director: s.director,
+      title: s.title,
+      synopsis: s.synopsis,
+      synopsis_short: s.synopsis,
+      genre: s.genre,
+    }
+    t['en'].title = s.title_en
+
+    return
+  }
 
   const langs = _.difference(ALL_LANGS, Object.keys(t))
 
@@ -94,6 +157,10 @@ Object.keys(translations).forEach(function (id) {
         genre: s.genre,
       }
     }
+
+    if (langs.includes('be')) {
+      t['be'] = t['ru'] || t['en']
+    }
   }
 })
 
@@ -102,14 +169,18 @@ const translate = (id, lang, key) => {
     console.log(`no translation for ${id}`)
     return 'no translation'
   }
-  const res = translations[id][lang]
+  let res = translations[id][lang]
 
   if (!res) {
     if (lang === 'be') {
-      return translations[id]['ru']
-    } else {
-      throw new Error(`no films in translations ${key}, ${id}, ${lang}`)
+      res = translations[id]['ru']
+    } else if (lang === 'ru') {
+      res = translations[id]['be'] || translations[id]['en']
     }
+  }
+
+  if (!res) {
+    throw new Error(`no films in translations ${key}, ${id}, ${lang}`)
   }
 
   return res[key]

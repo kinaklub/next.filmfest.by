@@ -48,35 +48,56 @@ const ensure = new Promise(function (resolve, reject) {
   })
 })
 
-const getSubmissions = new Promise(function (resolve, reject) {
-  // download.downloadJson(config),
-  const subms = require('./private/submissions')
-  resolve(subms)
-})
+const getSubmissions = function (input = './private/submissions.json') {
+  const promise = new Promise(function (resolve, reject) {
+    // download.downloadJson(config),
+    let subms = []
+    if (Array.isArray(input)) {
+      subms = input.reduce(function (res, inp) {
+        var submArray = require(inp)
+        return res.concat(submArray)
+      }, subms)
+    } else {
+      subms = require(input)
+    }
 
-Promise.all([
-  getSubmissions,
-  ensure,
-]).then(function ([ submissions, ]) {
-  const cleanSubms = submissions.map(s => {
-    var publicSubm = {}
+    resolve(subms)
+  })
 
-    publicFields.forEach(field => {
-      publicSubm[field] = s[field]
+  return promise
+}
+
+
+module.exports = {
+  clean: function (input, output = 'submissions') {
+    Promise.all([
+      getSubmissions(input),
+      ensure,
+    ]).then(function ([ submissions, ]) {
+      const cleanSubms = submissions.map(s => {
+        var publicSubm = {}
+
+        publicFields.forEach(field => {
+          publicSubm[field] = s[field]
+          // need for submissions from xslx
+          if (field === 'id') {
+            publicSubm[field] = parseInt(s[field])
+          }
+        })
+        return publicSubm
+      })
+
+      fs.writeFile(`${publicDir}/${output}.json`, JSON.stringify(cleanSubms, 0, 4), (err) => {
+        if (err) throw err
+        console.log('Public submissions are saved!')
+      }, function (err) {
+        console.log('Error on writing submissions')
+        console.log(err)
+      })
+    }, function (err) {
+      console.log('error inside all', err)
+      throw err
     })
-
-    return publicSubm
-  })
-
-  fs.writeFile(`${publicDir}/submissions.json`, JSON.stringify(cleanSubms, 0, 4), (err) => {
-    if (err) throw err
-    console.log('Public submissions are saved!')
-  }, function (err) {
-    console.log('Error on writing submissions')
-    console.log(err)
-  })
-}, function (err) {
-  console.log('error inside all', err)
-  throw err
-})
+  },
+}
 
