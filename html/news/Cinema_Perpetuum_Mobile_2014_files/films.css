@@ -1,0 +1,106 @@
+
+.film_prize, .film_title {
+    font-weight: bold;
+}
+
+.film_prize {
+    vertical-align: baseline;
+    text-align: center;
+}
+
+.film_still {
+    min-width: 160px;
+    min-height: 120px;
+    max-width: 320px;
+    max-height: 240px;
+}
+
+.jury_member {
+    position: relative;
+}
+.film_director {
+    font-style: italic;
+}
+
+.jury_photo {
+    display: block;
+    width: 300px;
+    height: 300px;
+}
+.name_wrp {
+    margin: 0px;
+    position: absolute;
+    bottom: 0px;
+    /*top: 0px;*/
+    right: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    max-height: 60px;
+}
+.jury_name {
+    margin: 0px;
+}
+
+.jury_member .jury_details {
+    width: 860px;
+    margin-left: -420px;
+}
+
+.jury_name-details {
+    font-weight: bold;
+    padding-bottom: 20px;
+    font-size: 20px;
+}ul.jury {
+     list-style-type: none;
+     padding: 0px;
+     margin: 0px;
+ }
+
+.jury_member {
+    position: relative;
+}
+
+.jury_photo {
+    display: block;
+    width: 300px;
+    height: 300px;
+    -webkit-filter: grayscale(90%);
+    -webkit-transition : -webkit-filter 300ms linear;
+    opacity: 0.6;
+    transition: opacity 300ms linear;
+
+}
+.jury_photo:hover {
+    -webkit-filter: grayscale(0%);
+    opacity: 1;
+}
+.name_wrp {
+    margin: 0px;
+    position: absolute;
+    bottom: 0px;
+    /*top: 0px;*/
+    right: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    max-height: 75px;
+}
+.jury_name {
+    margin: 0px;
+}
+
+.jury_member .jury_details {
+    width: 860px;
+    margin-left: -420px;
+}
+
+.jury_name-details {
+    font-weight: bold;
+    padding-bottom: 20px;
+    font-size: 20px;
+}
