@@ -1,0 +1,14 @@
+{
+  "name": "jury-converter-2016",
+  "version": "1.0.0",
+  "description": "Converter from 2016 json format to new flat json format.",
+  "main": "jury-converter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eugene Petkevich",
+  "license": "MIT",
+  "dependencies": {
+    "argparse": "~1.0.9"
+  }
+}

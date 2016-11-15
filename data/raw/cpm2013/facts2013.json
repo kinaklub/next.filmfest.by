@@ -1,0 +1,83 @@
+[
+    {
+        "caption_ru": "январь",
+        "position_en": "b",
+        "position_ru": "b",
+        "number": "2013",
+        "caption_be": "студзень",
+        "caption_en": "january",
+        "position_be": "b"
+    },
+    {
+        "caption_ru": "дней",
+        "position_en": "b",
+        "position_ru": "b",
+        "number": "8",
+        "caption_be": "дзён",
+        "caption_en": "days",
+        "position_be": "b"
+    },
+    {
+        "caption_ru": "стран",
+        "position_en": "b",
+        "position_ru": "b",
+        "number": "42",
+        "caption_be": "краіны",
+        "caption_en": "countries",
+        "position_be": "b"
+    },
+    {
+        "caption_ru": "участников",
+        "position_en": "b",
+        "position_ru": "b",
+        "number": "320",
+        "caption_be": "удзельнікаў",
+        "caption_en": "participants",
+        "position_be": "b"
+    },
+    {
+        "caption_ru": "бюджет",
+        "position_en": "t",
+        "position_ru": "t",
+        "number": "$500",
+        "caption_be": "бюджэт",
+        "caption_en": "budget",
+        "position_be": "t"
+    },
+    {
+        "caption_ru": "членов жюри",
+        "position_en": "b",
+        "position_ru": "b",
+        "number": "9",
+        "caption_be": "членаў журы",
+        "caption_en": "jury members",
+        "position_be": "b"
+    },
+    {
+        "caption_ru": "волонтеров",
+        "position_en": "b",
+        "position_ru": "b",
+        "number": "150",
+        "caption_be": "валанцёраў",
+        "caption_en": "volunteers",
+        "position_be": "b"
+    },
+    {
+        "caption_ru": "площадок",
+        "position_en": "b",
+        "position_ru": "b",
+        "number": "8",
+        "caption_be": "пляцовак",
+        "caption_en": "showing stages",
+        "position_be": "b"
+    },
+    {
+        "caption_ru": "стран-участников междунарожных показов",
+        "position_en": "b",
+        "position_ru": "b",
+        "number": "15",
+        "caption_be": "краін-удзельнікаў міжнародных паказаў ",
+        "caption_en": "coutries participated in international screenings",
+        "position_be": "b"
+    }
+]

@@ -870,7 +870,11 @@
 
                 <a href="#" class="newsblock_category"> Category </a>
 
+<<<<<<< HEAD
                 <span id="my-share"
+=======
+                <span id="my-share" class="ya-share2"  data-counter=""
+>>>>>>> 2c3ef832420ef0e915e96623c710d5ca2ae257cb
                       style="line-height: normal;float: right"></span>
             </div>
 <!--class="ya-share2" data-services="vkontakte,facebook,twitter" data-counter=""-->
@@ -967,6 +971,7 @@
 
 
     var myShare = document.getElementById('my-share');
+    // we can use different versions of api for be,en,ru locales
     var share = Ya.share2(myShare, {
         content: {
             url: 'http://filmfest.by/ru/',
@@ -982,9 +987,15 @@
             }
         },
         theme: {
+<<<<<<< HEAD
             services: "vkontakte,facebook,twitter",
             counter: true,
             lang: 'ru',
+=======
+            services: 'vkontakte,facebook',
+            counter: true,
+            lang: 'be',
+>>>>>>> 2c3ef832420ef0e915e96623c710d5ca2ae257cb
             limit: 3,
             size: 'm',
             bare: false
