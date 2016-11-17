@@ -1,6 +1,6 @@
 # scripts for filmfest.by
 
-Here we aggregate scripts which helps to process Cinema Perpetuum Modile festival data for new webstite
+Here we aggregate scripts which help to process Cinema Perpetuum Modile festival data for new website
  
 # scripts list
 
