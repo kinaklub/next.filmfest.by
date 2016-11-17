@@ -3,7 +3,7 @@
 media
 db.sqlite3
 test_db.sqlite3
-tests/__pycache__/
+__pycache__
 .tox
 .cache
 
@@ -19,8 +19,9 @@ next.filmfest.by.iml
 *.ipynb
 
 # exclude node files
-scripts/films.json_to_next_raw_data/node_modules/*
-scripts/films.json_to_next_raw_data/private/*
+scripts/films.json_to_next_raw_data/node_modules/
+scripts/films.json_to_next_raw_data/private/
+scripts/films.json_to_next_raw_data/result/
 scripts/films.json_to_next_raw_data/secret.js
 
 
