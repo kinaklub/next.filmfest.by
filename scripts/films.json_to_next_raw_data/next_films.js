@@ -89,14 +89,14 @@ const films2016 = [
 
 const noTranslationsId = new Set()
 
-const year = '2014'
-const ids = films2014
+const year = '2015'
+const ids = films2015
 const submissions = allSubmissions.filter((s) => ids.findIndex(tId => tId === s.id) > -1)
 console.log(`found ${submissions.length} for ${year}`)
 
 const translations = {}
 ids.forEach(function (id) {
-  translations[id] = allTranslations[id]
+  translations[id] = allTranslations[parseInt(id)]
 })
 
 // fix for incomplete translations
@@ -108,7 +108,7 @@ const ALL_LANGS = [
 ]
 Object.keys(translations).forEach(function (id) {
   let t = translations[id]
-  const s = submissions.find(s => (s.id === parseInt(id)))
+  const s = submissions.find(s => (parseInt(s.id) === parseInt(id)))
 
   if (!t) {
     t = {}
