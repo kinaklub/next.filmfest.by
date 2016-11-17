@@ -3,20 +3,25 @@
 media
 db.sqlite3
 test_db.sqlite3
-
+tests/__pycache__/
 .tox
 .cache
 
+# exclude idea ide files
 .idea/
-.ipynb_checkpoints/
 next.filmfest.by.iml
-*.ipynb
-./*.json
 
+# exclude root json data files added by accedent
+/*.json
+
+# exclude any ipython notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# exclude node files
 scripts/films.json_to_next_raw_data/node_modules/*
 scripts/films.json_to_next_raw_data/private/*
 scripts/films.json_to_next_raw_data/secret.js
 
-tests/__pycache__/*
-tests/test_cpm_generic/__pycache__/*
+
 
