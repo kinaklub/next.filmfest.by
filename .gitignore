@@ -11,9 +11,6 @@ __pycache__
 .idea/
 next.filmfest.by.iml
 
-# exclude root json data files added by accedent
-/*.json
-
 # exclude any ipython notebooks
 .ipynb_checkpoints/
 *.ipynb
