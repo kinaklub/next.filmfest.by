@@ -92,3 +92,34 @@ li.jury_member {
     width: 860px;
     margin-left: -420px;
 }
+
+
+
+.facts {
+    position: relative;
+    background: #ffffff;
+    /*left: 100px;*/
+    width: 200px;
+}
+
+.fact {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: normal;
+    padding: 15px 0;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    border-bottom: 1px solid #AAAAAA;
+}
+.fact strong {
+    display: block;
+    font-size: 75px;
+    line-height: 75px;
+}
+
+.results td {
+    vertical-align: middle;
+    text-align: center;
+}
