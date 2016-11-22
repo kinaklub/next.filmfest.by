@@ -10,7 +10,7 @@
 {% block body_class %}template-blogindexpage{% endblock %}
 
 {% block content %}
-
+<div class="row">
   <div class="span9">
 
     <h1>{{ self.caption }}</h1>
@@ -56,6 +56,7 @@
                     {% image jury_member.photo max-300x300 as tmp_photo %}
 {#                    {% image jury_member.photo width-300 %}#}
                     <a style="background-image:url({{ tmp_photo.url }});" href="#{{ jury_member.slug }}" data-toggle="modal" class="jury_photo">
+{#                         <img src="{{ tmp_photo.url }}" />#}
 {#                        {% image jury_member.photo width-400 %}#}
 {#                        {% image jury_member.photo width-300 %}#}
                     </a>
@@ -104,6 +105,6 @@
     {% endfor %}
 
   </div>
-
+</div>
 {% endblock %}
 
