@@ -57,7 +57,7 @@ def get_film_frame(apps, item):
     return frame
 
 
-def create_film_pages(apps):
+def create_film_index_page(apps):
     index_page_ct = get_content_type(apps, 'cpm_generic', 'indexpage')
 
     IndexPage = apps.get_model('cpm_generic.IndexPage')
@@ -69,6 +69,12 @@ def create_film_pages(apps):
         content_type=index_page_ct,
         **_get_filmsindex_kw()
     )
+
+    return filmsindex_page
+
+
+def create_film_pages(apps):
+    filmsindex_page = create_film_index_page(apps)
 
     FilmPage = apps.get_model("results.FilmPage")
     film_page_ct = get_content_type(apps, 'results', 'filmpage')
@@ -114,20 +120,10 @@ def create_film_pages(apps):
 
 
 def get_results_page(apps):
-    page_kwargs = dict(
-        title=u'Results 2012',
-        slug='results2012',
-        caption_en='2012: how it was',
-        caption_be='2012: як гэта было',
-        caption_ru='2012: как это было',
-    )
-
     ResultsPage = apps.get_model('results.ResultsPage')
     results2012_page = ResultsPage.objects.get(slug='results2012')
 
     return results2012_page
-
-
 
 
 def add_films_pages(apps, schema_editor):
@@ -161,7 +157,6 @@ def _get_film_kw(item):
 def remove_films_pages(apps, schema_editor):
     Image = get_image_model(apps)
     Collection = apps.get_model('wagtailcore.Collection')
-    IndexPage = apps.get_model('cpm_generic.IndexPage')
     FilmPage = apps.get_model("results.FilmPage")
     ResultsRelatedWinner = apps.get_model('results.ResultsRelatedWinner')
 
@@ -171,7 +166,7 @@ def remove_films_pages(apps, schema_editor):
     HomePage = apps.get_model('home.HomePage')
     homepage = HomePage.objects.get(slug='home')
 
-    results_page_ct = get_content_type(apps, 'results', 'resultspage')
+    IndexPage = apps.get_model('cpm_generic.IndexPage')
     filmsindex_page = IndexPage.objects.get(slug='films')
     films2012_data = get_films_2012_data()
 
@@ -199,10 +194,11 @@ def remove_films_pages(apps, schema_editor):
             **_get_film_kw(item)
         )
 
+    index_page_ct = get_content_type(apps, 'cpm_generic', 'indexpage')
     remove_subpage(
         homepage,
         IndexPage,
-        content_type=results_page_ct,
+        content_type=index_page_ct,
         slug='films',
     )
 
