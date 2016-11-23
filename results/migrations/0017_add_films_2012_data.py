@@ -57,7 +57,7 @@ def get_film_frame(apps, item):
     return frame
 
 
-def add_films_pages(apps, schema_editor):
+def create_film_pages(apps):
     index_page_ct = get_content_type(apps, 'cpm_generic', 'indexpage')
 
     IndexPage = apps.get_model('cpm_generic.IndexPage')
@@ -72,12 +72,13 @@ def add_films_pages(apps, schema_editor):
 
     FilmPage = apps.get_model("results.FilmPage")
     film_page_ct = get_content_type(apps, 'results', 'filmpage')
+    pages = []
     for item in get_films_2012_data():
         frame = get_film_frame(apps, item)
         frame.save()
 
         slug = slugify(item['film_title_en'])
-        add_subpage(
+        page = add_subpage(
             parent=filmsindex_page,
             model=FilmPage,
             title=item['film_title_en'],
@@ -94,10 +95,60 @@ def add_films_pages(apps, schema_editor):
             synopsis_en=item['synopsis_en'],
             synopsis_ru=item['synopsis_ru'],
             synopsis_be=item['synopsis_be'],
+            duration_en=item['duration_en'],
+            duration_ru=item['duration_ru'],
+            duration_be=item['duration_be'],
+            city_en=item['city_en'],
+            city_ru=item['city_ru'],
+            city_be=item['city_be'],
             year=item['year'],
+            country=item['country'],
+
             frame=frame,
             content_type=film_page_ct,
         )
+
+        pages.append(page)
+
+    return pages
+
+
+def get_results_page(apps):
+    page_kwargs = dict(
+        title=u'Results 2012',
+        slug='results2012',
+        caption_en='2012: how it was',
+        caption_be='2012: як гэта было',
+        caption_ru='2012: как это было',
+    )
+
+    ResultsPage = apps.get_model('results.ResultsPage')
+    results2012_page = ResultsPage.objects.get(slug='results2012')
+
+    return results2012_page
+
+
+
+
+def add_films_pages(apps, schema_editor):
+    pages = create_film_pages(apps)
+
+    results2012_page = get_results_page(apps)
+
+    ResultsRelatedWinner = apps.get_model('results.ResultsRelatedWinner')
+
+    ResultsRelatedWinner.objects.bulk_create(
+        [
+            ResultsRelatedWinner(
+                sort_order=index,
+                film=film,
+                nomination_en='Perpetuum Mobile',
+                nomination_ru='Perpetuum Mobile',
+                nomination_be='Perpetuum Mobile',
+                page=results2012_page,
+            ) for index, film in enumerate(pages)
+            ]
+    )
 
 
 def _get_film_kw(item):
@@ -112,13 +163,30 @@ def remove_films_pages(apps, schema_editor):
     Collection = apps.get_model('wagtailcore.Collection')
     IndexPage = apps.get_model('cpm_generic.IndexPage')
     FilmPage = apps.get_model("results.FilmPage")
+    ResultsRelatedWinner = apps.get_model('results.ResultsRelatedWinner')
 
-    jury_member_page_ct = get_content_type(apps, 'results', 'filmpage')
+    film_page_ct = get_content_type(apps, 'results', 'filmpage')
     collection_id = Collection.objects.filter(depth=1)[0]
 
-    filmsindex_page = IndexPage.objects.get(slug='films')
+    HomePage = apps.get_model('home.HomePage')
+    homepage = HomePage.objects.get(slug='home')
 
-    for item in get_films_2012_data():
+    results_page_ct = get_content_type(apps, 'results', 'resultspage')
+    filmsindex_page = IndexPage.objects.get(slug='films')
+    films2012_data = get_films_2012_data()
+
+    results2012_page = get_results_page(apps)
+
+    related_film_ids = chain.from_iterable(
+        ResultsRelatedWinner.objects.filter(
+            film=FilmPage.objects.filter(title=item['film_title_en']),
+            page=results2012_page,
+        ).values_list('id', flat=True) for item in films2012_data
+    )
+
+    ResultsRelatedWinner.objects.filter(id__in=related_film_ids).delete()
+
+    for item in films2012_data:
         title = slugify(item['film_title_en'])
         photo = Image.objects.get(title=title,
                                   collection=collection_id)
@@ -127,9 +195,16 @@ def remove_films_pages(apps, schema_editor):
         remove_subpage(
             parent=filmsindex_page,
             model=FilmPage,
-            content_type=jury_member_page_ct,
+            content_type=film_page_ct,
             **_get_film_kw(item)
         )
+
+    remove_subpage(
+        homepage,
+        IndexPage,
+        content_type=results_page_ct,
+        slug='films',
+    )
 
 
 class Migration(migrations.Migration):
