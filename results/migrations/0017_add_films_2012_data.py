@@ -143,7 +143,7 @@ def add_films_pages(apps, schema_editor):
                 nomination_be='Perpetuum Mobile',
                 page=results2012_page,
             ) for index, film in enumerate(pages)
-            ]
+        ]
     )
 
 
