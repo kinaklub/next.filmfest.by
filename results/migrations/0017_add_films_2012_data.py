@@ -146,6 +146,10 @@ def get_results_page(apps):
     return results2012_page
 
 
+def _check_nom(film):
+    return film['n']['nomination_en'] != 'None'
+
+
 def add_films_pages(apps, schema_editor):
     pages = create_film_pages(apps)
 
@@ -153,6 +157,7 @@ def add_films_pages(apps, schema_editor):
 
     ResultsRelatedWinner = apps.get_model('results.ResultsRelatedWinner')
 
+    epages = enumerate(pages)
     ResultsRelatedWinner.objects.bulk_create(
         [
             ResultsRelatedWinner(
@@ -162,7 +167,7 @@ def add_films_pages(apps, schema_editor):
                 nomination_ru='Perpetuum Mobile',
                 nomination_be='Perpetuum Mobile',
                 page=results2012_page,
-            ) for index, film in enumerate(pages) if (film['n']['nomination_en'] != 'None')
+            ) for index, film in epages if (_check_nom(film))
         ]
     )
 
