@@ -26,6 +26,14 @@ def get_films_2012_data():
     return json.load(open(films_json, 'rb'), 'utf8')
 
 
+def get_nominations():
+    nomination_json = os.path.join(
+        MIGRATION_DIR,
+        '0017_add_films_2012_data/nominations2012.json'
+    )
+    return json.load(open(nomination_json, 'rb'), 'utf8')
+
+
 def _get_filmsindex_kw():
     return {
         'title': u'Films',
@@ -78,16 +86,19 @@ def create_film_pages(apps):
 
     FilmPage = apps.get_model("results.FilmPage")
     film_page_ct = get_content_type(apps, 'results', 'filmpage')
+    nominations = get_nominations()
     pages = []
     for item in get_films_2012_data():
         frame = get_film_frame(apps, item)
         frame.save()
 
         slug = slugify(item['film_title_en'])
+        print slug
+        title = item['film_title_en']
         page = add_subpage(
             parent=filmsindex_page,
             model=FilmPage,
-            title=item['film_title_en'],
+            title=title,
             slug=slug,
             film_title_en=item['film_title_en'],
             film_title_ru=item['film_title_ru'],
@@ -113,8 +124,13 @@ def create_film_pages(apps):
             frame=frame,
             content_type=film_page_ct,
         )
+        nomination = next((n for n in nominations if n['film'] == title), 'None')
 
-        pages.append(page)
+
+        pages.append({
+            'p': page,
+            'n': nomination,
+        })
 
     return pages
 
@@ -133,16 +149,17 @@ def add_films_pages(apps, schema_editor):
 
     ResultsRelatedWinner = apps.get_model('results.ResultsRelatedWinner')
 
+    #from pdb import set_trace; set_trace()
     ResultsRelatedWinner.objects.bulk_create(
         [
             ResultsRelatedWinner(
                 sort_order=index,
-                film=film,
-                nomination_en='Perpetuum Mobile',
+                film=film['p'],
+                nomination_en=film['n'],
                 nomination_ru='Perpetuum Mobile',
                 nomination_be='Perpetuum Mobile',
                 page=results2012_page,
-            ) for index, film in enumerate(pages)
+            ) for index, film in enumerate(pages) if (film != 'None')
         ]
     )
 

@@ -25,7 +25,7 @@
 
     <h2 id="winners">{% trans 'Победители' %} </h2>
 
-    {% if self.related_films.all %}
+    {% if self.related_winners.all %}
         <table class="results table table-bordered table-condensed table-hover table-striped">
             <thead>
             <tr>
@@ -35,9 +35,9 @@
             </tr>
             </thead>
             <tbody>
-            {% for film in self.nomination_films.all %}
+            {% for film in self.related_winners.all %}
             <tr>
-                <td><span class="film_prize">{{ film.nomination }} {% trans 'Гран-при' %} </span></td>
+                <td><span class="film_prize">{{ film.nomination }} </span></td>
                 {% image film.frame max-300x300 as film_frame %}
                 <td><img src="{{ film_frame.url }}" class="film_still"></td>
                 <td><span class="film_title"> {{ film.title }} </span><br><span class="film_director"> {{ film.director }} ( {{ film.country }}, {{ film.year }} </span><br><span class="film_duration"> {{ film.genre }} / {{ film.duration }} {% trans 'минут' %} </span><br><br>
@@ -50,6 +50,7 @@
     {% endif %}
 
     {% if self.related_jury_members.all %}
+        <h2 id="jury">{% trans 'Жюри' %} </h2>
         <ul class="jury">
             {% for jury_member in self.related_jury_members.all %}
                 <li class="jury_member span4">
