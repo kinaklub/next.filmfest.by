@@ -124,8 +124,12 @@ def create_film_pages(apps):
             frame=frame,
             content_type=film_page_ct,
         )
-        nomination = next((n for n in nominations if n['film'] == title), 'None')
-
+        nomination = next(
+            (n for n in nominations if slugify(n['film']) == slug),
+            {
+                'nomination_en': 'None'
+            }
+        )
 
         pages.append({
             'p': page,
@@ -149,17 +153,16 @@ def add_films_pages(apps, schema_editor):
 
     ResultsRelatedWinner = apps.get_model('results.ResultsRelatedWinner')
 
-    #from pdb import set_trace; set_trace()
     ResultsRelatedWinner.objects.bulk_create(
         [
             ResultsRelatedWinner(
                 sort_order=index,
                 film=film['p'],
-                nomination_en=film['n'],
+                nomination_en=film['n']['nomination_en'],
                 nomination_ru='Perpetuum Mobile',
                 nomination_be='Perpetuum Mobile',
                 page=results2012_page,
-            ) for index, film in enumerate(pages) if (film != 'None')
+            ) for index, film in enumerate(pages) if (film['n']['nomination_en'] != 'None')
         ]
     )
 
