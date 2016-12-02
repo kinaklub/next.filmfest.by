@@ -7,6 +7,17 @@
 ROOTDIR=$(dirname $(dirname $0))
 cd $ROOTDIR
 
-echo [bootstrap] creating virtualenv in .v
+echo --- [bootstrap] creating virtualenv in .v
 virtualenv .v
 .v/bin/pip install -r requirements/base.txt
+
+echo --- [bootstrap] running migrations
+.v/bin/python manage.py migrate
+
+echo --- [bootstrap] starting server in background
+.v/bin/python manage.py runserver 127.0.0.1:8000 &
+
+echo --- [bootstrap] grabbing site copy
+mkdir _site
+cd _site
+wget -m http://127.0.0.1:8000
