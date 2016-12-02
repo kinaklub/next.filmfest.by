@@ -166,7 +166,7 @@ The command below is usually enough for local testing:
  ```
 
 If Python dependencies have changed recently, one might need to add
-paramter `-r` once:
+parameter `-r` once:
 
  ```
  docker-compose run web test -r
