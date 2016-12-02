@@ -1,5 +1,8 @@
 # consciously added packages
 -r base.txt
+psycopg2==2.6.2
+
+# 
 django-debug-toolbar==1.5
 tox==2.3.1
 
