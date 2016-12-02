@@ -4,8 +4,8 @@
 # for Netlily development previews
 #
 
-BASEDIR=$(dirname $0)
-cd $BASEDIR
+ROOTDIR=$(dirname $(dirname $0))
+cd $ROOTDIR
 
 echo [bootstrap] creating virtualenv in .v
 virtualenv .v
