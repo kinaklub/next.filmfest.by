@@ -11,7 +11,6 @@ def main():
         from subprocess import call
         sys.exit(call('/usr/bin/bash', *sys.argv[2:]))
     else:
-        print(os.environ)
         os.environ.setdefault("DJANGO_SETTINGS_MODULE",
                               "filmfest.settings.dev")
         from django.core.management import execute_from_command_line
