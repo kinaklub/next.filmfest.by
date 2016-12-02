@@ -12,6 +12,8 @@ virtualenv .v
 .v/bin/pip install -r requirements/base.txt
 
 echo --- [bootstrap] running migrations
+# switch back from dev config to base
+DJANGO_SETTINGS_MODULE=filmfest.settings.base
 .v/bin/python manage.py migrate
 
 echo --- [bootstrap] starting server in background
