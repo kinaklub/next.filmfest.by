@@ -16,10 +16,11 @@ virtualenv .v
 echo --- [bootstrap] running migrations
 # switch back from dev config to base
 export DJANGO_SETTINGS_MODULE=filmfest.settings.netlify
-.v/bin/python -u manage.py migrate
+export PYTHONUNBUFFERED=1
+.v/bin/python manage.py migrate
 
 echo --- [bootstrap] starting server in background
-.v/bin/python -u manage.py runserver 127.0.0.1:8000
+.v/bin/python manage.py runserver 127.0.0.1:8000
 
 echo --- [bootstrap] grabbing site copy
 mkdir _site
