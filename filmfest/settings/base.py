@@ -154,3 +154,9 @@ WAGTAILSEARCH_BACKENDS = {
         'TIMEOUT': 5,
     }
 }
+
+
+# Set secret key if present in environment
+
+if 'DJANGO_SECRET_KEY' in os.environ.keys():
+    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
