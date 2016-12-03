@@ -18,7 +18,7 @@ export DJANGO_SECRET_KEY=statickey
 .v/bin/python manage.py migrate
 
 echo --- [bootstrap] starting server in background
-.v/bin/python manage.py runserver 127.0.0.1:8000 &
+.v/bin/python manage.py runserver 127.0.0.1:8000
 
 echo --- [bootstrap] grabbing site copy
 mkdir _site
