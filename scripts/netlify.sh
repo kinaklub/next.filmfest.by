@@ -14,6 +14,7 @@ virtualenv .v
 echo --- [bootstrap] running migrations
 # switch back from dev config to base
 export DJANGO_SETTINGS_MODULE=filmfest.settings.base
+export DJANGO_SECRET_KEY=statickey
 .v/bin/python manage.py migrate
 
 echo --- [bootstrap] starting server in background
