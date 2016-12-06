@@ -3,11 +3,11 @@ from __future__ import unicode_literals
 from django.db import models
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
-from wagtail.wagtailadmin.edit_handlers import (FieldPanel, InlinePanel,
-                                                PageChooserPanel)
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel
 from wagtail.wagtailcore.models import Orderable  # TODO: is this good?
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
+from modeladminutils.edit_handlers import GenericModelChooserPanel
 from cpm_generic.constants import COUNTRIES
 from cpm_generic.models import TranslatedField
 
@@ -31,6 +31,9 @@ class JuryMember(ClusterableModel):
         related_name='+'
     )
     country = models.CharField(max_length=2, choices=COUNTRIES)
+
+    def __unicode__(self):
+        return self.name
 
     panels = [
         FieldPanel('name_en'),
@@ -64,7 +67,7 @@ class SeasonRelatedJuryMember(Orderable):
     country = property(lambda self: self.jury_member.country)
 
     panels = [
-        PageChooserPanel('jury_member'),
+        GenericModelChooserPanel('jury_member'),
         FieldPanel('category_en'),
         FieldPanel('category_be'),
         FieldPanel('category_ru'),
@@ -110,7 +113,7 @@ class SeasonRelatedPartner(Orderable):
     image = property(lambda self: self.partner.image)
 
     panels = [
-        PageChooserPanel('partner'),
+        GenericModelChooserPanel('partner'),
     ]
 
 

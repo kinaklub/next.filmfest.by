@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'home',
 
     'cpm_data',
+    'modeladminutils',
     'wagtail.wagtaildocs',  # TODO: this shouldn't be merged to master
     'cpm_generic',
     'results',
