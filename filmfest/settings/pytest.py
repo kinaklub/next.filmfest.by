@@ -1,6 +1,9 @@
 from .base import *  # noqa
 
 
+INSTALLED_APPS.append('wagtail.tests.testapp')  # noqa: F405
+
+
 SECRET_KEY = 'test'
 
 
