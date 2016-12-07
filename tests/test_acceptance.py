@@ -53,7 +53,7 @@ def test_images(client):
     response = client.get('/api/v2/images/', {'title': cory_mcabee})
     data = response.json()
 
-    # response contains one image with the corresponding title
+    # response contains at least one image with the corresponding title
     assert response.status_code == 200
-    assert data['meta']['total_count'] == 1
+    assert data['meta']['total_count'] > 0
     assert data['items'][0]['title'] == cory_mcabee
