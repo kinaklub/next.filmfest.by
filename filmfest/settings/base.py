@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'wagtail.wagtailadmin',
     'wagtail.wagtailsearch',
     'wagtail.wagtailimages',
+    'wagtail.wagtaildocs',  # modeladmin depends on wagtaildocs and other apps
     'wagtail.wagtailsnippets',
     'wagtail.wagtailusers',
     'wagtail.wagtailsites',
@@ -54,7 +55,6 @@ INSTALLED_APPS = [
 
     'cpm_data',
     'modeladminutils',
-    'wagtail.wagtaildocs',  # TODO: this shouldn't be merged to master
     'cpm_generic',
     'results',
     'submissions',
