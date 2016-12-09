@@ -41,16 +41,20 @@ INSTALLED_APPS = [
     'wagtail.wagtailadmin',
     'wagtail.wagtailsearch',
     'wagtail.wagtailimages',
+    'wagtail.wagtaildocs',  # modeladmin depends on wagtaildocs and other apps
     'wagtail.wagtailsnippets',
     'wagtail.wagtailusers',
     'wagtail.wagtailsites',
     'wagtail.wagtailembeds',
     'wagtail.wagtailredirects',
     'wagtail.wagtailforms',
+    'wagtail.contrib.modeladmin',
 
     'search',
     'home',
 
+    'cpm_data',
+    'modeladminutils',
     'cpm_generic',
     'results',
     'submissions',
