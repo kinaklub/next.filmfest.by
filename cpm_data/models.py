@@ -5,11 +5,106 @@ from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel
 from wagtail.wagtailcore.models import Orderable  # TODO: is this good?
+from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
 from modeladminutils.edit_handlers import GenericModelChooserPanel
 from cpm_generic.constants import COUNTRIES
 from cpm_generic.models import TranslatedField
+
+
+class Film(ClusterableModel):
+    """Model representing accepted film
+
+    Submissions contain raw data that need to be preprocessed/translated
+    before publishing. This model contains all the data about an accepted
+    submission that will be published.
+    """
+    submission = models.ForeignKey(
+        'submissions.Submission',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    title_en = models.CharField(max_length=1000, default='', blank=True)
+    title_be = models.CharField(max_length=1000, default='', blank=True)
+    title_ru = models.CharField(max_length=1000, default='', blank=True)
+    title = TranslatedField('title_en', 'title_be', 'title_ru')
+
+    director_en = models.CharField(max_length=1000, default='', blank=True)
+    director_be = models.CharField(max_length=1000, default='', blank=True)
+    director_ru = models.CharField(max_length=1000, default='', blank=True)
+    director = TranslatedField('director_en', 'director_be', 'director_ru')
+
+    country = models.CharField(max_length=2, choices=COUNTRIES,
+                               null=True, blank=True)
+
+    city_en = models.CharField(max_length=100, default='', blank=True)
+    city_be = models.CharField(max_length=100, default='', blank=True)
+    city_ru = models.CharField(max_length=100, default='', blank=True)
+    city = TranslatedField('city_en', 'city_be', 'city_ru')
+
+    year = models.IntegerField(null=True, blank=True)
+
+    duration_en = models.CharField(max_length=100, default='', blank=True)
+    duration_be = models.CharField(max_length=100, default='', blank=True)
+    duration_ru = models.CharField(max_length=100, default='', blank=True)
+    duration = TranslatedField('duration_en', 'duration_be', 'duration_ru')
+
+    genre_en = models.CharField(max_length=1000, default='', blank=True)
+    genre_be = models.CharField(max_length=1000, default='', blank=True)
+    genre_ru = models.CharField(max_length=1000, default='', blank=True)
+    genre = TranslatedField('genre_en', 'genre_be', 'genre_ru')
+
+    synopsis_short_en = RichTextField(default='', blank=True)
+    synopsis_short_be = RichTextField(default='', blank=True)
+    synopsis_short_ru = RichTextField(default='', blank=True)
+    synopsis_short = TranslatedField('synopsis_short_en',
+                                     'synopsis_short_be',
+                                     'synopsis_short_ru')
+
+    synopsis_en = RichTextField(default='', blank=True)
+    synopsis_be = RichTextField(default='', blank=True)
+    synopsis_ru = RichTextField(default='', blank=True)
+    synopsis = TranslatedField('synopsis_en', 'synopsis_be', 'synopsis_ru')
+
+    frame = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    panels = [
+        FieldPanel('submission'),
+        FieldPanel('title_en'),
+        FieldPanel('title_be'),
+        FieldPanel('title_ru'),
+        FieldPanel('director_en'),
+        FieldPanel('director_be'),
+        FieldPanel('director_ru'),
+        FieldPanel('country'),
+        FieldPanel('city_en'),
+        FieldPanel('city_be'),
+        FieldPanel('city_ru'),
+        FieldPanel('genre_en'),
+        FieldPanel('genre_be'),
+        FieldPanel('genre_ru'),
+        FieldPanel('year'),
+        FieldPanel('duration_en'),
+        FieldPanel('duration_be'),
+        FieldPanel('duration_ru'),
+        FieldPanel('synopsis_short_en'),
+        FieldPanel('synopsis_short_be'),
+        FieldPanel('synopsis_short_ru'),
+        FieldPanel('synopsis_en'),
+        FieldPanel('synopsis_be'),
+        FieldPanel('synopsis_ru'),
+        ImageChooserPanel('frame'),
+    ]
 
 
 class JuryMember(ClusterableModel):
