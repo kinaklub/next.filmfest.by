@@ -90,6 +90,9 @@ class Partner(ClusterableModel):
         related_name='+'
     )
 
+    def __unicode__(self):
+        return self.name
+
     panels = [
         FieldPanel('name_en'),
         FieldPanel('name_be'),
