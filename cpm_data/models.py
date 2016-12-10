@@ -48,7 +48,7 @@ class JuryMember(ClusterableModel):
 
 
 class SeasonRelatedJuryMember(Orderable):
-    page = ParentalKey('Season', related_name='related_jury_members')
+    season = ParentalKey('Season', related_name='related_jury_members')
     jury_member = models.ForeignKey(
         'cpm_data.JuryMember',
         null=True,
@@ -100,7 +100,7 @@ class Partner(ClusterableModel):
 
 
 class SeasonRelatedPartner(Orderable):
-    page = ParentalKey('Season', related_name='related_partners')
+    season = ParentalKey('Season', related_name='related_partners')
     partner = models.ForeignKey(
         'cpm_data.Partner',
         null=True,
