@@ -1,0 +1,146 @@
+[
+  {
+    "name_be": "Where Minsk",
+    "name_ru": "Where Minsk",
+    "name_en": "Where Minsk",
+    "id": "where450",
+    "link": "http://www.spn.ru/publishing/whereminsk/",
+    "image": "where450.png"
+  },
+  {
+    "name_be": "relax.by - развлечения в Минске, развлекательные центры столицы",
+    "name_ru": "relax.by - развлечения в Минске, развлекательные центры столицы",
+    "name_en": "relax.by - развлечения в Минске, развлекательные центры столицы",
+    "id": "relax450",
+    "link": "http://relax.by/",
+    "image": "relax450.png"
+  },
+  {
+    "name_be": "Арт-пространство ДК «La мора»",
+    "name_ru": "Арт-пространство ДК «La мора»",
+    "name_en": "Арт-пространство ДК «La мора»",
+    "id": "lamora",
+    "link": "http://la-mora.info/",
+    "image": "lamora.png"
+  },
+  {
+    "name_be": "Белорусский видеоцентр",
+    "name_ru": "Белорусский видеоцентр",
+    "name_en": "Белорусский видеоцентр",
+    "id": "bvc",
+    "link": "http://www.belvc.by/",
+    "image": "bvc.png"
+  },
+  {
+    "name_be": "Минск 24 ДОК",
+    "name_ru": "Минск 24 ДОК",
+    "name_en": "Минск 24 ДОК",
+    "id": "minsk24dok",
+    "link": "http://mtis.tv/",
+    "image": "minsk24dok.png"
+  },
+  {
+    "name_be": "Креативное агенство Парамонак",
+    "name_ru": "Креативное агенство Парамонак",
+    "name_en": "Креативное агенство Парамонак",
+    "id": "paramonak",
+    "link": "http://paramonak.by/",
+    "image": "paramonak.png"
+  },
+  {
+    "name_be": "Film & TV Online Platform",
+    "name_ru": "Film & TV Online Platform",
+    "name_en": "Film & TV Online Platform",
+    "id": "kinolife",
+    "link": "http://kinolife.eu/",
+    "image": "kinolife.png"
+  },
+  {
+    "name_be": "International Youth Silent Film Festival",
+    "name_ru": "International Youth Silent Film Festival",
+    "name_en": "International Youth Silent Film Festival",
+    "id": "iysff",
+    "link": "http://www.makesilentfilm.com/",
+    "image": "iysff.png"
+  },
+  {
+    "name_be": "LUMA – a creative hub for the media arts",
+    "name_ru": "LUMA – a creative hub for the media arts",
+    "name_en": "LUMA – a creative hub for the media arts",
+    "id": "luma",
+    "link": "http://luma.net.my/",
+    "image": "luma.png"
+  },
+  {
+    "name_be": "Последние новости политики и культуры Беларуси - Euroradio",
+    "name_ru": "Последние новости политики и культуры Беларуси - Euroradio",
+    "name_en": "Последние новости политики и культуры Беларуси - Euroradio",
+    "id": "euroradio",
+    "link": "http://euroradio.fm/",
+    "image": "euroradio.png"
+  },
+  {
+    "name_be": "Журнал \"Большой\"",
+    "name_ru": "Журнал \"Большой\"",
+    "name_en": "Журнал \"Большой\"",
+    "id": "bolshoi",
+    "link": "http://bolshoi.by/",
+    "image": "bolshoi.png"
+  },
+  {
+    "name_be": "Минчанка: быть женщиной - это интересно!",
+    "name_ru": "Минчанка: быть женщиной - это интересно!",
+    "name_en": "Минчанка: быть женщиной - это интересно!",
+    "id": "minchanka",
+    "link": "http://www.minchanka.by/",
+    "image": "minchanka.png"
+  },
+  {
+    "name_be": "Интернет-портал OPEN.BY",
+    "name_ru": "Интернет-портал OPEN.BY",
+    "name_en": "Интернет-портал OPEN.BY",
+    "id": "open",
+    "link": "http://open.by/",
+    "image": "open.png"
+  },
+  {
+    "name_be": "Современное белорусское искусство",
+    "name_ru": "Современное белорусское искусство",
+    "name_en": "Современное белорусское искусство",
+    "id": "mart",
+    "link": "http://mart.by/",
+    "image": "mart.png"
+  },
+  {
+    "name_be": "vGomele.by - гомельский информационно-развлекательный портал",
+    "name_ru": "vGomele.by - гомельский информационно-развлекательный портал",
+    "name_en": "vGomele.by - гомельский информационно-развлекательный портал",
+    "id": "vgomele",
+    "link": "http://vgomele.by/",
+    "image": "vgomele.png"
+  },
+  {
+    "name_be": "Беларусы за мяжой",
+    "name_ru": "Беларусы за мяжой",
+    "name_en": "Беларусы за мяжой",
+    "id": "belarusdigest",
+    "link": "http://belarusdigest.com/",
+    "image": "belarusdigest.png"
+  },
+  {
+    "name_be": "KYKY.ORG - Культурный портал",
+    "name_ru": "KYKY.ORG - Культурный портал",
+    "name_en": "KYKY.ORG - Культурный портал",
+    "id": "ky",
+    "link": "http://kyky.org/",
+    "image": "ky.png"
+  },
+  {
+    "name_be": "Nomadic Film Club",
+    "name_ru": "Nomadic Film Club",
+    "name_en": "Nomadic Film Club",
+    "id": "nomadic",
+    "link": "http://vagrant.kinaklub.org/",
+    "image": "nomadic.png"
+  }
+]
