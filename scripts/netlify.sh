@@ -20,7 +20,8 @@ export PYTHONUNBUFFERED=1
 .v/bin/python manage.py migrate
 
 echo --- [bootstrap] starting server in background
-.v/bin/python manage.py runserver 127.0.0.1:8000
+.v/bin/python manage.py runserver 127.0.0.1:8000 &
+sleep 5
 
 echo --- [bootstrap] grabbing site copy
 mkdir _site
