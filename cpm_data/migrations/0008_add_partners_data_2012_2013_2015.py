@@ -66,7 +66,7 @@ def remove_partners(apps, schema_editor, season_name):
 
     SeasonRelatedPartner.objects.filter(
         season=season,
-        partner__in=partners
+        partner__in=partners,
     ).delete()
     for partner in partners:
         if not SeasonRelatedPartner.objects.filter(partner=partner).exists():
