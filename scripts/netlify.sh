@@ -27,5 +27,6 @@ echo --- [bootstrap] grabbing site copy
 mkdir _site
 cd _site
 wget -m http://127.0.0.1:8000
+ls -la
 
 exit 0
