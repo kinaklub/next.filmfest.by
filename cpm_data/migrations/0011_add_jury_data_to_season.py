@@ -25,12 +25,11 @@ def _get_season(apps, season_name):
 
 
 def _get_data(season_year):
-    with open(os.path.join(DIR_0011, 'jury_' + season_year + '.json')) as data_file:
+    with open(os.path.join(
+            DIR_0011,
+            'jury_' + season_year + '.json'
+    )) as data_file:
         return json.load(data_file)
-
-
-def _get_photo_path(filename):
-    return os.path.join(DIR_0011, filename)
 
 
 def add_jurymembers(apps, schema_editor, season_name):
@@ -56,12 +55,12 @@ def add_jurymembers(apps, schema_editor, season_name):
             info_be=item['info_be'],
             info_ru=item['info_ru'],
             country=item['country'],
-            photo=photo
+            photo=photo,
         )
 
-        SeasonRelatedJuryMember = apps.get_model('cpm_data.SeasonRelatedJuryMember')
+        SeasonJuryMember = apps.get_model('cpm_data.SeasonRelatedJuryMember')
 
-        SeasonRelatedJuryMember(
+        SeasonJuryMember(
             jury_member=jurymember,
             season=season,
             category_en='',
@@ -77,9 +76,9 @@ def remove_jurymembers(apps, schema_editor, season_name):
     jury_members = JuryMember.objects.filter(name_en__in=names)
     JuryMember.objects.filter(name_en__in=names).delete()
 
-    SeasonRelatedJuryMember = apps.get_model('cpm_data.SeasonRelatedJuryMember')
+    SeasonJuryMember = apps.get_model('cpm_data.SeasonRelatedJuryMember')
     season = _get_season(apps, season_name)
-    SeasonRelatedJuryMember.objects.filter(
+    SeasonJuryMember.objects.filter(
         season=season,
         jury_member__in=jury_members
     ).delete()
