@@ -30,4 +30,7 @@ wget -m http://127.0.0.1:8000 --no-host-directories 2>&1 | tee wget.log
 pwd
 ls -la
 
+echo --- [bootstrap] stopping server
+pkill -f runserver
+
 exit 0
