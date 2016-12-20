@@ -26,7 +26,7 @@ sleep 5
 echo --- [bootstrap] grabbing site copy
 mkdir public
 cd public
-wget -m http://127.0.0.1:8000 --no-host-directories
+wget -m http://127.0.0.1:8000 --no-host-directories | tee wget.log
 pwd
 ls -la
 
