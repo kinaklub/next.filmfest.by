@@ -113,9 +113,9 @@ class JuryMember(ClusterableModel):
     name_ru = models.CharField(max_length=250)
     name = TranslatedField('name_en', 'name_be', 'name_ru')
 
-    info_en = models.CharField(max_length=1000)
-    info_be = models.CharField(max_length=1000)
-    info_ru = models.CharField(max_length=1000)
+    info_en = models.CharField(max_length=5000)
+    info_be = models.CharField(max_length=5000)
+    info_ru = models.CharField(max_length=5000)
     info = TranslatedField('info_en', 'info_be', 'info_ru')
 
     photo = models.ForeignKey(
