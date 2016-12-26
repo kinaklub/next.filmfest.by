@@ -1,9 +1,12 @@
 #!/bin/bash
 #
-# Bootstrap Django and create static site copy
-# for Netlily development previews
+# Helper script to create web site previews on Netlify.
+
+# It bootstraps Django to create static copy of website
+# content and grabs it with wget - see `wget.log.txt`
+# for troubleshooting.
 #
-# Netlify timeout for builds is 15 minutes
+# Script should complete in 15 minutes.
 #
 
 ROOTDIR=$(dirname $(dirname $0))
@@ -26,12 +29,15 @@ sleep 5
 echo --- [bootstrap] grabbing site copy
 mkdir public
 cd public
-wget -m http://127.0.0.1:8000 --no-host-directories 2>&1 | tee wget.log
+wget -m http://127.0.0.1:8000 --no-host-directories 2>&1 | tee wget.log.txt
 pwd
 ls -la
 ps aux
 
 echo --- [bootstrap] stopping server
 pkill -f manage.py
+
+# returns 0, but we can also check wget exit code or
+# log for 404 errors to fail build if there are any
 
 exit 0
