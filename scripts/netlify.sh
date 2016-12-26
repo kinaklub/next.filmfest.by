@@ -3,8 +3,11 @@
 # Helper script to create web site previews on Netlify.
 
 # It bootstraps Django to create static copy of website
-# content and grabs it with wget - see `wget.log.txt`
-# for troubleshooting.
+# content and grabs it with wget.
+#
+# Produces `wget.log.txt` that can be downloaded for
+# troubleshooting. Uses custom settings in 
+# ../filmfest/settings/netlify.py
 #
 # Script should complete in 15 minutes.
 #
