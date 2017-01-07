@@ -20,4 +20,5 @@ RUN /app/bin/pip install -r "requirements/$requirements"
 
 ENV DJANGO_SETTINGS_MODULE filmfest.settings.docker
 
+RUN /app/src/docker-entrypoint.py collectstatic --noinput
 ENTRYPOINT ["/app/src/docker-entrypoint.py"]
