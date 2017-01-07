@@ -13,8 +13,10 @@ DATABASES = {
 
 DEBUG = False
 TEMPLATE_DEBUG = False
-SECRET_KEY = os.environ['DJANGO_SECRET_KEY']  # noqa: F405
-ALLOWED_HOSTS = ['next.filmfest.by']
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'secret')  # noqa: F405
+ALLOWED_HOSTS = (
+    os.environ.get('DJANGO_ALLOWED_HOSTS', 'next.filmfest.by')  # noqa: F405
+).split(',')
 
 LOGGING = {
     'version': 1,
