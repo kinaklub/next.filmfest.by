@@ -13,7 +13,9 @@ services:
       context: .
       args:
         requirements: dev_pg.txt
-    command: runserver 0.0.0.0:8000
+    command: launch :8000
+    environment:
+      DJANGO_SETTINGS_MODULE: filmfest.settings.docker
     volumes:
       - .:/app/src
     links:
