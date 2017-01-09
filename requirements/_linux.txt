@@ -1,2 +1,2 @@
--r dev.txt
 psycopg2==2.6.2
+uwsgi==2.0.14

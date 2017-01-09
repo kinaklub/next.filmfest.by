@@ -1,5 +1,6 @@
 # consciously added packages
 -r base.txt
+-r _pytest.txt
 
 django-debug-toolbar==1.5
 tox==2.3.1
