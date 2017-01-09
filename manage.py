@@ -19,7 +19,7 @@ def launch(args, settings_module):
     """Launch the application"""
     from django.conf import settings
     from django.core.management import execute_from_command_line
-    execute_from_command_line(['manage.py', 'migrate'])
+    execute_from_command_line(['manage.py', 'migrate', '--noinput'])
 
     http_socket = (args[:1] + [':8000'])[0]
     uwsgi_args = [
