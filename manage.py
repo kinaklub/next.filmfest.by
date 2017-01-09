@@ -17,6 +17,7 @@ def bash(args, settings_module):
 
 def launch(args, settings_module):
     """Launch the application"""
+    from django.conf import settings
     from django.core.management import execute_from_command_line
     execute_from_command_line(['manage.py', 'migrate'])
 
@@ -30,7 +31,14 @@ def launch(args, settings_module):
         '--harakiri=120',
         '--max-requests=1000',
         '--vacuum',
+        '--static-map', '%s=%s' % (settings.MEDIA_URL, settings.MEDIA_ROOT),
     ]
+    if not settings.DEBUG:
+        uwsgi_args.extend([
+            '--static-map', '%s=%s' % (settings.STATIC_URL,
+                                       settings.STATIC_ROOT)
+        ])
+
     if sys.real_prefix:
         # we are in a virtual env - let's take it into account
         uwsgi_args.extend(['--home', sys.prefix])
