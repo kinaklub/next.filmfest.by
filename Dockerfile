@@ -3,8 +3,10 @@ MAINTAINER Stas Rudakou "stas@garage22.net"
 
 ARG requirements=prod.txt
 
-RUN dnf -y update; dnf clean all;
-RUN dnf -y install python python-virtualenv gcc postgresql postgresql-devel libjpeg-devel zlib-devel mailcap redhat-rpm-config
+RUN dnf -y update && \
+    dnf -y install python python-virtualenv gcc postgresql postgresql-devel libjpeg-devel zlib-devel mailcap redhat-rpm-config && \
+    dnf clean all && \
+    rm -rf /var/cache/dnf
 
 ENV PYTHONUNBUFFERED 1
 
