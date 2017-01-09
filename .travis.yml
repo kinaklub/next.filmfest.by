@@ -1,13 +1,14 @@
 language: python
 sudo: false
+dist: trusty
 python:
   - "2.7"
 addons:
-  postgresql: "9.4"
+  postgresql: "9.6"
 services:
   - postgresql
 install:
-  - pip install tox demjson
+  - pip install tox==2.3.2 demjson==2.2.4
 before_script:
   - psql -c 'create database filmfest;' -U postgres
 script:

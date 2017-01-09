@@ -120,13 +120,9 @@ PR review process:
 
 4. Give postgres 20-30 seconds to initialize
 
-4. DB provisioning (should be performed only once from another terminal):
+4. Create a local user:
 
     ```
-    docker-compose run web migrate
-
-    docker-compose run web update_index
-
     docker-compose run web createsuperuser
     ```
 

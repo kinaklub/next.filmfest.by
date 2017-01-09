@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
+import time
 
 
 def test(args, settings_module):
@@ -15,11 +16,33 @@ def bash(args, settings_module):
     sys.exit(call('/usr/bin/bash', *args))
 
 
+def _wait_for_db(sleep_interval=2, max_wait=600):
+    """Wait for DB container to start"""
+    from django.db import connections
+    from django.db.utils import OperationalError
+
+    t0 = time.time()
+    while True:
+        try:
+            connections['default'].cursor()
+        except OperationalError:
+            if time.time() - t0 > max_wait:
+                raise
+            else:
+                print "Waiting for DB initialization"
+                time.sleep(sleep_interval)
+        else:
+            break
+
+
 def launch(args, settings_module):
     """Launch the application"""
     from django.conf import settings
     from django.core.management import execute_from_command_line
+
+    _wait_for_db()
     execute_from_command_line(['manage.py', 'migrate', '--noinput'])
+    execute_from_command_line(['manage.py', 'update_index'])
 
     http_socket = (args[:1] + [':8000'])[0]
     uwsgi_args = [
