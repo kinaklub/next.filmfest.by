@@ -123,8 +123,6 @@ PR review process:
 4. Create a local user:
 
     ```
-    docker-compose run web update_index
-
     docker-compose run web createsuperuser
     ```
 

@@ -42,6 +42,7 @@ def launch(args, settings_module):
 
     _wait_for_db()
     execute_from_command_line(['manage.py', 'migrate', '--noinput'])
+    execute_from_command_line(['manage.py', 'update_index'])
 
     http_socket = (args[:1] + [':8000'])[0]
     uwsgi_args = [
