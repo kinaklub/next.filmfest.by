@@ -8,7 +8,7 @@ addons:
 services:
   - postgresql
 install:
-  - pip install tox demjson
+  - pip install tox==2.3.2 demjson==2.2.4
 before_script:
   - psql -c 'create database filmfest;' -U postgres
 script:
