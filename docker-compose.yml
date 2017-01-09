@@ -12,7 +12,7 @@ services:
     build:
       context: .
       args:
-        requirements: dev_pg.txt
+        requirements: dev_linux.txt
     command: launch :8000
     environment:
       DJANGO_SETTINGS_MODULE: filmfest.settings.docker
