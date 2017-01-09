@@ -7,7 +7,7 @@ services:
     volumes:
       - postgres96:/var/lib/postgresql
   elasticsearch:
-    image: elasticsearch:1.7.3
+    image: elasticsearch:1.7.6
   web:
     build:
       context: .
