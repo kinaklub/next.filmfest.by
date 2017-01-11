@@ -3,7 +3,7 @@
 # Helper script to create web site previews on Netlify.
 
 # It bootstraps Django to create static copy of website
-# content and grabs it with wget.
+# content and grabs it with wget into in `public/` dir.
 #
 # Produces `wget.log.txt` that can be downloaded for
 # troubleshooting. Uses custom settings in 
