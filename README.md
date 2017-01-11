@@ -4,22 +4,34 @@
 [![AppVeyor](https://img.shields.io/appveyor/ci/nott/next-filmfest-by/master.svg)](https://ci.appveyor.com/project/nott/next-filmfest-by/history)
 [![Netlify static preview](https://img.shields.io/badge/preview-ready-brightgreen.svg)](https://filmfest.netlify.com/)
 
-This is a WIP website for Cinema Perpetuum Mobile short film
-festival. Our goal is to gracefully replace
-[the existing version](http://filmfest.by) of the website feature by
+Welcome to the workplace for upcoming website for Cinema Perpetuum
+Mobile short film festival. Our goal is to gracefully replace
+[the existing version](http://filmfest.by) with new code feature by
 feature.
 
-The new version should have a good-enough admin panel that can be used
-by film festival volunteers. The featureset is taken from the
+Join our chat https://riot.im/app/#/room/#cpm-dev:matrix.org for
+questions.
+
+The goal of new website version is to create a user-friendly admin
+panel for festival volunteers. The feature set is taken from the
 experience we've gathered during previous festivals.
 
-## How to contribute
+## How to join development and be a part of CPM movement
 
-We welcome all contributors and enhancements that help to make
-an awesome tool for festival. Feel free to jump in and help with
+We welcome all contributors and enhancements that help to make this
+tool for festival to be awesome. Feel free to jump in and help with
 things to your liking.
 
-The most straightforward areas to contribute are:
+Your freedom is your creativity - being it good design, some bits
+of code, or another contribution that helps to push the movement.
+Making a film festival together is a great thing on its own, but to
+make it worth your time even more we've choosen `UNLICENSE` to make
+sure that you can reuse the bits we've created together without
+restrictions and limitations - being it your commercial projects or
+open source. If you wanted to learn about programming or creating
+websites to get a job - that might be your chance.
+
+For experienced, the most straightforward areas to contribute are:
 
 * backend written in Django / Wagtail
 * frontend - a lot can be done here
@@ -28,7 +40,7 @@ The most straightforward areas to contribute are:
 
 ### Communication
 
-* Chat - https://vector.im/beta/#/room/#cpm-dev:matrix.org
+* Chat - https://riot.im/app/#/room/#cpm-dev:matrix.org
 * Board of Chaos- https://trello.com/b/6S00yyl1/next-filmfest-by-public
 * Meeting Follow Ups (notes, sources for Trello)
   - https://github.com/kinaklub/docs/blob/master/MFU_2016_07_19_filmfest.by.md
