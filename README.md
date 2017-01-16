@@ -46,6 +46,26 @@ For experienced, the most straightforward areas to contribute are:
   - https://github.com/kinaklub/docs/blob/master/MFU_2016_07_19_filmfest.by.md
   - https://github.com/kinaklub/docs/blob/master/MFU_2016_07_21_filmfest.by.md
 
+## Technology stack
+
+```
+Programming:
+- Wagtail
+  - Django
+    - Python
+      - pip/tox/virtualenv
+    - HTML5/CSS
+    - JavaScript
+
+Deployment:
+- Docker Compose
+  - Docker
+    - Digital Ocean
+      - SSH
+      - Nginx
+      - PostgreSQL
+```
+
 ## Development process
 
 We use [github](https://github.com) for development. In order to start
