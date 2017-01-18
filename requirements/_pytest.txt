@@ -3,10 +3,12 @@ flake8-debugger==1.4.0
 flake8-print==2.0.2
 pytest==2.9.2
 pytest-django==2.9.1
+pytest-jsonlint==0.0.1
 pytest-flake8==0.6
 
 # dependencies
 configparser==3.5.0
+demjson==2.2.4
 enum34==1.1.6
 flake8==3.0.2
 flake8-debugger==1.4.0
