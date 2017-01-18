@@ -7,9 +7,15 @@ addons:
   postgresql: "9.6"
 services:
   - postgresql
+  - docker
 install:
   - pip install tox==2.3.2
 before_script:
   - psql -c 'create database filmfest;' -U postgres
 script:
   - tox -e "py27-{sqlite,pg}"
+deploy:
+  provider: script
+  script: ./scripts/deploy.sh
+  on:
+    branch: deploy
