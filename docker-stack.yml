@@ -1,0 +1,28 @@
+version: "3"
+services:
+  db:
+    image: postgres:9.6.1
+    volumes:
+      - postgres96:/var/lib/postgresql
+    deploy:
+      replicas: 1
+  elasticsearch:
+    image: elasticsearch:1.7.6
+    volumes:
+      - elasticsearch17:/usr/share/elasticsearch/data
+    deploy:
+      replicas: 1
+  web:
+    image: "${IMAGE_NAME:-kinaklub/next.filmfest.by:latest}"
+    command: launch
+    ports:
+      - "8000:8000"
+    environment:
+      STACK_PREFIX: next_
+    deploy:
+      replicas: 1
+volumes:
+  postgres96:
+    driver: local
+  elasticsearch17:
+    driver: local
