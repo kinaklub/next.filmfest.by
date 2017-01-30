@@ -8,9 +8,8 @@ addons:
 services:
   - postgresql
 install:
-  - pip install tox==2.3.2 demjson==2.2.4
+  - pip install tox==2.3.2
 before_script:
   - psql -c 'create database filmfest;' -U postgres
 script:
-  - scripts/jsoncheck.py
   - tox -e "py27-{sqlite,pg}"
