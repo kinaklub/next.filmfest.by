@@ -21,8 +21,8 @@ deploy:
   - provider: script
     script: ./scripts/push_image.sh
     on:
-      branch: deploy
+      branch: master
   - provider: script
     script: ./scripts/deploy.sh
     on:
-      branch: deploy
+      branch: master
