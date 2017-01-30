@@ -1,0 +1,27 @@
+# files in the repo
+.git
+.gitignore
+data
+MAINTAINERS
+README.md
+scripts
+UNLICENSE
+
+# CI configuration
+.appveyor.yml
+.travis.yml
+
+# caches
+*.py[code]
+__pycache__
+.tox
+.cache
+
+# dev data
+db.sqlite3
+test_db.sqlite3
+media
+
+# intellij ides
+.idea/
+next.filmfest.by.iml

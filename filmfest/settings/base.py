@@ -17,6 +17,8 @@ import os
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
+STACK_PREFIX = os.environ.get('STACK_PREFIX', '')
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -153,7 +155,7 @@ WAGTAIL_SITE_NAME = "filmfest.by"
 WAGTAILSEARCH_BACKENDS = {
     'default': {
         'BACKEND': 'wagtail.wagtailsearch.backends.elasticsearch',
-        'URLS': ['http://elasticsearch:9200'],
+        'URLS': ['http://{}elasticsearch:9200'.format(STACK_PREFIX)],
         'INDEX': 'filmfest',
         'TIMEOUT': 5,
     }

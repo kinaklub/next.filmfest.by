@@ -62,8 +62,9 @@ Deployment:
   - Docker
     - Digital Ocean
       - SSH
-      - Nginx
+      - HAProxy
       - PostgreSQL
+      - Elasticsearch
 ```
 
 ## Development process

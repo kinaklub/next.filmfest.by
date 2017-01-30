@@ -21,5 +21,7 @@ scripts/films.json_to_next_raw_data/private/
 scripts/films.json_to_next_raw_data/result/
 scripts/films.json_to_next_raw_data/secret.js
 
-
-
+# exclude unecnrypted docker TLS keys
+.docker/ca.pem
+.docker/cert.pem
+.docker/key.pem
