@@ -15,10 +15,16 @@ services:
   web:
     image: "${IMAGE_NAME:-kinaklub/next.filmfest.by:latest}"
     command: launch
-    ports:
-      - "8000:8000"
     environment:
       STACK_PREFIX: next_
+    deploy:
+      replicas: 1
+  haproxy:
+    image: kinaklub/filmfest-haproxy:0.1
+    ports:
+      - "80:80"
+    environment:
+      BACKEND_HOSTNAME: next_web
     deploy:
       replicas: 1
 volumes:
