@@ -8,6 +8,9 @@ addons:
 services:
   - postgresql
   - docker
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install docker-engine
 install:
   - pip install tox==2.3.2
 before_script:
@@ -15,7 +18,11 @@ before_script:
 script:
   - tox -e "py27-{sqlite,pg}"
 deploy:
-  provider: script
-  script: ./scripts/deploy.sh
-  on:
-    branch: deploy
+  - provider: script
+    script: ./scripts/push_image.sh
+    on:
+      branch: deploy
+  - provider: script
+    script: ./scripts/deploy.sh
+    on:
+      branch: deploy
