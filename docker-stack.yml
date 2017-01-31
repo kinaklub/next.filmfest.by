@@ -20,7 +20,7 @@ services:
     deploy:
       replicas: 1
   haproxy:
-    image: kinaklub/filmfest-haproxy:0.1
+    image: kinaklub/filmfest-haproxy:0.2
     ports:
       - "80:80"
     environment:
