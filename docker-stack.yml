@@ -18,9 +18,14 @@ services:
     environment:
       STACK_PREFIX: next_
     deploy:
-      replicas: 1
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 30s
+        monitor: 20s
+        failure_action: pause
   haproxy:
-    image: kinaklub/filmfest-haproxy:0.1
+    image: kinaklub/filmfest-haproxy:0.2
     ports:
       - "80:80"
     environment:

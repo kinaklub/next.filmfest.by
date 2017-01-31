@@ -8,15 +8,15 @@ addons:
 services:
   - postgresql
   - docker
-before_install:
-  - sudo apt-get update
-  - sudo apt-get install docker-engine
 install:
   - pip install tox==2.3.2
 before_script:
   - psql -c 'create database filmfest;' -U postgres
 script:
   - tox -e "py27-{sqlite,pg}"
+before_deploy:
+  - sudo apt-get update
+  - sudo apt-get install docker-engine
 deploy:
   - provider: script
     script: ./scripts/push_image.sh
