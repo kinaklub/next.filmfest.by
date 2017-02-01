@@ -56,7 +56,11 @@ def launch(args, settings_module):
         '--vacuum',
         '--static-map', '%s=%s' % (settings.MEDIA_URL, settings.MEDIA_ROOT),
     ]
-    if not settings.DEBUG:
+    if settings.DEBUG:
+        uwsgi_args.extend([
+            '--py-autoreload', '1',
+        ])
+    else:
         uwsgi_args.extend([
             '--static-map', '%s=%s' % (settings.STATIC_URL,
                                        settings.STATIC_ROOT)
