@@ -18,6 +18,7 @@ services:
     environment:
       STACK_PREFIX: next_
       DJANGO_ALLOWED_HOSTS: "${DJANGO_ALLOWED_HOSTS:-next.filmfest.by}"
+      DJANGO_SECRET_KEY: "${DJANGO_SECRET_KEY:-secret}"
     volumes:
       - web_media:/app/media
     deploy:
