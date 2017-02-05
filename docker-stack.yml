@@ -17,6 +17,8 @@ services:
     command: launch
     environment:
       STACK_PREFIX: next_
+    volumes:
+      - web_media:/app/media
     deploy:
       replicas: 2
       update_config:
@@ -36,4 +38,6 @@ volumes:
   postgres96:
     driver: local
   elasticsearch17:
+    driver: local
+  web_media:
     driver: local
