@@ -17,6 +17,10 @@ services:
     command: launch
     environment:
       STACK_PREFIX: next_
+      DJANGO_ALLOWED_HOSTS: "${DJANGO_ALLOWED_HOSTS:-next.filmfest.by}"
+      DJANGO_SECRET_KEY: "${DJANGO_SECRET_KEY:-secret}"
+    volumes:
+      - web_media:/app/media
     deploy:
       replicas: 2
       update_config:
@@ -36,4 +40,6 @@ volumes:
   postgres96:
     driver: local
   elasticsearch17:
+    driver: local
+  web_media:
     driver: local
