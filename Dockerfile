@@ -1,20 +1,7 @@
-FROM fedora:24
+FROM kinaklub/filmfest-base:1.0
 MAINTAINER Stas Rudakou "stas@garage22.net"
 
 ARG requirements=prod.txt
-
-RUN dnf -y update && \
-    dnf -y install python python-virtualenv gcc postgresql postgresql-devel libjpeg-devel zlib-devel mailcap redhat-rpm-config && \
-    dnf clean all && \
-    rm -rf /var/cache/dnf
-
-ENV PYTHONUNBUFFERED 1
-
-RUN useradd -d /app -m filmfest
-USER filmfest
-RUN virtualenv /app
-RUN mkdir /app/src /app/media /app/static
-WORKDIR /app/src
 
 ADD . /app/src/
 ADD IMAGE_VERSION /app/IMAGE_VERSION
