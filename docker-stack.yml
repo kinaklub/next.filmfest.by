@@ -25,7 +25,7 @@ services:
         monitor: 20s
         failure_action: pause
   haproxy:
-    image: kinaklub/filmfest-haproxy:0.2
+    image: kinaklub/filmfest-haproxy:0.3
     ports:
       - "80:80"
     environment:
