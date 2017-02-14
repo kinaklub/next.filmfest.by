@@ -35,6 +35,28 @@ def _wait_for_db(sleep_interval=2, max_wait=600):
             break
 
 
+def _wait_for_elasticsearch(sleep_interval=2, max_wait=600):
+    """Wait for elasticsearch container to start"""
+    from elasticsearch import ConnectionError
+    from wagtail.wagtailsearch.backends import get_search_backend
+
+    es = get_search_backend('default').es
+    t0 = time.time()
+    while True:
+        try:
+            if es.ping():
+                break
+        except ConnectionError:
+            if time.time() - t0 > max_wait:
+                raise
+        else:
+            if time.time() - t0 > max_wait:
+                raise Exception('Give up waiting for elasticsearch')
+
+        print "Waiting for elasticsearch initialization"
+        time.sleep(sleep_interval)
+
+
 def launch(args, settings_module):
     """Launch the application"""
     from django.conf import settings
@@ -42,6 +64,7 @@ def launch(args, settings_module):
 
     _wait_for_db()
     execute_from_command_line(['manage.py', 'migrate', '--noinput'])
+    _wait_for_elasticsearch()
     execute_from_command_line(['manage.py', 'update_index'])
 
     http_socket = (args[:1] + [':8000'])[0]
