@@ -7,13 +7,24 @@ from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel
 from wagtail.wagtailcore.models import Orderable  # TODO: is this good?
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
+from wagtail.wagtailsearch import index
 
 from modeladminutils.edit_handlers import GenericModelChooserPanel
 from cpm_generic.constants import COUNTRIES
 from cpm_generic.models import TranslatedField
 
+from cpm_data.queryset import SearchableQuerySet
 
-class Film(ClusterableModel):
+
+class BaseSearchableManager(models.Manager):
+    def get_queryset(self):
+        return SearchableQuerySet(self.model)
+
+
+SearchableManager = BaseSearchableManager.from_queryset(SearchableQuerySet)
+
+
+class Film(index.Indexed, ClusterableModel):
     """Model representing accepted film
 
     Submissions contain raw data that need to be preprocessed/translated
@@ -78,6 +89,8 @@ class Film(ClusterableModel):
         related_name='+'
     )
 
+    objects = SearchableManager()
+
     panels = [
         FieldPanel('submission'),
         FieldPanel('title_en'),
@@ -104,6 +117,21 @@ class Film(ClusterableModel):
         FieldPanel('synopsis_be'),
         FieldPanel('synopsis_ru'),
         ImageChooserPanel('frame'),
+    ]
+
+    search_fields = [
+        index.SearchField('title_en', partial_match=True, boost=2),
+        index.SearchField('title_be', partial_match=True, boost=2),
+        index.SearchField('title_ru', partial_match=True, boost=2),
+        index.SearchField('director_en', partial_match=True, boost=2),
+        index.SearchField('director_be', partial_match=True, boost=2),
+        index.SearchField('director_ru', partial_match=True, boost=2),
+        index.SearchField('synopsis_short_en', partial_match=True),
+        index.SearchField('synopsis_short_be', partial_match=True),
+        index.SearchField('synopsis_short_ru', partial_match=True),
+        index.SearchField('synopsis_en', partial_match=True),
+        index.SearchField('synopsis_be', partial_match=True),
+        index.SearchField('synopsis_ru', partial_match=True),
     ]
 
 
