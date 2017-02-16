@@ -91,6 +91,9 @@ class Film(index.Indexed, ClusterableModel):
 
     objects = SearchableManager()
 
+    def __unicode__(self):
+        return u'"{}" / {}'.format(self.title, self.director)
+
     panels = [
         FieldPanel('submission'),
         FieldPanel('title_en'),
