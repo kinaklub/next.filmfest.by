@@ -12,10 +12,13 @@ class BaseGenericModelChooserPanel(BaseChooserPanel):
     object_type_name = 'item'
 
     _target_model = None
+    url_helper_class = None
 
     @classmethod
     def widget_overrides(cls):
-        return {cls.field_name: GenericModelChooser(model=cls.target_model())}
+        chooser = GenericModelChooser(model=cls.target_model(),
+                                      url_helper_class=cls.url_helper_class)
+        return {cls.field_name: chooser}
 
     @classmethod
     def target_model(cls):
@@ -34,8 +37,9 @@ class BaseGenericModelChooserPanel(BaseChooserPanel):
 
 
 class GenericModelChooserPanel(object):
-    def __init__(self, field_name):
+    def __init__(self, field_name, url_helper_class=None):
         self.field_name = field_name
+        self.url_helper_class = url_helper_class
 
     def bind_to_model(self, model):
         return type(
@@ -44,5 +48,6 @@ class GenericModelChooserPanel(object):
             {
                 'model': model,
                 'field_name': self.field_name,
+                'url_helper_class': self.url_helper_class,
             }
         )
