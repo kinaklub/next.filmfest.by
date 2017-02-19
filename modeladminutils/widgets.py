@@ -2,20 +2,25 @@ from __future__ import absolute_import, unicode_literals
 
 import json
 
+from django.core.urlresolvers import NoReverseMatch, reverse
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
 
 from wagtail.wagtailadmin.widgets import AdminChooser
+from wagtail.contrib.modeladmin.helpers import AdminURLHelper
 
 
 class GenericModelChooser(AdminChooser):
 
-    def __init__(self, model, **kwargs):
+    def __init__(self, model, url_helper_class=None, **kwargs):
         self.target_model = model
         name = self.target_model._meta.verbose_name
         self.choose_one_text = _('Choose %s') % name
         self.choose_another_text = _('Choose another %s') % name
         self.link_to_chosen_text = _('Edit this %s') % name
+
+        url_helper_class = url_helper_class or AdminURLHelper
+        self.url_helper = url_helper_class(model)
 
         super(GenericModelChooser, self).__init__(**kwargs)
 
@@ -34,6 +39,7 @@ class GenericModelChooser(AdminChooser):
                 'attrs': attrs,
                 'value': value,
                 'item': instance,
+                'edit_url_name': self._get_edit_url(instance),
             }
         )
 
@@ -45,3 +51,10 @@ class GenericModelChooser(AdminChooser):
             model=json.dumps('{app}/{model}'.format(
                 app=model._meta.app_label,
                 model=model._meta.model_name)))
+
+    def _get_edit_url(self, instance):
+        url_name = self.url_helper.get_action_url_name('edit')
+        try:
+            return reverse(url_name, args=[instance.id])
+        except NoReverseMatch:
+            return None
