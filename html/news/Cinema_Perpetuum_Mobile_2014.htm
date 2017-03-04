@@ -869,13 +869,11 @@
                 <span id="date" class="newsblock_date"><!--07.10.2016--></span>
 
                 <a href="#" class="newsblock_category"> Category </a>
-
-<<<<<<< HEAD
                 <span id="my-share"
-=======
-                <span id="my-share" class="ya-share2"  data-counter=""
->>>>>>> 2c3ef832420ef0e915e96623c710d5ca2ae257cb
-                      style="line-height: normal;float: right"></span>
+                      class="ya-share2"
+                      data-counter=""
+                      style="line-height: normal;float: right"
+                ></span>
             </div>
 <!--class="ya-share2" data-services="vkontakte,facebook,twitter" data-counter=""-->
             <hr class="b-hr">
@@ -945,63 +943,6 @@
     </div>-->
 </div>
 
-<script src="https://yastatic.net/share2/share.js" ></script>
-<script>
-    var dateHTML = document.getElementById('date');
-
-    var date = new Date();
-
-    var options = {
-        year: 'numeric',
-        month: 'numeric',
-        day: 'numeric',
-       /* weekday: 'long'*/
-       /* timezone: 'UTC',
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric'*/
-    };
-
-    dateHTML.innerHTML = date.toLocaleString("en-US",options);
-
-
-
-
-
-
-
-    var myShare = document.getElementById('my-share');
-    // we can use different versions of api for be,en,ru locales
-    var share = Ya.share2(myShare, {
-        content: {
-            url: 'http://filmfest.by/ru/',
-            title: 'CPM',
-            description: "It's all about Films",
-            image: "Cinema_Perpetuum_Mobile_2014_files/img.jpg"
-        },
-        contentByService: {
-            twitter: {
-                url: 'http://filmfest.by/ru/',
-                title: 'CPM',
-                hashtags: 'CPM2017,friends,oneLove'
-            }
-        },
-        theme: {
-<<<<<<< HEAD
-            services: "vkontakte,facebook,twitter",
-            counter: true,
-            lang: 'ru',
-=======
-            services: 'vkontakte,facebook',
-            counter: true,
-            lang: 'be',
->>>>>>> 2c3ef832420ef0e915e96623c710d5ca2ae257cb
-            limit: 3,
-            size: 'm',
-            bare: false
-        }
-    })
-</script>
 
 
 

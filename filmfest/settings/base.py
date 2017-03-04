@@ -54,6 +54,7 @@ INSTALLED_APPS = [
 
     'search',
     'home',
+    'news',
 
     'cpm_data',
     'modeladminutils',

@@ -1,0 +1,35 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{# Individual blog item in a list - used on news index and home page #}
+<div class="news_entry">
+    <a href="{% pageurl news_entry %}" class="newsblock_ico">
+        {% image  news_entry.feed_image width-200 as img %}
+        <img src="{{ img.url }}" class="newsblock_img">
+    </a>
+    <div class="newsblock_content">
+        <h3 class="newsblock_headerlink">
+            <a href="{% pageurl news_entry %}" class="newsblock_link">{{ news_entry.title }}</a>
+        </h3>
+        <p class="newsblock_text">{{ news_entry.search_description }}</p>
+    </div>
+    <div class="newsblock_statistics">
+        <span id="date" class="newsblock_date">{{  news_entry.date }}</span>
+
+        {% for tag in news_entry.tags_list %}
+            <a href="#" class="newsblock_category"> {{ tag }} </a>
+        {% endfor %}
+        {#    <a href="#" class="newsblock_category"> Category </a>#}
+        <span
+              class="ya-share2"
+              data-description="{{ news_entry.search_description }}"
+              data-image="{{ img.url }}"
+              data-title="{{ news_entry.title }}"
+              data-url="{% pageurl news_entry %}"
+              data-counter=""
+              data-services="vkontakte,facebook,twitter"
+              style="line-height: normal;float: right"
+        ></span>
+    </div>
+
+</div>
+

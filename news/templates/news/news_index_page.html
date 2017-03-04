@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% load wagtailcore_tags %}
+
+{% block extra_css %}
+    <link href="{% static 'css/news.css?v=1' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+    <div class="container-news">
+        <div class="newsblock clearfix">
+            <div class="newsblock_news">News</div>
+
+            {# Uses serve method defined in models.py - allows for paging if required #}
+            {# See also standard index for creating a listing with a tag #}
+            {% for news_entry in news_list %}
+                {% include "news/includes/news_list_item.html" %}
+            {% empty %}
+                No blogs found
+            {% endfor %}
+
+
+            <hr class="b-hr">
+        </div>
+    </div>
+
+
+    <div class="list-group">
+
+    </div>
+
+    {# Pagination - uses django.core.paginator #}
+    {# Append any other url query string variables to the next and previous links - allows tag to be passed through #}
+    <div class="row">
+        <div class="col-sm-4 previous">
+            {% if news_list.has_previous %}
+                <a href="?page={{ news_list.previous_page_number }}{% for key,value in request.GET.items %}{% ifnotequal key 'page' %}&amp;{{ key }}={{ value }}{% endifnotequal %}{% endfor %}">Previous</a>
+            {% endif %}
+        </div>
+        <div class="col-sm-4 pages">
+            Page {{ news_list.number }} of {{ news_list.paginator.num_pages }}
+        </div>
+        <div class="col-sm-4 next">
+            {% if news_list.has_next %}
+                <a href="?page={{ news_list.next_page_number }}{% for key,value in request.GET.items %}{% ifnotequal key 'page' %}&amp;{{ key }}={{ value }}{% endifnotequal %}{% endfor %}">Next</a>
+            {% endif %}
+        </div>
+    </div>
+
+{#    {% include "demo/includes/related_links.html" with related_links=self.related_links.all only %}#}
+{% endblock %}
+
+{% block extra_js %}
+    <script src="https://yastatic.net/share2/share.js" ></script>
+    <script>
+      var dateHTML = document.getElementById('date');
+
+      var date = new Date();
+
+      var options = {
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+          /* weekday: 'long'*/
+          /* timezone: 'UTC',
+           hour: 'numeric',
+           minute: 'numeric',
+           second: 'numeric'*/
+      };
+
+      dateHTML.innerHTML = date.toLocaleString("ru-RU",options);
+    </script>
+
+{% endblock %}

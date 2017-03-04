@@ -1,0 +1,162 @@
+
+.container-news {
+    margin: -8px;
+    padding: 0px;
+}
+
+.newsblock {
+    margin: 0px auto;
+    padding: 0px;
+    width: 60%;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.newsblock_news {
+    color: darkgrey;
+    font-size: 22px;
+    text-align: left;
+    padding: 10px 10px;
+}
+
+.newsblock_ico {
+    display: block;
+    float: left;
+    position: relative;;
+}
+
+.newsblock_img {
+    float: left;
+    max-height: 150px;
+    width: 175px;
+    zoom: normal;
+}
+
+.newsblock_content {
+    padding: 0px;
+    margin-left: 195px;
+    margin-right: 5px;
+}
+
+.newsblock_headerlink {
+    font-size: 21px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: condensed;
+    line-height: 27px;
+    margin: 6px 0px 9px;
+    padding: 0;
+}
+
+.newsblock_link {
+    color: #d54872;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: 0 0;
+}
+
+.newsblock_link:hover {
+    color: #8d2040 ;
+}
+
+.newsblock_text {
+    font-size: 14px;
+    margin: 0px 0px 10px;
+    line-height: 1.4;
+    color: darkgrey;
+}
+
+.newsblock_statistics {
+    padding: 0px;
+    margin-left: 195px;
+    margin-right: 5px;
+
+}
+
+.newsblock_date {
+    color: #606061;
+    display: inline-block;
+    margin: 0 12px 0 0;
+    font-size: 12px;
+}
+
+.newsblock_category {
+    color: #606061;
+    display: inline-block;
+    margin: 0 12px 0 0;
+    font-size: 12px;
+}
+
+.newsblock_category:hover {
+    text-decoration: underline;
+}
+
+.newsblock_social {
+    float: right;
+    display: inline-block;
+    width: 30px;
+    height: auto;
+    box-sizing: border-box;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-top: -10px;
+}
+
+.newsblock_social-img {
+    border-radius: 50%;
+}
+
+.newsblock_social-img:hover {
+    background: lightcyan;
+}
+
+.news-hr {
+    background: white;
+    border: none;
+    height: 2px;
+    margin: 18px 0px;
+    display: block;
+    overflow: hidden;
+}
+
+@media only screen and ( max-width: 1200px) {
+    .newsblock {
+        width: 70%;
+    }
+}
+
+@media only screen and ( max-width: 979px) {
+    .newsblock {
+        width: 80%;
+    }
+}
+
+@media only screen and ( max-width: 767px) {
+    .newsblock {
+        width: 90%;
+    }
+
+    .newsblock_ico {
+        display: none;
+    }
+
+    .newsblock_content {
+        padding: 0px;
+        margin-left: 35px;
+        margin-right: 5px;
+    }
+
+    .newsblock_statistics {
+        margin-left: 35px;
+    }
+
+}
