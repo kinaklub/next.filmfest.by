@@ -61,6 +61,8 @@ INSTALLED_APPS = [
     'events',
     'results',
     'submissions',
+
+    'partners'
 ]
 
 MIDDLEWARE_CLASSES = [
