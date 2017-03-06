@@ -15,8 +15,8 @@
     <div class="newsblock_statistics">
         <span id="date" class="newsblock_date">{{  news_entry.date }}</span>
 
-        {% for tag in news_entry.tags_list %}
-            <a href="#" class="newsblock_category"> {{ tag }} </a>
+        {% for tag in news_entry.tags.all %}
+            <a href="#" class="newsblock_category"> {{ tag.name }} </a>
         {% endfor %}
         {#    <a href="#" class="newsblock_category"> Category </a>#}
         <span
