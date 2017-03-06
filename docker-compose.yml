@@ -18,6 +18,7 @@ services:
       DJANGO_SETTINGS_MODULE: filmfest.settings.docker
     volumes:
       - .:/app/src
+      - web_media:/app/media
     links:
       - db:db
       - elasticsearch:elasticsearch
@@ -25,4 +26,6 @@ services:
       - "8000:8000"
 volumes:
   postgres96:
+    driver: local
+  web_media:
     driver: local
