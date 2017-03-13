@@ -7,27 +7,9 @@ from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Orderable, Page
 
 # Create your models here.
+from cpm_data.models import Season
 from cpm_generic.models import TranslatedField
 from modeladminutils.edit_handlers import AdminModelChooserPanel
-
-
-class PartnerPageRelatedPartner(Orderable):
-
-    page = ParentalKey('PartnersPage', related_name='related_partners')
-    partner = models.ForeignKey(
-        'cpm_data.Partner',
-        null=True,
-        blank=True,
-        related_name='+'
-    )
-
-    name = property(lambda self: self.partner.name)
-    link = property(lambda self: self.partner.link)
-    image = property(lambda self: self.partner.image)
-
-    panels = [
-        AdminModelChooserPanel('partner'),
-    ]
 
 
 class PartnersPage(Page):
@@ -45,6 +27,13 @@ class PartnersPage(Page):
         'entry_ru'
     )
 
+    season = models.ForeignKey(
+        'cpm_data.Season',
+        null=False,
+        blank=False,
+        related_name='+'
+    )
+
     content_panels = Page.content_panels + [
         FieldPanel('name_en'),
         FieldPanel('name_be'),
@@ -52,5 +41,5 @@ class PartnersPage(Page):
         FieldPanel('entry_en'),
         FieldPanel('entry_be'),
         FieldPanel('entry_ru'),
-        InlinePanel('related_partners', label="Partners"),
+        FieldPanel('season')
     ]

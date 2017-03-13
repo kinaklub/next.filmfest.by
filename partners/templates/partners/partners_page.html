@@ -7,7 +7,7 @@
     <div>{{ self.entry | richtext }}</div>
 
     <div class="row">
-        {% for partner in self.related_partners.all %}
+        {% for partner in self.season.related_partners.all %}
             <div class="span6" style="line-height: 260px">
                 <a target="_blank" href="{{ partner.link }}">
                     {% image partner.image max-300x300 as banner_image %}
