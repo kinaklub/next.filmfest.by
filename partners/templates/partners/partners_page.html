@@ -8,7 +8,7 @@
 
     <div class="row">
         {% for partner in self.season.related_partners.all %}
-            <div class="span6" style="line-height: 260px">
+            <div class="span3" style="line-height: 120px">
                 <a target="_blank" href="{{ partner.link }}">
                     {% image partner.image max-300x300 as banner_image %}
                     <img
