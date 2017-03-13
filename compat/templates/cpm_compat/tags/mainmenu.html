@@ -1,0 +1,33 @@
+<div class="nav-collapse">
+    <ul class="nav pull-right lang-list">
+        {% for lang_code, lang, url, is_active in languages %}
+        {% if is_active %}
+        <li><strong id="current-lang" class="lang-item lang-item__current navbar-text">[{{ lang_code }}]</strong></li>
+        {% else %}
+        <li><a href="{{ url }}" class="lang-item ">[{{ lang_code }}]</a></li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    <ul class="nav pull-right">
+        {% for title, url, children in mainmenu_items %}
+        <li class="{% if children %}dropdown{% endif %}">
+            <a
+            {% if children %}data-toggle="dropdown" class="dropdown-toggle"{% endif %}
+            href="{{ url|default:"#" }}">
+            {{ title }}
+            {% if children %}<b class="caret"></b>{% endif %}
+            </a>
+
+            {% if children %}
+            <ul class="dropdown-menu">
+                {% for sub_title, sub_url in children %}
+                <li><a href="{{ sub_url }}">{{ sub_title }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+
+    {% endfor %}
+        <li class="divider-vertical"></li>
+    </ul>
+</div>
