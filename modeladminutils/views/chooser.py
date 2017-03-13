@@ -3,7 +3,6 @@ from __future__ import absolute_import, unicode_literals
 import json
 
 from django.apps import apps
-from django.core.urlresolvers import NoReverseMatch, reverse
 from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 from django.utils.six import text_type
@@ -11,7 +10,8 @@ from django.utils.six import text_type
 from wagtail.utils.pagination import paginate
 from wagtail.wagtailadmin.forms import SearchForm
 from wagtail.wagtailadmin.modal_workflow import render_modal_workflow
-from wagtail.contrib.modeladmin.helpers import AdminURLHelper
+
+from modeladminutils.helpers import get_edit_url
 
 
 def get_model_or_404(app_label, model_name):
@@ -76,16 +76,10 @@ def chosen(request, app_label, model_name, id):
     model = get_model_or_404(app_label, model_name)
     obj = get_object_or_404(model, id=id)
 
-    url_name = AdminURLHelper(model).get_action_url_name('edit')
-    try:
-        edit_link = reverse(url_name, args=[obj.id])
-    except NoReverseMatch:
-        edit_link = ''
-
     adminmodel_json = json.dumps({
         'id': obj.id,
         'string': text_type(obj),
-        'edit_link': edit_link,
+        'edit_link': get_edit_url(model, obj.id),
     })
 
     return render_modal_workflow(

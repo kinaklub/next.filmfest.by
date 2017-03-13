@@ -12,12 +12,10 @@ class BaseAdminModelChooserPanel(BaseChooserPanel):
     object_type_name = 'item'
 
     _target_model = None
-    url_helper_class = None
 
     @classmethod
     def widget_overrides(cls):
-        chooser = AdminModelChooser(model=cls.target_model(),
-                                    url_helper_class=cls.url_helper_class)
+        chooser = AdminModelChooser(model=cls.target_model())
         return {cls.field_name: chooser}
 
     @classmethod
@@ -37,9 +35,8 @@ class BaseAdminModelChooserPanel(BaseChooserPanel):
 
 
 class AdminModelChooserPanel(object):
-    def __init__(self, field_name, url_helper_class=None):
+    def __init__(self, field_name):
         self.field_name = field_name
-        self.url_helper_class = url_helper_class
 
     def bind_to_model(self, model):
         return type(
@@ -48,6 +45,5 @@ class AdminModelChooserPanel(object):
             {
                 'model': model,
                 'field_name': self.field_name,
-                'url_helper_class': self.url_helper_class,
             }
         )
