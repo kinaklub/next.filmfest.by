@@ -1,15 +1,12 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from modelcluster.fields import ParentalKey
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel
+from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from wagtail.wagtailcore.fields import RichTextField
-from wagtail.wagtailcore.models import Orderable, Page
+from wagtail.wagtailcore.models import Page
 
 # Create your models here.
-from cpm_data.models import Season
 from cpm_generic.models import TranslatedField
-from modeladminutils.edit_handlers import AdminModelChooserPanel
 
 
 class PartnersPage(Page):

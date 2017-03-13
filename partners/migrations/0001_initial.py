@@ -3,8 +3,6 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
-import django.db.models.deletion
-import modelcluster.fields
 import wagtail.wagtailcore.fields
 
 
@@ -32,11 +30,20 @@ class Migration(migrations.Migration):
                 ('name_en', models.CharField(max_length=1000)),
                 ('name_be', models.CharField(max_length=1000)),
                 ('name_ru', models.CharField(max_length=1000)),
-                ('entry_en', wagtail.wagtailcore.fields.RichTextField(default='')),
-                ('entry_be', wagtail.wagtailcore.fields.RichTextField(default='')),
-                ('entry_ru', wagtail.wagtailcore.fields.RichTextField(default='')),
+                (
+                    'entry_en',
+                    wagtail.wagtailcore.fields.RichTextField(default='')
+                ),
+                (
+                    'entry_be',
+                    wagtail.wagtailcore.fields.RichTextField(default='')
+                ),
+                (
+                    'entry_ru',
+                    wagtail.wagtailcore.fields.RichTextField(default='')
+                ),
                 ('season', models.ForeignKey(
-                    on_delete=models.PROTECT, 
+                    on_delete=models.PROTECT,
                     related_name='+',
                     to='cpm_data.Season')
                  ),
