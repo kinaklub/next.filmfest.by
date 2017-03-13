@@ -39,7 +39,7 @@ class GenericModelChooser(AdminChooser):
                 'attrs': attrs,
                 'value': value,
                 'item': instance,
-                'edit_url_name': self._get_edit_url(instance),
+                'edit_link': self._get_edit_url(instance),
             }
         )
 
@@ -53,6 +53,9 @@ class GenericModelChooser(AdminChooser):
                 model=model._meta.model_name)))
 
     def _get_edit_url(self, instance):
+        if instance is None:
+            return None
+
         url_name = self.url_helper.get_action_url_name('edit')
         try:
             return reverse(url_name, args=[instance.id])
