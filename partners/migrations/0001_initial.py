@@ -17,12 +17,23 @@ class Migration(migrations.Migration):
         ('cpm_data', '0011_add_jury_data_to_season'),
     ]
 
+    RichTextField = wagtail.wagtailcore.fields.RichTextField
+
     operations = [
         migrations.CreateModel(
             name='PartnerPageRelatedPartner',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('sort_order', models.IntegerField(blank=True, editable=False, null=True)),
+                ('id', models.AutoField(
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID')
+                 ),
+                ('sort_order', models.IntegerField(
+                    blank=True,
+                    editable=False,
+                    null=True)
+                 ),
             ],
             options={
                 'ordering': ['sort_order'],
@@ -39,9 +50,9 @@ class Migration(migrations.Migration):
                     primary_key=True,
                     serialize=False,
                     to='wagtailcore.Page')),
-                ('entry_en', wagtail.wagtailcore.fields.RichTextField(default='')),
-                ('entry_be', wagtail.wagtailcore.fields.RichTextField(default='')),
-                ('entry_ru', wagtail.wagtailcore.fields.RichTextField(default='')),
+                ('entry_en', RichTextField(default='')),
+                ('entry_be', RichTextField(default='')),
+                ('entry_ru', RichTextField(default='')),
             ],
             options={
                 'abstract': False,
@@ -51,11 +62,21 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='partnerpagerelatedpartner',
             name='page',
-            field=modelcluster.fields.ParentalKey(on_delete=django.db.models.deletion.CASCADE, related_name='related_partners', to='partners.PartnersPage'),
+            field=modelcluster.fields.ParentalKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='related_partners',
+                to='partners.PartnersPage'
+            ),
         ),
         migrations.AddField(
             model_name='partnerpagerelatedpartner',
             name='partner',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='+', to='cpm_data.Partner'),
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='+',
+                to='cpm_data.Partner'
+            ),
         ),
     ]

@@ -8,7 +8,7 @@ from wagtail.wagtailcore.models import Orderable, Page
 
 # Create your models here.
 from cpm_generic.models import TranslatedField
-from modeladminutils.edit_handlers import GenericModelChooserPanel
+from modeladminutils.edit_handlers import AdminModelChooserPanel
 
 
 class PartnerPageRelatedPartner(Orderable):
@@ -26,7 +26,7 @@ class PartnerPageRelatedPartner(Orderable):
     image = property(lambda self: self.partner.image)
 
     panels = [
-        GenericModelChooserPanel('partner'),
+        AdminModelChooserPanel('partner'),
     ]
 
 
@@ -45,7 +45,6 @@ class PartnersPage(Page):
         'entry_ru'
     )
 
-
     content_panels = Page.content_panels + [
         FieldPanel('name_en'),
         FieldPanel('name_be'),
@@ -55,4 +54,3 @@ class PartnersPage(Page):
         FieldPanel('entry_ru'),
         InlinePanel('related_partners', label="Partners"),
     ]
-
