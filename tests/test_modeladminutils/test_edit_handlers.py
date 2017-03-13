@@ -3,10 +3,10 @@ from wagtail.tests.testapp.models import PageChooserModel
 from wagtail.wagtailadmin.edit_handlers import ObjectList
 from wagtail.wagtailcore.models import Page
 
-from modeladminutils.edit_handlers import GenericModelChooserPanel
+from modeladminutils.edit_handlers import AdminModelChooserPanel
 
 
-class TestGenericModelChooserPanel(object):
+class TestAdminModelChooserPanel(object):
     @pytest.fixture
     def model(self):
         """A model with a foreign key to Page
@@ -16,10 +16,10 @@ class TestGenericModelChooserPanel(object):
 
     @pytest.fixture
     def edit_handler_class(self, model):
-        """A GenericModelChooserPanel class that works on
+        """A AdminModelChooserPanel class that works on
         PageChooserModel's 'page' field
         """
-        object_list = ObjectList([GenericModelChooserPanel('page')])
+        object_list = ObjectList([AdminModelChooserPanel('page')])
         return object_list.bind_to_model(model)
 
     @pytest.fixture
@@ -67,10 +67,10 @@ class TestGenericModelChooserPanel(object):
             'value="%s" />' % test_page.id
         )
         assert input_html in field_html
-        # and createGenericModelChooser script is in the field HTML
+        # and createAdminModelChooser script is in the field HTML
         script_html = (
             '<script>'
-            'createGenericModelChooser("id_page", "wagtailcore/page");'
+            'createAdminModelChooser("id_page", "wagtailcore/page");'
             '</script>'
         )
         assert script_html in field_html

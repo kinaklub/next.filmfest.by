@@ -5,19 +5,17 @@ from django.utils.safestring import mark_safe
 
 from wagtail.wagtailadmin.edit_handlers import BaseChooserPanel
 
-from modeladminutils.widgets import GenericModelChooser
+from modeladminutils.widgets import AdminModelChooser
 
 
-class BaseGenericModelChooserPanel(BaseChooserPanel):
+class BaseAdminModelChooserPanel(BaseChooserPanel):
     object_type_name = 'item'
 
     _target_model = None
-    url_helper_class = None
 
     @classmethod
     def widget_overrides(cls):
-        chooser = GenericModelChooser(model=cls.target_model(),
-                                      url_helper_class=cls.url_helper_class)
+        chooser = AdminModelChooser(model=cls.target_model())
         return {cls.field_name: chooser}
 
     @classmethod
@@ -36,18 +34,16 @@ class BaseGenericModelChooserPanel(BaseChooserPanel):
         }))
 
 
-class GenericModelChooserPanel(object):
-    def __init__(self, field_name, url_helper_class=None):
+class AdminModelChooserPanel(object):
+    def __init__(self, field_name):
         self.field_name = field_name
-        self.url_helper_class = url_helper_class
 
     def bind_to_model(self, model):
         return type(
-            str('_GenericModelChooserPanel'),
-            (BaseGenericModelChooserPanel,),
+            str('_AdminModelChooserPanel'),
+            (BaseAdminModelChooserPanel,),
             {
                 'model': model,
                 'field_name': self.field_name,
-                'url_helper_class': self.url_helper_class,
             }
         )

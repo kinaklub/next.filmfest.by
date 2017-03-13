@@ -1,4 +1,4 @@
-function createGenericModelChooser(id, modelString) {
+function createAdminModelChooser(id, modelString) {
     var chooserElement = $('#' + id + '-chooser');
     var docTitle = chooserElement.find('.title');
     var input = $('#' + id);
@@ -6,13 +6,13 @@ function createGenericModelChooser(id, modelString) {
 
     $('.action-choose', chooserElement).click(function() {
         ModalWorkflow({
-            url: window.chooserUrls.genericmodelChooser + modelString + '/',
+            url: window.chooserUrls.adminmodelChooser + modelString + '/',
             responses: {
-                genericmodelChosen: function(genericModelData) {
-                    input.val(genericModelData.id);
-                    docTitle.text(genericModelData.string);
+                adminmodelChosen: function(adminModelData) {
+                    input.val(adminModelData.id);
+                    docTitle.text(adminModelData.string);
                     chooserElement.removeClass('blank');
-                    editLink.attr('href', genericModelData.edit_link);
+                    editLink.attr('href', adminModelData.edit_link);
                 }
             }
         });
