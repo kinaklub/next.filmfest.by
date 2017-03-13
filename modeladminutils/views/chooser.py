@@ -82,7 +82,7 @@ def chosen(request, app_label, model_name, id):
     except NoReverseMatch:
         edit_link = ''
 
-    genericmodel_json = json.dumps({
+    adminmodel_json = json.dumps({
         'id': obj.id,
         'string': text_type(obj),
         'edit_link': edit_link,
@@ -92,6 +92,6 @@ def chosen(request, app_label, model_name, id):
         request,
         None, 'modeladminutils/chooser/chosen.js',
         {
-            'genericmodel_json': genericmodel_json,
+            'adminmodel_json': adminmodel_json,
         }
     )

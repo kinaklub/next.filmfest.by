@@ -1,4 +1,4 @@
 function(modal) {
-    modal.respond('genericmodelChosen', {{ genericmodel_json|safe }});
+    modal.respond('adminmodelChosen', {{ adminmodel_json|safe }});
     modal.close();
 }

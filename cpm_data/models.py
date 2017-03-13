@@ -9,7 +9,7 @@ from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsearch import index
 
-from modeladminutils.edit_handlers import GenericModelChooserPanel
+from modeladminutils.edit_handlers import AdminModelChooserPanel
 from cpm_generic.constants import COUNTRIES
 from cpm_generic.models import TranslatedField
 
@@ -193,7 +193,7 @@ class SeasonRelatedJuryMember(Orderable):
     country = property(lambda self: self.jury_member.country)
 
     panels = [
-        GenericModelChooserPanel('jury_member'),
+        AdminModelChooserPanel('jury_member'),
         FieldPanel('category_en'),
         FieldPanel('category_be'),
         FieldPanel('category_ru'),
@@ -242,7 +242,7 @@ class SeasonRelatedPartner(Orderable):
     image = property(lambda self: self.partner.image)
 
     panels = [
-        GenericModelChooserPanel('partner'),
+        AdminModelChooserPanel('partner'),
     ]
 
 

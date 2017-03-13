@@ -8,7 +8,7 @@ from wagtail.wagtailcore.models import Orderable, Page
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel
 
 from cpm_generic.models import TranslatedField
-from modeladminutils.edit_handlers import GenericModelChooserPanel
+from modeladminutils.edit_handlers import AdminModelChooserPanel
 from submissions.constants import SECTIONS
 
 
@@ -34,7 +34,7 @@ class FilmProgramRelatedFilm(Orderable):
     frame = property(lambda self: self.film.frame)
 
     panels = [
-        GenericModelChooserPanel('film'),
+        AdminModelChooserPanel('film'),
     ]
 
 

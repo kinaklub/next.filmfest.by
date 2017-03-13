@@ -10,7 +10,7 @@ from wagtail.wagtailadmin.widgets import AdminChooser
 from wagtail.contrib.modeladmin.helpers import AdminURLHelper
 
 
-class GenericModelChooser(AdminChooser):
+class AdminModelChooser(AdminChooser):
 
     def __init__(self, model, url_helper_class=None, **kwargs):
         self.target_model = model
@@ -22,16 +22,16 @@ class GenericModelChooser(AdminChooser):
         url_helper_class = url_helper_class or AdminURLHelper
         self.url_helper = url_helper_class(model)
 
-        super(GenericModelChooser, self).__init__(**kwargs)
+        super(AdminModelChooser, self).__init__(**kwargs)
 
     def render_html(self, name, value, attrs):
         instance, value = self.get_instance_and_id(self.target_model, value)
 
-        super_self = super(GenericModelChooser, self)
+        super_self = super(AdminModelChooser, self)
         original_field_html = super_self.render_html(name, value, attrs)
 
         return render_to_string(
-            "modeladminutils/widgets/genericmodel_chooser.html",
+            "modeladminutils/widgets/adminmodel_chooser.html",
             {
                 'widget': self,
                 'model_opts': self.target_model._meta,
@@ -46,7 +46,7 @@ class GenericModelChooser(AdminChooser):
     def render_js_init(self, id_, name, value):
         model = self.target_model
 
-        return "createGenericModelChooser({id}, {model});".format(
+        return "createAdminModelChooser({id}, {model});".format(
             id=json.dumps(id_),
             model=json.dumps('{app}/{model}'.format(
                 app=model._meta.app_label,
