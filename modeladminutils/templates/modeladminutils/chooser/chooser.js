@@ -20,8 +20,8 @@ function(modal) {
             url: searchUrl,
             data: requestData,
             success: function(data, status) {
-                $('#genericmodel-results').html(data);
-                ajaxifyLinks($('#genericmodel-results'));
+                $('#adminmodel-results').html(data);
+                ajaxifyLinks($('#adminmodel-results'));
             }
         });
     }
