@@ -1,5 +1,6 @@
 {% load static wagtailuserbar %}
 {% load cpm_generic_tags %}
+{% load cpm_compat_tags %}
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -60,7 +61,13 @@
                         </div>
 
                     </a>
-                    <div class="nav-collapse">{% mainmenu request %}</div>
+                    <div class="nav-collapse">
+                        {% if in_compat_mode %}
+                          {% mainmenu_compat request %}
+                        {% else %}
+                          {% mainmenu request %}
+                        {% endif %}
+                    </div>
                 </div>
             </div><!-- /navbar-inner -->
         </div>

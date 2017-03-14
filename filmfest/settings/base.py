@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'search',
     'home',
 
+    'compat',
     'cpm_data',
     'modeladminutils',
     'cpm_generic',
@@ -92,6 +93,7 @@ DJANGO_TEMPLATES = {
             'django.template.context_processors.request',
             'django.contrib.auth.context_processors.auth',
             'django.contrib.messages.context_processors.messages',
+            'compat.context_processors.compat_mode',
         ],
     },
 }
