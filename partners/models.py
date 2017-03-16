@@ -5,7 +5,6 @@ from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Page
 
-# Create your models here.
 from cpm_generic.models import TranslatedField
 
 
