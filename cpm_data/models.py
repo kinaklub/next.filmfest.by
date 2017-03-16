@@ -259,3 +259,10 @@ class Season(ClusterableModel):
         InlinePanel('related_jury_members', label="Jury members"),
         InlinePanel('related_partners', label="Partners"),
     ]
+
+    def __unicode__(self):
+        return self.name
+
+    @classmethod
+    def get_current(cls):
+        return cls.objects.get(name_en=u'2017')

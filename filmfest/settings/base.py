@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'modeladminutils',
     'cpm_generic',
     'events',
+    'partners',
     'results',
     'submissions',
 ]
