@@ -7,6 +7,5 @@ tox==2.3.1
 
 # dependencies
 pluggy==0.3.1
-py==1.4.31
 sqlparse==0.2.0
 virtualenv==15.0.2
