@@ -8,24 +8,25 @@ register = template.Library()
 
 
 def get_mainmenu_items(lang):
-    prefix = 'http://filmfest.by/' + lang
+    ff_prefix = 'http://filmfest.by/' + lang
+    cpm_prefix = 'http://cpm.filmfest.by/' + lang
     return [
-        (_('Home'), prefix + '/', ()),
+        (_('Home'), ff_prefix + '/', ()),
         (
             _('Festival'),
             '',
             (
-                (_('2012: good memories'), prefix + '/2012/'),
-                (_('2013: good memories'), prefix + '/2013/'),
-                (_('Regulations'), prefix + '/rules/'),
-                (_('Submit your film!'), prefix + '/submit/'),
+                (_('2012: good memories'), ff_prefix + '/2012/'),
+                (_('2013: good memories'), ff_prefix + '/2013/'),
+                (_('Regulations'), ff_prefix + '/rules/'),
+                (_('Submit your film!'), ff_prefix + '/submit/'),
             )
         ),
         (
             _('Volunteers'),
             '',
             (
-                (_('Join in'), prefix + '/vklyuchajsya/'),
+                (_('Join in'), ff_prefix + '/vklyuchajsya/'),
                 (
                     _('Discussion group'),
                     'http://groups.google.com/group/cpm2015'
@@ -38,20 +39,20 @@ def get_mainmenu_items(lang):
         ),
         (
             _('Partners'),
-            prefix + '/cpm/partners/',
+            cpm_prefix + '/partners/',
             ()
         ),
         (
             _('Press-center'),
             '',
             (
-                (_('Press-kit'), prefix + '/press-kit/'),
-                (_('Festival in media'), prefix + '/media/'),
+                (_('Press-kit'), ff_prefix + '/press-kit/'),
+                (_('Festival in media'), ff_prefix + '/media/'),
             )
         ),
         (
             _('Contacts'),
-            prefix + '/contact/',
+            ff_prefix + '/contact/',
             ()
         ),
     ]
