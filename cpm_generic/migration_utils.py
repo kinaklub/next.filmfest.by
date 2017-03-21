@@ -1,3 +1,8 @@
+import os
+
+from django.core.files import File
+
+
 def add_subpage(parent, model, *args, **kwargs):
     parent.numchild += 1
     kwargs.setdefault('depth', parent.depth + 1)
@@ -55,3 +60,19 @@ def get_image_model(apps):
     Image.get_upload_to = LatestImage.get_upload_to.im_func
 
     return Image
+
+
+def get_image(apps, title, filepath):
+    """Get image object from a local file."""
+
+    Image = get_image_model(apps)
+    Collection = apps.get_model('wagtailcore.Collection')
+    collection_id = Collection.objects.filter(depth=1)[0]
+
+    image = Image(title=title, collection=collection_id)
+    with open(filepath, 'rb') as image_file:
+        image.file.save(name=os.path.basename(filepath),
+                        content=File(image_file))
+        image.save()
+
+    return image
