@@ -2,11 +2,18 @@ import os
 
 from django.core.files import File
 
+from wagtail.wagtailcore.models import Page
+
 
 def add_subpage(parent, model, *args, **kwargs):
+    children_qs = Page.objects.filter(depth=parent.depth + 1,
+                                      path__startswith=parent.path)
+    max_sibling = children_qs.order_by('-path').first()
+    max_subpath = 0 if max_sibling is None else int(max_sibling.path[-4:])
+
     parent.numchild += 1
     kwargs.setdefault('depth', parent.depth + 1)
-    kwargs.setdefault('path', '%s%04d' % (parent.path, parent.numchild))
+    kwargs.setdefault('path', '%s%04d' % (parent.path, max_subpath + 1))
     kwargs.setdefault('numchild', 0)
     kwargs.setdefault('url_path', '%s%s/' % (parent.url_path, kwargs['slug']))
 
