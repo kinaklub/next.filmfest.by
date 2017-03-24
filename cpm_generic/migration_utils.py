@@ -1,7 +1,19 @@
+import os
+
+from django.core.files import File
+
+from wagtail.wagtailcore.models import Page
+
+
 def add_subpage(parent, model, *args, **kwargs):
+    children_qs = Page.objects.filter(depth=parent.depth + 1,
+                                      path__startswith=parent.path)
+    max_sibling = children_qs.order_by('-path').first()
+    max_subpath = 0 if max_sibling is None else int(max_sibling.path[-4:])
+
     parent.numchild += 1
     kwargs.setdefault('depth', parent.depth + 1)
-    kwargs.setdefault('path', '%s%04d' % (parent.path, parent.numchild))
+    kwargs.setdefault('path', '%s%04d' % (parent.path, max_subpath + 1))
     kwargs.setdefault('numchild', 0)
     kwargs.setdefault('url_path', '%s%s/' % (parent.url_path, kwargs['slug']))
 
@@ -55,3 +67,19 @@ def get_image_model(apps):
     Image.get_upload_to = LatestImage.get_upload_to.im_func
 
     return Image
+
+
+def get_image(apps, title, filepath):
+    """Get image object from a local file."""
+
+    Image = get_image_model(apps)
+    Collection = apps.get_model('wagtailcore.Collection')
+    collection_id = Collection.objects.filter(depth=1)[0]
+
+    image = Image(title=title, collection=collection_id)
+    with open(filepath, 'rb') as image_file:
+        image.file.save(name=os.path.basename(filepath),
+                        content=File(image_file))
+        image.save()
+
+    return image

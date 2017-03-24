@@ -49,10 +49,10 @@
         </table>
     {% endif %}
 
-    {% if self.related_jury_members.all %}
+    {% if self.season.related_jury_members.exists %}
         <h2 id="jury">{% trans 'Жюри' %} </h2>
         <ul class="jury">
-            {% for jury_member in self.related_jury_members.all %}
+            {% for jury_member in self.season.related_jury_members.all %}
                 <li class="jury_member span4">
                     {% image jury_member.photo max-300x300 as tmp_photo %}
 {#                    {% image jury_member.photo width-300 %}#}
