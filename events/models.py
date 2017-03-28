@@ -22,6 +22,9 @@ class FilmProgramRelatedFilm(Orderable):
         related_name='+'
     )
 
+    def get_country_display(self):
+        return self.film.get_country_display()
+
     title = property(lambda self: self.film.title)
     director = property(lambda self: self.film.director)
     country = property(lambda self: self.film.country)
@@ -41,6 +44,7 @@ class FilmProgramRelatedFilm(Orderable):
 class FilmProgram(Page):
 
     # TODO: add season
+    # TODO: need remove section as required property
     section = models.IntegerField(choices=SECTIONS)
 
     name_en = models.CharField(max_length=1000)
@@ -85,7 +89,6 @@ class Event(Page):
     description = TranslatedField('description_en',
                                   'description_be',
                                   'description_ru')
-
     content_panels = Page.content_panels + [
         FieldPanel('starts_at'),
         FieldPanel('program'),
