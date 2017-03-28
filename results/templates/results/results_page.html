@@ -41,7 +41,7 @@
                 {% image film.frame max-300x300 as film_frame %}
                 <td><img src="{{ film_frame.url }}" class="film_still"></td>
                 <td><span class="film_title"> {{ film.film_title }} </span><br><span class="film_director"> {{ film.director }} ( {{ film.country }}, {{ film.year }}) </span><br><span class="film_duration"> {{ film.genre }} / {{ film.duration }} {% trans 'минут' %} </span><br><br>
-                    rich <p class="film_description"> {{ film.synopsis_short |richtext }}
+                    <p class="film_description"> {{ film.synopsis_short }}
                 </td>
             </tr>
             {% endfor %}
