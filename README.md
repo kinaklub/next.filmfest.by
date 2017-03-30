@@ -154,38 +154,27 @@ PR review process:
 
 4. Give postgres 20-30 seconds to initialize
 
-4. Create a local user:
-
-    ```
-    docker-compose run web createsuperuser
-    ```
-
-5. Visit http://127.0.0.1:8000/ in your web browser
+5. Visit http://127.0.0.1:8000/ in your web browser, superuser
+   `admin:111111` should have already been created.
 
 ### Recreating development environment
 
 If one wants to recreate their development environment from scratch
 and one doesn't care about the existing data in database, one needs to:
 
-1. stop all the containers:
+1. remove all the containers, purge all the data:
 
     ```
-    docker-compose stop
+    docker-compose down
     ```
 
-2. remove containers
-
-    ```
-    docker-compose rm -r
-    ```
-
-3. rebuild images
+2. rebuild images
 
     ```
     docker-compose build
     ```
 
-4. use quickstart guide above for setting up the development environment
+3. use quickstart guide above for setting up the development environment
 
 ### Testing code
 
