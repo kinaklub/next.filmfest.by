@@ -93,7 +93,6 @@ def create_film_pages(apps):
         frame.save()
 
         slug = slugify(item['film_title_en'])
-        print slug
         title = item['film_title_en']
         page = add_subpage(
             parent=filmsindex_page,
