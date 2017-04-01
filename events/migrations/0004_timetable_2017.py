@@ -5,6 +5,7 @@ import json
 import os
 
 from dateutil.parser import parse as parse_datetime
+from django.conf import settings
 from django.db import migrations
 
 from cpm_generic.migration_utils import (add_subpage, get_content_type,
@@ -127,8 +128,12 @@ class Migration(migrations.Migration):
         ('home', '0002_create_homepage'),
     ]
 
-    operations = [
-        migrations.RunPython(add_filmprograms_2017, remove_filmprograms_2017),
-        migrations.RunPython(add_venues_2017, remove_venues_2017),
-        migrations.RunPython(add_timetable_2017, remove_timetable_2017),
-    ]
+    if settings.DEVELOPMENT:
+        operations = [
+            migrations.RunPython(add_filmprograms_2017,
+                                 remove_filmprograms_2017),
+            migrations.RunPython(add_venues_2017, remove_venues_2017),
+            migrations.RunPython(add_timetable_2017, remove_timetable_2017),
+        ]
+    else:
+        operations = []

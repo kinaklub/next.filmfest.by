@@ -18,6 +18,7 @@ PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 STACK_PREFIX = os.environ.get('STACK_PREFIX', '')
+DEVELOPMENT = True
 
 
 # Quick-start development settings - unsuitable for production

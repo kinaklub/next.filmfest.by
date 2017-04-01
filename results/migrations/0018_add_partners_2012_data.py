@@ -84,7 +84,6 @@ def create_partner_pages(apps):
         image.save()
 
         slug = slugify(item['id'])
-        print slug
         title = item['name_en']
         page = add_subpage(
             parent=parnerindex_page,
