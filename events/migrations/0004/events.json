@@ -1,0 +1,42 @@
+[
+  {
+    "starts_at": "2017-04-05T19:00:00+00:00", 
+    "program": "Animation Competition Program", 
+    "venue": "\u041a\u0443\u043b\u044c\u0442. \u0446\u0435\u043d\u0442\u0440 \"\u041a\u041e\u0420\u041f\u0423\u0421\""
+  }, 
+  {
+    "starts_at": "2017-04-05T20:30:00+00:00", 
+    "program": "Documentary program 1", 
+    "venue": "\u041a\u0443\u043b\u044c\u0442. \u0446\u0435\u043d\u0442\u0440 \"\u041a\u041e\u0420\u041f\u0423\u0421\""
+  }, 
+  {
+    "starts_at": "2017-04-05T22:00:00+00:00", 
+    "program": "Concert Sestrichkin luch", 
+    "venue": "\u041a\u0443\u043b\u044c\u0442. \u0446\u0435\u043d\u0442\u0440 \"\u041a\u041e\u0420\u041f\u0423\u0421\""
+  }, 
+  {
+    "starts_at": "2017-04-06T19:00:00+00:00", 
+    "program": "Documentary program 2", 
+    "venue": "\u041a\u0443\u043b\u044c\u0442. \u0446\u0435\u043d\u0442\u0440 \"\u041a\u041e\u0420\u041f\u0423\u0421\""
+  }, 
+  {
+    "starts_at": "2017-04-06T21:00:00+00:00", 
+    "program": "Experimental Competition Program", 
+    "venue": "\u041a\u0443\u043b\u044c\u0442. \u0446\u0435\u043d\u0442\u0440 \"\u041a\u041e\u0420\u041f\u0423\u0421\""
+  }, 
+  {
+    "starts_at": "2017-04-08T10:00:00+00:00", 
+    "program": "Animation child workshop", 
+    "venue": "Eventspace"
+  }, 
+  {
+    "starts_at": "2017-04-08T12:00:00+00:00", 
+    "program": "Kids Animation Section", 
+    "venue": "Museum of the Belarusian Cinema History"
+  }, 
+  {
+    "starts_at": "2017-04-08T13:30:00+00:00", 
+    "program": "Baltica. Latvia", 
+    "venue": "\u041a\u0443\u043b\u044c\u0442. \u0446\u0435\u043d\u0442\u0440 \"\u041a\u041e\u0420\u041f\u0423\u0421\""
+  }
+]
