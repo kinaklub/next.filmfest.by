@@ -5,18 +5,23 @@
 <div class="row">
     <h2>{{ self.caption }}</h2>
 
-    <dl class="dl-horizontal">
-    {% for event in self.related_events.all %}
-        <dt>{{ event.starts_at|date:"j E, H:i" }}</dt>
+    {% for day, events in grouped_events %}
+
+      <h4>{{ day|date:"j E Y"  }}</h4>
+      <dl class="dl-horizontal">
+        {% for event in events %}
+        <dt>{{ event.starts_at|date:"H:i" }}</dt>
         <dd>
-            {% if event.program.live %}
-              <a href="{% pageurl event.program %}">{{ event.program.name }}</a>
-            {% else %}
-              {{ event.program.name }}
-            {% endif %}
-            <br /><small>{{ event.venue.name }}, {{ event.venue.address }}</small>
+          {% if event.program.live %}
+          <a href="{% pageurl event.program %}">{{ event.program.name }}</a>
+          {% else %}
+          {{ event.program.name }}
+          {% endif %}
+          <br /><small>{{ event.venue.name }}, {{ event.venue.address }}</small>
         </dd>
+        {% endfor %}
+      </dl>
+
     {% endfor %}
-    </dl>
 </div>
 {% endblock %}

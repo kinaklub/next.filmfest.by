@@ -1,5 +1,7 @@
 from __future__ import unicode_literals
 
+from collections import defaultdict
+
 from django.db import models
 
 from modelcluster.fields import ParentalKey
@@ -129,3 +131,14 @@ class TimeTable(Page):
         FieldPanel('caption_ru'),
         InlinePanel('related_events', label="Events"),
     ]
+
+    def get_context(self, *args, **kwargs):
+        context = super(TimeTable, self).get_context(*args, **kwargs)
+
+        grouped_events = defaultdict(list)
+        for event in self.related_events.all():
+            group_key = event.starts_at.date()
+            grouped_events[group_key].append(event)
+        context['grouped_events'] = sorted(grouped_events.iteritems())
+
+        return context
