@@ -3,6 +3,7 @@ elasticsearch==2.1.0
 Django==1.9.8
 djangorestframework==3.4.0
 pycountry==0.14.2
+python-dateutil==2.6.0
 wagtail==1.6rc1
 
 # dependencies
