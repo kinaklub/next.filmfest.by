@@ -2,18 +2,27 @@ import os
 
 from django.core.files import File
 
+from treebeard.mp_tree import MP_Node, NumConv
 from wagtail.wagtailcore.models import Page
 
 
 def add_subpage(parent, model, *args, **kwargs):
+    step = 4
+    alphabet = MP_Node.alphabet
+    numconv = NumConv(len(alphabet), alphabet)
+
     children_qs = Page.objects.filter(depth=parent.depth + 1,
                                       path__startswith=parent.path)
-    max_sibling = children_qs.order_by('-path').first()
-    max_subpath = 0 if max_sibling is None else int(max_sibling.path[-4:])
+    sibling = children_qs.order_by('-path').first()
+    sibling_num = numconv.str2int(sibling.path[-step:]) if sibling else 0
+    next_key = numconv.int2str(sibling_num + 1)
+    path = '%s%s%s' % (parent.path,
+                       alphabet[0] * (step - len(next_key)),
+                       next_key)
 
     parent.numchild += 1
     kwargs.setdefault('depth', parent.depth + 1)
-    kwargs.setdefault('path', '%s%04d' % (parent.path, max_subpath + 1))
+    kwargs.setdefault('path', path)
     kwargs.setdefault('numchild', 0)
     kwargs.setdefault('url_path', '%s%s/' % (parent.url_path, kwargs['slug']))
 
