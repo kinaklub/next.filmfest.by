@@ -132,8 +132,8 @@ class TimeTable(Page):
         InlinePanel('related_events', label="Events"),
     ]
 
-    def get_context(self, *args, **kwargs):
-        context = super(TimeTable, self).get_context(*args, **kwargs)
+    def get_context(self, request, *args, **kwargs):
+        context = super(TimeTable, self).get_context(request, *args, **kwargs)
 
         grouped_events = defaultdict(list)
         for event in self.related_events.all():
@@ -141,4 +141,13 @@ class TimeTable(Page):
             grouped_events[group_key].append(event)
         context['grouped_events'] = sorted(grouped_events.iteritems())
 
+        is_legacy = bool(request.GET.get('legacy'))
+        context['base_template'] = 'empty.html' if is_legacy else 'base.html'
+
         return context
+
+    def serve(self, *args, **kwargs):
+        """Serve page on new and legacy website"""
+        response = super(TimeTable, self).serve(*args, **kwargs)
+        response['Access-Control-Allow-Origin'] = '*'
+        return response
