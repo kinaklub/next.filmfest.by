@@ -13,7 +13,7 @@
         <dt>{{ event.starts_at|date:"H:i" }}</dt>
         <dd>
           {% if event.program.live %}
-          <a href="{% pageurl event.program %}">{{ event.program.name }}</a>
+          <a href="{{ request.scheme }}://{{ request.get_host }}{% pageurl event.program %}">{{ event.program.name }}</a>
           {% else %}
           {{ event.program.name }}
           {% endif %}
