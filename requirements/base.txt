@@ -1,10 +1,10 @@
 # consciously added packages
-elasticsearch==2.1.0
 Django==1.10.7
 djangorestframework==3.4.0
 pycountry==0.14.2
 python-dateutil==2.6.0
 wagtail==1.9
+wagtail-pg-search-backend==1.3.0
 
 # dependencies
 beautifulsoup4==4.5.3
