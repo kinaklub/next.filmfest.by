@@ -9,19 +9,10 @@ from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsearch import index
 
-from modeladminutils.edit_handlers import GenericModelChooserPanel
+from modeladminutils.edit_handlers import AdminModelChooserPanel
+from modeladminutils.models import SearchableManager
 from cpm_generic.constants import COUNTRIES
 from cpm_generic.models import TranslatedField
-
-from cpm_data.queryset import SearchableQuerySet
-
-
-class BaseSearchableManager(models.Manager):
-    def get_queryset(self):
-        return SearchableQuerySet(self.model)
-
-
-SearchableManager = BaseSearchableManager.from_queryset(SearchableQuerySet)
 
 
 class Film(index.Indexed, ClusterableModel):
@@ -193,7 +184,7 @@ class SeasonRelatedJuryMember(Orderable):
     country = property(lambda self: self.jury_member.country)
 
     panels = [
-        GenericModelChooserPanel('jury_member'),
+        AdminModelChooserPanel('jury_member'),
         FieldPanel('category_en'),
         FieldPanel('category_be'),
         FieldPanel('category_ru'),
@@ -242,7 +233,7 @@ class SeasonRelatedPartner(Orderable):
     image = property(lambda self: self.partner.image)
 
     panels = [
-        GenericModelChooserPanel('partner'),
+        AdminModelChooserPanel('partner'),
     ]
 
 
@@ -259,3 +250,10 @@ class Season(ClusterableModel):
         InlinePanel('related_jury_members', label="Jury members"),
         InlinePanel('related_partners', label="Partners"),
     ]
+
+    def __unicode__(self):
+        return self.name
+
+    @classmethod
+    def get_current(cls):
+        return cls.objects.get(name_en=u'2017')

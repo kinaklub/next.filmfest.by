@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags static wagtailimages_tags i18n %}
+
+{% block extra_css %}
+    {# Override this in templates to add extra stylesheets #}
+    {#  TODO: need to refactor to split to common styles \ results \ film_program  #}
+    <link href="/static/css/results.css" rel="stylesheet">
+    <style>
+        .frame_column {
+            width: 30%;
+        }
+        .frame_column, .film_column {
+            font-weight: bold;
+        }
+    </style>
+{% endblock %}
+
+{% block body_class %}film-program{% endblock %}
+
+{% block content %}
+<div class="row">
+        <h2 id="films"> {{ self.name }} </h2>
+
+        <div class="program-description">
+            {{ self.description | richtext }}
+        </div>
+
+        {% if self.related_films.all %}
+            <table class="results table table-bordered table-condensed table-hover table-striped">
+                <thead>
+                <tr>
+                    <td class="frame_column" > {% trans 'Frame' %} </td>
+                    <td class="film_column"> {% trans 'Film Description' %} </td>
+                </tr>
+                </thead>
+                <tbody>
+                {% for film in self.related_films.all %}
+                    <tr>
+                        {% image film.frame max-300x300 as film_frame %}
+                        <td ><img src="{{ film_frame.url }}" class="film_still img-rounded img-polaroid" alt="{{ film.title }}"></td>
+                        <td><span class="film_title"> {{ film.title }} </span><br><span class="film_director"> {{ film.director }} ( {{ film.get_country_display }}, {{ film.year }} ) </span><br><span class="film_duration"> {{ film.genre }} / {{ film.duration }}</span><br><br>
+                            <div class="synopsis_short">{{ film.synopsis_short |richtext }}</div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+</div>
+
+{% endblock %}

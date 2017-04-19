@@ -16,8 +16,11 @@ services:
     command: launch :8000
     environment:
       DJANGO_SETTINGS_MODULE: filmfest.settings.docker
+      DJANGO_ADMIN_USERNAME: admin
+      DJANGO_ADMIN_PASSWORD: 111111
     volumes:
       - .:/app/src
+      - web_media:/app/media
     links:
       - db:db
       - elasticsearch:elasticsearch
@@ -25,4 +28,6 @@ services:
       - "8000:8000"
 volumes:
   postgres96:
+    driver: local
+  web_media:
     driver: local

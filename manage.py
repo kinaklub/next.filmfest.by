@@ -57,6 +57,27 @@ def _wait_for_elasticsearch(sleep_interval=2, max_wait=600):
         time.sleep(sleep_interval)
 
 
+def _create_superuser():
+    from django.contrib.auth import get_user_model
+    UserModel = get_user_model()
+
+    username = os.environ.get('DJANGO_ADMIN_USERNAME', '')
+    password = os.environ.get('DJANGO_ADMIN_PASSWORD', '')
+
+    if not username or not password:
+        print "Admin credentials were not provided"
+        return
+
+    username_kwargs = {UserModel.USERNAME_FIELD: username}
+    if UserModel.objects.filter(**username_kwargs).exists():
+        print 'Admin already exists'
+        return
+
+    UserModel.objects.create_superuser(password=password, email='',
+                                       **username_kwargs)
+    print 'Created default admin:', username
+
+
 def launch(args, settings_module):
     """Launch the application"""
     from django.conf import settings
@@ -66,6 +87,7 @@ def launch(args, settings_module):
     execute_from_command_line(['manage.py', 'migrate', '--noinput'])
     _wait_for_elasticsearch()
     execute_from_command_line(['manage.py', 'update_index'])
+    _create_superuser()
 
     http_socket = (args[:1] + [':8000'])[0]
     uwsgi_args = [

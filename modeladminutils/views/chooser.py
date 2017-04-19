@@ -11,6 +11,8 @@ from wagtail.utils.pagination import paginate
 from wagtail.wagtailadmin.forms import SearchForm
 from wagtail.wagtailadmin.modal_workflow import render_modal_workflow
 
+from modeladminutils.helpers import get_edit_url
+
 
 def get_model_or_404(app_label, model_name):
     try:
@@ -74,16 +76,16 @@ def chosen(request, app_label, model_name, id):
     model = get_model_or_404(app_label, model_name)
     obj = get_object_or_404(model, id=id)
 
-    genericmodel_json = json.dumps({
+    adminmodel_json = json.dumps({
         'id': obj.id,
         'string': text_type(obj),
-        'edit_link': '',  # TODO: add edit link
+        'edit_link': get_edit_url(model, obj.id),
     })
 
     return render_modal_workflow(
         request,
         None, 'modeladminutils/chooser/chosen.js',
         {
-            'genericmodel_json': genericmodel_json,
+            'adminmodel_json': adminmodel_json,
         }
     )

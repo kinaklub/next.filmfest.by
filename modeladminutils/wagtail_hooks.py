@@ -11,9 +11,9 @@ from modeladminutils import admin_urls
 @hooks.register('register_admin_urls')
 def register_admin_urls():
     return [
-        url(r'^genericmodel/', include(admin_urls,
-                                       namespace='modeladminutils',
-                                       app_name='modeladminutils')),
+        url(r'^adminmodel/', include(admin_urls,
+                                     namespace='modeladminutils',
+                                     app_name='modeladminutils')),
     ]
 
 
@@ -22,8 +22,8 @@ def editor_js():
     return format_html(
         """
             <script src="{0}"></script>
-            <script>window.chooserUrls.genericmodelChooser = '{1}';</script>
+            <script>window.chooserUrls.adminmodelChooser = '{1}';</script>
         """,
-        static('modeladminutils/js/genericmodel-chooser.js'),
-        urlresolvers.reverse('modeladminutils:choose_generic')
+        static('modeladminutils/js/adminmodel-chooser.js'),
+        urlresolvers.reverse('modeladminutils:choose_adminmodel')
     )

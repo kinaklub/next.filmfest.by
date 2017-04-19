@@ -18,6 +18,7 @@ PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 STACK_PREFIX = os.environ.get('STACK_PREFIX', '')
+DEVELOPMENT = True
 
 
 # Quick-start development settings - unsuitable for production
@@ -56,10 +57,12 @@ INSTALLED_APPS = [
     'home',
     'news',
 
+    'compat',
     'cpm_data',
     'modeladminutils',
     'cpm_generic',
     'events',
+    'partners',
     'results',
     'submissions',
 ]
@@ -93,6 +96,7 @@ DJANGO_TEMPLATES = {
             'django.template.context_processors.request',
             'django.contrib.auth.context_processors.auth',
             'django.contrib.messages.context_processors.messages',
+            'compat.context_processors.compat_mode',
         ],
     },
 }
@@ -120,6 +124,9 @@ LANGUAGES = (
     ('en', u'English'),
     ('be', u'Беларуская'),
     ('ru', u'Русский'),
+)
+LOCALE_PATHS = (
+    os.path.join(PROJECT_DIR, 'locale'),
 )
 
 TIME_ZONE = 'UTC'

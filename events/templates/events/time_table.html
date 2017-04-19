@@ -1,0 +1,27 @@
+{% extends base_template %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+<div class="row">
+    <h2>{{ self.caption }}</h2>
+
+    {% for day, events in grouped_events %}
+
+      <h4>{{ day|date:"j E Y"  }}</h4>
+      <dl class="dl-horizontal">
+        {% for event in events %}
+        <dt>{{ event.starts_at|date:"H:i" }}</dt>
+        <dd>
+          {% if event.program.live %}
+          <a href="{{ request.scheme }}://{{ request.get_host }}{% pageurl event.program %}">{{ event.program.name }}</a>
+          {% else %}
+          {{ event.program.name }}
+          {% endif %}
+          <br /><small>{{ event.venue.name }}, {{ event.venue.address }}</small>
+        </dd>
+        {% endfor %}
+      </dl>
+
+    {% endfor %}
+</div>
+{% endblock %}

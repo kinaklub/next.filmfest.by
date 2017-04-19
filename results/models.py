@@ -143,66 +143,6 @@ class ResultsRelatedWinner(Orderable):
     ]
 
 
-class JuryMemberPage(Page):
-    name_en = models.CharField(max_length=250)
-    name_be = models.CharField(max_length=250)
-    name_ru = models.CharField(max_length=250)
-    name = TranslatedField('name_en', 'name_be', 'name_ru')
-
-    info_en = models.CharField(max_length=1000)
-    info_be = models.CharField(max_length=1000)
-    info_ru = models.CharField(max_length=1000)
-    info = TranslatedField('info_en', 'info_be', 'info_ru')
-
-    photo = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
-    country = models.CharField(max_length=2, choices=COUNTRIES)
-
-    content_panels = Page.content_panels + [
-        FieldPanel('name_en'),
-        FieldPanel('name_be'),
-        FieldPanel('name_ru'),
-        ImageChooserPanel('photo'),
-        FieldPanel('country'),
-        FieldPanel('info_en'),
-        FieldPanel('info_be'),
-        FieldPanel('info_ru'),
-    ]
-
-
-class ResultsRelatedJuryMember(Orderable):
-    page = ParentalKey('ResultsPage', related_name='related_jury_members')
-    jury_member = models.ForeignKey(
-        'results.JuryMemberPage',
-        null=True,
-        blank=True,
-        related_name='+'
-    )
-
-    category_en = models.CharField(max_length=250, blank=True, default='')
-    category_be = models.CharField(max_length=250, blank=True, default='')
-    category_ru = models.CharField(max_length=250, blank=True, default='')
-    category = TranslatedField('category_en', 'category_be', 'category_ru')
-
-    name = property(lambda self: self.jury_member.name)
-    info = property(lambda self: self.jury_member.info)
-    photo = property(lambda self: self.jury_member.photo)
-    country = property(lambda self: self.jury_member.country)
-    slug = property(lambda self: self.jury_member.slug)
-
-    panels = [
-        PageChooserPanel('jury_member'),
-        FieldPanel('category_en'),
-        FieldPanel('category_be'),
-        FieldPanel('category_ru'),
-    ]
-
-
 class ResultsFact(Orderable):
 
     class Position(object):
@@ -279,12 +219,19 @@ class ResultsRelatedPartner(Orderable):
 
 
 class ResultsPage(Page):
+    season = models.ForeignKey(
+        'cpm_data.Season',
+        null=False,
+        blank=False,
+        related_name='+'
+    )
     caption_en = models.CharField(max_length=250)
     caption_be = models.CharField(max_length=250)
     caption_ru = models.CharField(max_length=250)
     caption = TranslatedField('caption_en', 'caption_be', 'caption_ru')
 
     content_panels = Page.content_panels + [
+        FieldPanel('season'),
         FieldPanel('caption_en'),
         FieldPanel('caption_be'),
         FieldPanel('caption_ru'),
@@ -293,6 +240,5 @@ class ResultsPage(Page):
         # for the same film
         InlinePanel('related_winners', label="Winners"),
         InlinePanel('related_facts', label="Facts"),
-        InlinePanel('related_jury_members', label="Jury members"),
         InlinePanel('related_partners', label="Partners"),
     ]

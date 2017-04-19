@@ -18,7 +18,7 @@ class TranslatedField(object):
             'be': self.be_field,
             'ru': self.ru_field,
         }
-        field = fields[translation.get_language()]
+        field = fields.get(translation.get_language(), self.en_field)
         return getattr(instance, field)
 
 
