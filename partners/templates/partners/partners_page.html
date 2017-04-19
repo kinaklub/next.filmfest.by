@@ -10,11 +10,11 @@
         {% for partner in self.season.related_partners.all %}
             <div class="span3" style="line-height: 120px">
                 <a target="_blank" href="{{ partner.link }}">
-                    {% image partner.image max-300x300 as banner_image %}
+                    {% image partner.image max-270x110 as banner_image %}
                     <img
                             src="{{ banner_image.url }}"
                             alt="{{ partner.name }}"
-                            style="vertical-align: middle"
+                            style="vertical-align: middle; display: block; margin: auto;"
                     />
                 </a>
             </div>
