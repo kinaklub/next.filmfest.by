@@ -64,7 +64,6 @@ Deployment:
       - SSH
       - HAProxy
       - PostgreSQL
-      - Elasticsearch
 ```
 
 ## Development process

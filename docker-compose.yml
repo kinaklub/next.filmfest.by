@@ -6,8 +6,6 @@ services:
       - "5433:5432"
     volumes:
       - postgres96:/var/lib/postgresql
-  elasticsearch:
-    image: elasticsearch:1.7.6
   web:
     build:
       context: .
@@ -23,7 +21,6 @@ services:
       - web_media:/app/media
     links:
       - db:db
-      - elasticsearch:elasticsearch
     ports:
       - "8000:8000"
 volumes:
