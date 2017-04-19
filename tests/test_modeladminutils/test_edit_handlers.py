@@ -64,7 +64,7 @@ class TestAdminModelChooserPanel(object):
         # then input with value=test_page.id is in the field HTML
         input_html = (
             '<input id="id_page" name="page" type="hidden" '
-            'value="%s" />' % test_page.id
+            'value="%s" required />' % test_page.id
         )
         assert input_html in field_html
         # and createAdminModelChooser script is in the field HTML

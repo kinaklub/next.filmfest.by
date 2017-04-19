@@ -163,9 +163,6 @@ WAGTAIL_SITE_NAME = "filmfest.by"
 
 WAGTAILSEARCH_BACKENDS = {
     'default': {
-        'BACKEND': 'wagtail.wagtailsearch.backends.elasticsearch',
-        'URLS': ['http://{}elasticsearch:9200'.format(STACK_PREFIX)],
-        'INDEX': 'filmfest',
-        'TIMEOUT': 5,
+        'BACKEND': 'wagtail.wagtailsearch.backends.db',
     }
 }
