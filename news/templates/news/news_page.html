@@ -1,8 +1,15 @@
 {% extends "base.html" %}
+{% load static %}
+
+
 {% load wagtailcore_tags %}
 
+{% block extra_css %}
+    <link href="{% static 'css/news.css' %}" rel="stylesheet">
+{% endblock %}
 
-{% block heading %}
+{% block content %}
+{#    {% include "demo/includes/carousel.html" with carousel_items=self.carousel_items.all only %}#}
     <div class="page-header">
 
         <div class="pull-right">
@@ -20,11 +27,6 @@
         </h2>
 
     </div>
-{% endblock %}
-
-{% block content %}
-{#    {% include "demo/includes/carousel.html" with carousel_items=self.carousel_items.all only %}#}
-
     {% if self.body %}
         <div class="body-content">
             {% include "news/includes/streamfield.html" with content=self.body %}

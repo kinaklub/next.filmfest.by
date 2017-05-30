@@ -4,6 +4,10 @@
     padding: 0px;
 }
 
+.news_entry {
+    min-height: 150px;
+}
+
 .newsblock {
     margin: 0px auto;
     padding: 0px;
