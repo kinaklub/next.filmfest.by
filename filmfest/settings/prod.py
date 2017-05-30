@@ -1,6 +1,8 @@
 from .base import *  # noqa
 
 
+INSTALLED_APPS.append('wagtail_pgsearchbackend')  # noqa: F405
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -8,6 +10,13 @@ DATABASES = {
         'USER': 'postgres',
         'HOST': '{}db'.format(STACK_PREFIX),  # noqa: F405
         'PORT': '5432',
+    }
+}
+
+WAGTAILSEARCH_BACKENDS = {
+    'default': {
+        'BACKEND': 'wagtail_pgsearchbackend.backend',
+        'SEARCH_CONFIG': 'english'
     }
 }
 

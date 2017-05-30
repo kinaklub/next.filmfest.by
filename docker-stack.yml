@@ -6,12 +6,6 @@ services:
       - postgres96:/var/lib/postgresql
     deploy:
       replicas: 1
-  elasticsearch:
-    image: elasticsearch:1.7.6
-    volumes:
-      - elasticsearch17:/usr/share/elasticsearch/data
-    deploy:
-      replicas: 1
   web:
     image: "${IMAGE_NAME:-kinaklub/next.filmfest.by:latest}"
     command: launch
@@ -38,8 +32,6 @@ services:
       replicas: 1
 volumes:
   postgres96:
-    driver: local
-  elasticsearch17:
     driver: local
   web_media:
     driver: local
