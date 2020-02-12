@@ -1,5 +1,5 @@
 # consciously added packages
-Django==1.10.7
+Django==1.11.28
 djangorestframework==3.4.0
 pycountry==0.14.2
 python-dateutil==2.6.0
