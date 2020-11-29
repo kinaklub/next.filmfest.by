@@ -1,7 +1,7 @@
 # next.filmfest.by
 
-[![Travis](https://img.shields.io/travis/kinaklub/next.filmfest.by/master.svg)](https://travis-ci.org/kinaklub/next.filmfest.by)
-[![AppVeyor](https://img.shields.io/appveyor/ci/nott/next-filmfest-by/master.svg)](https://ci.appveyor.com/project/nott/next-filmfest-by/history)
+[![Travis](https://img.shields.io/travis/kinaklub/next.filmfest.by/master.svg?logo=travis)](https://travis-ci.org/kinaklub/next.filmfest.by)
+[![AppVeyor](https://img.shields.io/appveyor/ci/nott/next-filmfest-by/master.svg?logo=appveyor)](https://ci.appveyor.com/project/nott/next-filmfest-by/history)
 [![Netlify static preview](https://img.shields.io/badge/preview-ready-brightgreen.svg)](https://filmfest.netlify.com/)
 
 Welcome to the workplace for upcoming website for Cinema Perpetuum
