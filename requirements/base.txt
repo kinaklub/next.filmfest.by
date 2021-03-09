@@ -1,10 +1,9 @@
 # consciously added packages
-Django==1.10.8
+Django==1.11.*
 djangorestframework==3.4.0
 pycountry==0.14.2
 python-dateutil==2.6.0
-wagtail==1.9
-wagtail-pg-search-backend==1.3.2
+wagtail==1.10.*
 
 # dependencies
 beautifulsoup4==4.5.3
@@ -12,7 +11,7 @@ django-modelcluster==3.1
 django-taggit==0.22.0
 django-treebeard==4.0.1
 html5lib==0.999999999
-Pillow==3.4.2
+Pillow==8.1.2
 pytz==2016.6.1
 requests==2.25.1
 six==1.10.0
