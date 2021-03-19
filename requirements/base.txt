@@ -1,6 +1,6 @@
 # consciously added packages
 Django==1.10.8
-djangorestframework==3.4.0
+djangorestframework==3.11.2
 pycountry==0.14.2
 python-dateutil==2.6.0
 wagtail==1.9
