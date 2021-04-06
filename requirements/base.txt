@@ -17,6 +17,6 @@ pytz==2016.6.1
 requests==2.25.1
 six==1.10.0
 Unidecode==0.4.19
-urllib3==1.26.3
+urllib3==1.26.4
 webencodings==0.5
 Willow==0.4
