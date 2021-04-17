@@ -1,2 +1,4 @@
 -r base.txt
--r _linux.txt
+
+psycopg2-binary==2.7
+uwsgi==2.0.14
