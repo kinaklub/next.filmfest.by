@@ -40,7 +40,4 @@ ps aux
 echo --- [bootstrap] stopping server
 pkill -f manage.py
 
-# returns 0, but we can also check wget exit code or
-# log for 404 errors to fail build if there are any
-
-exit 0
+# [ ] check wget exit code and log 404 errors to fail build
