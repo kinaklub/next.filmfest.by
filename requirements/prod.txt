@@ -1,4 +1,4 @@
 -r base.txt
 
-psycopg2-binary==2.7
+psycopg2-binary==2.7.7
 uwsgi==2.0.14

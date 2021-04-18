@@ -17,7 +17,7 @@ cd $ROOTDIR
 
 echo --- [bootstrap] creating virtualenv in .v
 virtualenv .v
-.v/bin/pip install -r requirements/base.txt
+.v/bin/pip install -r requirements/prod.txt
 
 echo --- [bootstrap] running migrations
 # switch back from dev config to base
