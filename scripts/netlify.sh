@@ -32,7 +32,9 @@ sleep 5
 echo --- [bootstrap] grabbing site copy
 mkdir public
 cd public
-wget -m http://127.0.0.1:8000 --no-host-directories 2>&1 | tee wget.log.txt
+wget --mirror \
+     --restrict-file-names=windows
+     http://127.0.0.1:8000 --no-host-directories 2>&1 | tee wget.log.txt
 pwd
 ls -la
 ps aux
