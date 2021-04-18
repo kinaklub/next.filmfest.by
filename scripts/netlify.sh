@@ -17,7 +17,7 @@ cd $ROOTDIR
 
 echo --- [bootstrap] creating virtualenv in .v
 virtualenv .v
-.v/bin/pip install -r requirements/base.txt
+.v/bin/pip install -r requirements/prod.txt
 
 echo --- [bootstrap] running migrations
 # switch back from dev config to base
@@ -32,7 +32,9 @@ sleep 5
 echo --- [bootstrap] grabbing site copy
 mkdir public
 cd public
-wget -m http://127.0.0.1:8000 --no-host-directories 2>&1 | tee wget.log.txt
+wget --mirror \
+     --restrict-file-names=windows
+     http://127.0.0.1:8000 --no-host-directories 2>&1 | tee wget.log.txt
 pwd
 ls -la
 ps aux
@@ -40,7 +42,4 @@ ps aux
 echo --- [bootstrap] stopping server
 pkill -f manage.py
 
-# returns 0, but we can also check wget exit code or
-# log for 404 errors to fail build if there are any
-
-exit 0
+# [ ] check wget exit code and log 404 errors to fail build
