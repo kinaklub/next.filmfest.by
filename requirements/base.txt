@@ -3,7 +3,7 @@ Django==1.10.8
 djangorestframework==3.4.0
 pycountry==0.14.2
 python-dateutil==2.6.0
-wagtail==1.9
+wagtail==2.11.6
 wagtail-pg-search-backend==1.3.2
 
 # dependencies
